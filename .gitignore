@@ -1,0 +1,24 @@
+# rebuilt from public sources by src/build_inputs.py
+inputs/
+# raw experiment outputs (texts, arrays); the frozen compact tables are in outputs/
+runs/
+# the external release, downloaded separately (data/ARCHIVE.md)
+release/
+__pycache__/
+.ruff_cache/
+.pytest_cache/
+*.tmp
+paper/*.aux
+paper/*.log
+paper/*.out
+paper/*.bbl
+paper/*.blg
+# macOS, editors and packaging
+.DS_Store
+.venv/
+*.egg-info/
+# LaTeX build files (paper/main.pdf is committed, rebuilt at each release)
+*.synctex.gz
+paper/*.xdv
+paper/*.fls
+paper/*.fdb_latexmk

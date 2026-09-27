@@ -1,0 +1,1525 @@
+% numbers.generated.tex: every number in the paper's text.
+% Written by src/paper_numbers.py from outputs/, replay-v1/ and data/; do not edit. Usage in the text: \nv{key}.
+% Each line ends with its source. A pending value prints ?? until its result exists.
+\makeatletter
+\newcommand{\defnum}[2]{\expandafter\def\csname nv@#1\endcsname{#2}}
+\newcommand{\nv}[1]{\ifcsname nv@#1\endcsname\csname nv@#1\endcsname\else\textbf{??}\PackageWarning{numbers}{Undefined number #1}\fi}
+\makeatother
+
+\defnum{d.rank}{32} % design: LoRA rank of every arm
+\defnum{d.rank.alt}{128} % design: rank of the wide arm (main-phase.md N2)
+\defnum{d.items}{192} % design: TCES targeted items, and as many held out (data/tces/panel.jsonl)
+\defnum{d.budget.xs}{2,048} % design: smallest budget read from the math samples
+\defnum{d.budget.short}{4,096} % design: TCES probe cap before the 16k probes
+\defnum{d.budget.mid}{8,192} % design: intermediate budget read from the same samples
+\defnum{d.budget.long}{16,384} % design: cap of the 16k TCES probes and of MATH-500
+\defnum{d.budget.aime}{32,768} % design: AIME cap
+\defnum{d.topp}{0.95} % design: sampling top-p
+\defnum{d.T.updates}{30} % design: RL teacher updates (endpoint-clone.md)
+\defnum{d.S.samples}{6,400} % design: clone corpus: 800 prompts x 8 samples (endpoint-clone.md)
+\defnum{d.S.perprompt}{8} % design: samples per clone prompt
+\defnum{d.S.updates}{230} % design: clone state S-u230
+\defnum{d.S.passes}{1.15} % design: 230 x 32 / 6,400
+\defnum{d.S.presentations}{9.2} % design: each clone prompt seen 230 x 32 / 800 times
+\defnum{d.drill.n}{579} % design: drilled set, TCES and math (data/tces/subsets.json, data/math/)
+\defnum{d.drill.updates}{140} % design: updates of the drilled and once-trained arms
+\defnum{d.upd.low}{20} % design: first saved state
+\defnum{d.upd.mid}{60} % design: second saved state
+\defnum{d.pass.low}{1.1} % design: 20 x 32 / 579
+\defnum{d.pass.mid}{3.3} % design: 60 x 32 / 579
+\defnum{d.pass.high}{7.7} % design: 140 x 32 / 579
+\defnum{d.O.n}{4,480} % design: once-trained set, 140 x 32 problems
+\defnum{d.O.pass.mid}{0.43} % design: 60 x 32 / 4,480
+\defnum{d.O.pass.high}{1.0} % design: 140 x 32 / 4,480
+\defnum{d.P.draws}{24} % design: most draws per problem for the fresh-solution arm (main-phase.md M3)
+\defnum{d.P.kept}{8} % design: kept samples per problem for the fresh-solution arm (main-phase.md M3)
+\defnum{d.P.passes}{1.0} % design: 4,480 slots over 4,474 distinct solutions
+\defnum{d.R.fit}{20} % design: registered drilled-fit margin of the rank-128 arm, % of the NLL drop (main-phase.md N2)
+\defnum{d.RS.updates}{200} % design: solver state R-S47-u200
+\defnum{d.RS.passes}{11.1} % design: 200 x 32 / 579
+\defnum{mt.drill.req}{0.8} % design: teacher.md, changes before the student phase 4: the drilling ratio required
+\defnum{mt.held.req}{20} % design: teacher.md, the same: the drop in held-out NLL required, %
+\defnum{mt.p5.band}{0.01} % design: teacher.md prediction 5: the band for D-T's displacement on the base's texts, nats per token
+\defnum{d.R2.updates}{60} % design: robustness.md R2: instruction tuning at 1e-4 for 60 updates, the total step of 20 at 3e-4
+\defnum{d.R1.match}{0.1} % design: robustness.md R1 trajectory check: the replayed losses at updates 1-5 match the stage's within 0.1%
+\defnum{d.R5.rows}{1,920} % design: robustness.md R5: distinct single-turn chat rows, 60 updates x 32 (data/chat_ids.json)
+\defnum{d.acq.lr}{$10^{-4}$} % design: supervised acquisition learning rate
+\defnum{d.stage.lr}{$3\times10^{-4}$} % design: later-stage learning rate
+\defnum{d.stage.lrlow}{$10^{-4}$} % design: gentler Stage-B learning rate (repetition-fragility.md D2)
+\defnum{d.stage.batch}{32} % design: examples per update
+\defnum{d.stage.updates}{20} % design: updates of a later stage
+\defnum{d.norobots}{640} % design: No Robots examples of the instruction-tuning stage (repetition-fragility.md D3)
+\defnum{d.anchor.extra}{32} % design: anchor examples added to each batch (anchor.md)
+\defnum{d.anchor.whigh}{1} % design: FA1 anchor weight
+\defnum{d.anchor.wlow}{0.25} % design: FA025 anchor weight
+\defnum{d.anchor.fit}{80} % design: registered drilled-fit threshold, % of F-u140's NLL drop (anchor.md)
+\defnum{d.anchor.parity}{5} % design: registered anchor parity margin, points (anchor.md)
+\defnum{d.parity.math}{5} % design: registered math parity margin, points (math-pilot.md)
+\defnum{d.math.pool}{36,447} % design: math training pool (data/math/pool_ids.jsonl)
+\defnum{d.math.distinct}{58,674} % design: distinct problems in the source (data/math/pool_stats.json)
+\defnum{d.math.eval}{221} % design: MATH-500 problems at levels 3-5 with integer answers
+\defnum{d.math.evalall}{311} % design: MATH-500 problems with integer answers
+\defnum{d.math.aime}{59} % design: AIME 2025-26 problems, less one
+\defnum{d.math.easy}{256} % design: easy-problem screen, tokens
+\defnum{d.math.cut}{2,048} % design: math common-set cut for B, tokens
+\defnum{d.tces.cut}{1,024} % design: TCES common-set cut for B in the first scoring, tokens
+\defnum{d.decision.tokens}{8} % design: length of a decision reply, tokens
+\defnum{d.horizon}{480} % design: long Stage-B horizon, updates (decision-competence.md C)
+\defnum{d.active}{3} % design: active parameters, billions, of Qwen3.5-35B-A3B and Nemotron-3-Nano-30B-A3B
+\defnum{d.reforce.times}{8} % design: most continuations of one sample (reforcing.md)
+\defnum{d.reforce.tokens}{1,024} % design: continue while under 1,024 tokens or unboxed (reforcing.md)
+\defnum{d.RP.replay}{6.25} % design: revision.md RP: 2 of each batch of 32 are the arm's own training texts, %
+\defnum{d.RL.n}{640} % design: revision.md RL: relearning problems, and habit prompts, 20 updates x 32 (data/revision_ids.json)
+\defnum{d.RL.u5}{160} % design: revision.md RL readings: the examples of 5 updates x 32
+\defnum{d.SH.temp}{0.5} % design: revision.md SH: the sampling temperature of O-sharp's solutions
+\defnum{d.SH.draws}{4} % design: revision.md SH: most draws per problem
+\defnum{d.SK.cap}{2,048} % design: revision.md SK amendment: the skill is solving within 2,048 tokens
+\defnum{d.SK.items}{300} % design: revision.md SK: held-out evaluation items, and as many calibration items
+\defnum{d.SK.smoke}{5} % design: run_skill.py smoke: the first 5 calibration items of each setting, four draws each
+\defnum{d.SD.shared}{91} % design: revision.md SD, deviation 6: problems the two seeds' drilled subsets share (both disjoint from D, D2)
+\defnum{r4.req}{10} % registered: records/robustness.md R4.1: D-T's excess forced loss over O-T's after update 60 at least 10 points
+\defnum{r5.req}{5} % registered: records/robustness.md R5.3: O and O-T each lose at most 5 points
+\defnum{r5.req.sec}{10} % registered: records/robustness.md R5.1 and R5.2, secondary: each excess at least 10 points
+\defnum{reg.MP1.thr}{5} % registered: records/math-pilot.md prediction 1: B(D-u140) - B(O-u140) at least 5% of the base's per-token NLL
+\defnum{reg.M3.2.thr}{20} % registered: records/main-phase.md M3 item 2: D-u140's loss exceeds P-u140's by at least 20 points, each stage
+\defnum{reg.M2.1.thr}{10} % registered: records/main-phase.md M2 item 1: D2-u140's excess over O-u140 at least 10 points, each stage
+\defnum{reg.T1.thr}{10} % registered: records/teacher.md prediction 1: D-T-u140's excess over O-T-u140 and D-T-u20 at least 10 points
+\defnum{reg.T2.thr}{3} % registered: records/teacher.md prediction 2 (consolidation): the excess under 3 points
+\defnum{reg.T2.thr2}{10} % registered: records/teacher.md, changes before the student phase 3: prediction 2's upper bound under 10
+\defnum{reg.T4.thr}{5} % registered: records/teacher.md prediction 4: P-T-u140's excess over O-T-u140 at most 5 points
+\defnum{reg.T5.thr}{10} % registered: records/teacher.md prediction 5: D-T's displacement on its own texts at least 10 times O-T's
+\defnum{reg.R1.1.thr}{2} % registered: records/robustness.md R1 prediction 1: delta_2(D) at least 2 x max(delta_2(O), delta_2(P))
+\defnum{reg.R1.2.thr}{77.4} % registered: records/robustness.md R1 prediction 2: D's forced accuracy at k = 2 above 77.4%
+\defnum{reg.R1.3.thr}{1.5} % registered: records/robustness.md R1 prediction 3: delta_k(P) at most 1.5 x delta_k(O) at k = 1, 2, 5
+\defnum{reg.R1.4.thr}{10} % registered: records/robustness.md R1 prediction 4: training loss at updates 2-5 within 10% across the states
+\defnum{reg.R2.1.thr}{10} % registered: records/robustness.md R2 prediction 1: D-u140's excess over O-u140 at least 10 points
+\defnum{reg.R3a.thr}{20} % registered: records/robustness.md R3a: D's excess over O after update 60 at least 20 points
+\defnum{reg.R3b.thr}{2} % registered: records/robustness.md R3b: delta^common_2(D) at least 2 x max(delta^common_2(O), delta^common_2(P))
+\defnum{reg.DP4.thr}{0.7} % registered: records/depth-profile.md prediction 4: rank correlation of B and the forced loss at least 0.7
+\defnum{reg.CT1.thr}{15} % registered: records/depth-profile.md cap test: F-u140 and U-u140 under 15% forced within 16,384 tokens
+\defnum{reg.CT2.thr}{10} % registered: records/depth-profile.md cap test: S-u230 gains at most 10 points over its 4,096-token accuracy
+\defnum{reg.AN1.thr}{40} % registered: records/anchor.md prediction 1: FA1 at least 40% forced within 16,384 tokens after Stage B
+\defnum{reg.AN3.thr}{20} % registered: records/anchor.md prediction 3: U2 at most 20% after Stage B
+\defnum{reg.AN3.thr2}{0.06} % registered: records/anchor.md prediction 3: B(U2) at least 0.06
+\defnum{reg.AN4.thr}{20} % registered: records/anchor.md prediction 4: FN at most 20% after Stage B
+\defnum{reg.C-3.thr}{10} % registered: records/decision-competence.md C prediction 3: halving at least ten times the half-skip update
+\defnum{reg.C2.thr}{10} % registered: records/decision-competence.md C2: the clone above the teacher at update 80 by more than 10 points
+\defnum{reg.C3.thr}{3--6} % registered: records/decision-competence.md C3: both half-skip updates between 3 and 6
+\defnum{reg.C3.thr2}{1} % registered: records/decision-competence.md C3: within one update of the first run
+\defnum{reg.RR-D3b.thr}{10} % registered: records/repetition-fragility.md D3b: the 140-update states lose at least 10 points unforced
+\defnum{reg.RR-D3b.thr2}{3} % registered: records/repetition-fragility.md D3b: the 20-update states lose at most 3
+\defnum{reg.RR-D4.thr}{30} % registered: records/repetition-fragility.md D4: F-u140 forced below 30% at update 2
+\defnum{reg.RL1.thr}{0.5} % registered: records/revision.md RL prediction 1: R_5 of D+IT at least 0.5
+\defnum{reg.RL2.thr}{2} % registered: records/revision.md RL prediction 2: O+IT within 2 points of its after-stage accuracy at every k
+\defnum{reg.RL.suppressed}{0.75} % registered: records/revision.md RL readings: R_5 of D+IT at least 0.75 reads as suppressed and restored
+\defnum{reg.RL.habit}{0.5} % registered: records/revision.md RL readings: a habit R_20 of at least 0.5 drops the claim of more than a lost habit
+\defnum{reg.RP.prevent}{3} % registered: records/revision.md RP readings: replay prevents the break with an excess of at most 3 points
+\defnum{reg.RP.upper}{6} % registered: records/revision.md RP readings: and the excess's upper bound under 6
+\defnum{reg.RP.mitigate}{50} % registered: records/revision.md RP readings: replay mitigates with a reduction of at least 50%
+\defnum{reg.RP.fail}{25} % registered: records/revision.md RP readings: replay fails with a reduction under 25%
+\defnum{reg.RS.D}{5} % registered: records/revision.md RS prediction: D's excess over O at least 5 points, its interval above zero
+\defnum{reg.RS.P}{3} % registered: records/revision.md RS prediction: P's excess over O within 3 points
+\defnum{reg.SH.gate}{0.05} % registered: records/revision.md SH gate: B of O-sharp at least 0.05 nats per token
+\defnum{reg.SH.break}{10} % registered: records/revision.md SH readings: sharpening alone breaks it with an excess after AO of at least 10
+\defnum{reg.SH.within}{3} % registered: records/revision.md SH readings: it does not with O-sharp within 3 points of O after both stages
+\defnum{reg.SH.half}{36.5} % registered: records/revision.md SH prediction: O-sharp's excess after AO under half of D's 73.1
+\defnum{reg.SK.cal}{25} % registered: records/revision.md SK calibration: the chosen setting leaves the base at most 25% accurate
+\defnum{reg.SK.gate}{30} % registered: records/revision.md SK gate: O-S-u140 at least 30 points above the base, its interval above zero
+\defnum{reg.SK.capped}{15} % registered: records/revision.md SK gate: at most 15% of O-S-u140's responses at the cap
+\defnum{reg.SK.break}{10} % registered: records/revision.md SK outcomes: a break, D-S at least 10 points below O-S after the stage
+\defnum{reg.SK.within}{3} % registered: records/revision.md SK outcomes: consolidation (D-S within 3 points of O-S) and the fix costing nothing (P-S within 3 of the better)
+\defnum{lit.kop.n}{400} % kopiczko2026repetition abstract: 400 samples
+\defnum{lit.kop.ratio}{128} % kopiczko2026repetition abstract: 128 epochs against 51,200 samples once
+\defnum{lit.s1.epochs}{5} % muennighoff2025s1 training setup: "we train for 5 epochs with a batch size of 16"
+\defnum{lit.limo.epochs}{15} % ye2025limo training setup: "trained for 15 epochs with a batch size of 64"
+\defnum{m.calib.direct}{83} % records/math-pilot.md Calibration: direct samples writing working to the 256 cap, %
+\defnum{m.scorer.units}{30} % records/math-pilot.md Prechecks 2: unit examples of the scorer
+\defnum{m.scorer.hand}{20} % records/math-pilot.md Prechecks 2: base solutions checked by hand
+\defnum{aime.ci}{13--16} % records/math-pilot.md Measures: AIME interval, about +-13 to 16 points
+\defnum{m35.pre.mad}{0.0034} % records/main-phase.md Changes: 35B fresh-LoRA identity precheck, mean absolute difference
+\defnum{m35.pre.two}{0.0030} % records/main-phase.md Changes: two 35B base samplers, mean absolute difference
+\defnum{m35.pre.thr}{0.001} % records/main-phase.md Changes: registered identity criterion
+\defnum{m35.noise.mad}{0.0003} % records/main-phase.md M1 noise floor: mean absolute per-token difference, nats
+\defnum{mnem.pre.pos}{1,032} % records/main-phase.md Launch (M5): positions a fresh LoRA reproduces exactly
+\defnum{mnem.tmpl.n}{7,047} % records/main-phase.md Launch (M5): prompts rendered token-identically
+\defnum{tces.RP20.think}{99} % records/decision-competence.md A: R-P-u20 replies opening <think> by update 12, %
+\defnum{tces.RP20.upd}{12} % records/decision-competence.md A: the update of that share
+\defnum{anc.samples.capped}{55} % records/anchor.md Results: 2,458 of 4,480 anchor texts reach the 4,096 cap, %
+\defnum{mt.traces.P}{7.99} % records/teacher.md, teacher phase result: kept traces per P-T problem, on average
+\defnum{r5.wordprob}{1--1.5} % records/robustness.md, correction before launch (an independent reading): worked math word problems, about 15-30 of R5's 1,920 rows, %
+\defnum{comp.total}{2,437} % records/compute.md, Total: list-price Tinker compute of the runs the paper reports, US dollars ($2,437.28: $1,845.11 before the revision and $592.17 for its parts; with calibrations and aborted launches $2,458.48)
+\defnum{sk.text.mean}{871} % records/revision.md SK implementation: mean worked-solution length, base 7 with 5 digits, tokens
+\defnum{sk.text.max}{1,937} % records/revision.md SK implementation: the longest of the same
+\defnum{reg.total}{70} % records/predictions-ledger.md §4 (Counts), with T2 counted as the rival reading, not a failure: registered predictions
+\defnum{reg.held}{50} % records/predictions-ledger.md §4 (Counts), with T2 counted as the rival reading, not a failure: held
+\defnum{reg.failed}{17} % records/predictions-ledger.md §4 (Counts), with T2 counted as the rival reading, not a failure: failed
+\defnum{reg.failed.partial}{7} % records/predictions-ledger.md §4 (Counts), with T2 counted as the rival reading, not a failure: failed in part
+\defnum{reg.unread}{3} % records/predictions-ledger.md §4 (Counts), with T2 counted as the rival reading, not a failure: not readable
+\defnum{reg.rival}{1} % records/predictions-ledger.md §4 (Counts), with T2 counted as the rival reading, not a failure: a rival reading (T2)
+\defnum{reg.math}{44} % records/predictions-ledger.md §4 (Counts), with T2 counted as the rival reading, not a failure: registered, mathematics
+\defnum{reg.failed.math}{5} % records/predictions-ledger.md §4 (Counts), with T2 counted as the rival reading, not a failure: failed, mathematics
+\defnum{reg.arith}{26} % records/predictions-ledger.md §4 (Counts), with T2 counted as the rival reading, not a failure: registered, the arithmetic task
+\defnum{reg.failed.arith}{12} % records/predictions-ledger.md §4 (Counts), with T2 counted as the rival reading, not a failure: failed, the arithmetic task
+\defnum{cal.l12.forced}{1.00} % records/math-pilot.md Calibration: l12, forced
+\defnum{cal.l12.free}{1.00} % records/math-pilot.md Calibration: l12, free
+\defnum{cal.l12.direct}{0.58} % records/math-pilot.md Calibration: l12, direct
+\defnum{cal.l12.med}{850} % records/math-pilot.md Calibration: l12, med
+\defnum{cal.l3.forced}{0.92} % records/math-pilot.md Calibration: l3, forced
+\defnum{cal.l3.free}{0.83} % records/math-pilot.md Calibration: l3, free
+\defnum{cal.l3.direct}{0.42} % records/math-pilot.md Calibration: l3, direct
+\defnum{cal.l3.med}{1,326} % records/math-pilot.md Calibration: l3, med
+\defnum{cal.l4.forced}{0.88} % records/math-pilot.md Calibration: l4, forced
+\defnum{cal.l4.free}{0.71} % records/math-pilot.md Calibration: l4, free
+\defnum{cal.l4.direct}{0.17} % records/math-pilot.md Calibration: l4, direct
+\defnum{cal.l4.med}{954} % records/math-pilot.md Calibration: l4, med
+\defnum{cal.l5.forced}{0.62} % records/math-pilot.md Calibration: l5, forced
+\defnum{cal.l5.free}{0.58} % records/math-pilot.md Calibration: l5, free
+\defnum{cal.l5.direct}{0.08} % records/math-pilot.md Calibration: l5, direct
+\defnum{cal.l5.med}{2,928} % records/math-pilot.md Calibration: l5, med
+\defnum{cal.oly.forced}{0.46} % records/math-pilot.md Calibration: oly, forced
+\defnum{cal.oly.free}{0.42} % records/math-pilot.md Calibration: oly, free
+\defnum{cal.oly.direct}{0.00} % records/math-pilot.md Calibration: oly, direct
+\defnum{cal.oly.med}{6,144 (cap)} % records/math-pilot.md Calibration: oly, med
+\defnum{cal.num.forced}{0.73} % records/math-pilot.md Calibration: num, forced
+\defnum{cal.num.free}{0.67} % records/math-pilot.md Calibration: num, free
+\defnum{cal.num.direct}{0.19} % records/math-pilot.md Calibration: num, direct
+\defnum{cal.num.med}{1,410} % records/math-pilot.md Calibration: num, med
+\defnum{tces4.M0.u0}{54.9} % tces.json conditions["dc-20260923b|M0|u0|think"].accuracy
+\defnum{tces4s.M0.u0}{13.8} % tces.json conditions["dc-20260923b|M0|u0|think"].strict
+\defnum{tces4.M0.u20}{45.1} % tces.json conditions["dc-20260923b|M0|u20|think"].accuracy
+\defnum{tces4s.M0.u20}{9.9} % tces.json conditions["dc-20260923b|M0|u20|think"].strict
+\defnum{tces4.M0.u80}{39.3} % tces.json conditions["dc-long-20260923|M0|u80|think"].accuracy
+\defnum{tces4s.M0.u80}{10.2} % tces.json conditions["dc-long-20260923|M0|u80|think"].strict
+\defnum{tces4.M0.u160}{15.6} % tces.json conditions["dc-long-20260923|M0|u160|think"].accuracy
+\defnum{tces4s.M0.u160}{9.1} % tces.json conditions["dc-long-20260923|M0|u160|think"].strict
+\defnum{tces4.M0.u320}{0.0} % tces.json conditions["dc-long-20260923|M0|u320|think"].accuracy
+\defnum{tces4s.M0.u320}{0.0} % tces.json conditions["dc-long-20260923|M0|u320|think"].strict
+\defnum{tces4.M0.u480}{0.0} % tces.json conditions["dc-long-20260923|M0|u480|think"].accuracy
+\defnum{tces4s.M0.u480}{0.0} % tces.json conditions["dc-long-20260923|M0|u480|think"].strict
+\defnum{tces4r.M0.u0}{52} % tces.json conditions["dc-20260923b|M0|u0|think"].resumed
+\defnum{tces4free.M0.u0}{13.5} % tces.json conditions["dc-20260923b|M0|u0|unforced"].accuracy
+\defnum{tces4.T.u0}{62.2} % tces.json conditions["dc-20260923b|T-u30|u0|think"].accuracy
+\defnum{tces4s.T.u0}{22.1} % tces.json conditions["dc-20260923b|T-u30|u0|think"].strict
+\defnum{tces4.T.u20}{59.4} % tces.json conditions["dc-20260923b|T-u30|u20|think"].accuracy
+\defnum{tces4s.T.u20}{22.9} % tces.json conditions["dc-20260923b|T-u30|u20|think"].strict
+\defnum{tces4.T.u80}{21.4} % tces.json conditions["dc-long-20260923|T-u30|u80|think"].accuracy
+\defnum{tces4s.T.u80}{8.3} % tces.json conditions["dc-long-20260923|T-u30|u80|think"].strict
+\defnum{tces4.T.u160}{16.7} % tces.json conditions["dc-long-20260923|T-u30|u160|think"].accuracy
+\defnum{tces4s.T.u160}{9.1} % tces.json conditions["dc-long-20260923|T-u30|u160|think"].strict
+\defnum{tces4.T.u320}{0.0} % tces.json conditions["dc-long-20260923|T-u30|u320|think"].accuracy
+\defnum{tces4s.T.u320}{0.0} % tces.json conditions["dc-long-20260923|T-u30|u320|think"].strict
+\defnum{tces4.T.u480}{0.0} % tces.json conditions["dc-long-20260923|T-u30|u480|think"].accuracy
+\defnum{tces4s.T.u480}{0.0} % tces.json conditions["dc-long-20260923|T-u30|u480|think"].strict
+\defnum{tces4r.T.u0}{48} % tces.json conditions["dc-20260923b|T-u30|u0|think"].resumed
+\defnum{tces4free.T.u0}{44.0} % tces.json conditions["dc-20260923b|T-u30|u0|unforced"].accuracy
+\defnum{tces4.S.u0}{57.0} % tces.json conditions["dc-20260923b|S-u230|u0|think"].accuracy
+\defnum{tces4s.S.u0}{14.6} % tces.json conditions["dc-20260923b|S-u230|u0|think"].strict
+\defnum{tces4.S.u20}{57.6} % tces.json conditions["dc-20260923b|S-u230|u20|think"].accuracy
+\defnum{tces4s.S.u20}{8.6} % tces.json conditions["dc-20260923b|S-u230|u20|think"].strict
+\defnum{tces4.S.u80}{47.7} % tces.json conditions["dc-long-20260923|S-u230|u80|think"].accuracy
+\defnum{tces4s.S.u80}{8.9} % tces.json conditions["dc-long-20260923|S-u230|u80|think"].strict
+\defnum{tces4.S.u160}{25.0} % tces.json conditions["dc-long-20260923|S-u230|u160|think"].accuracy
+\defnum{tces4s.S.u160}{15.1} % tces.json conditions["dc-long-20260923|S-u230|u160|think"].strict
+\defnum{tces4.S.u320}{0.8} % tces.json conditions["dc-long-20260923|S-u230|u320|think"].accuracy
+\defnum{tces4s.S.u320}{0.8} % tces.json conditions["dc-long-20260923|S-u230|u320|think"].strict
+\defnum{tces4.S.u480}{0.0} % tces.json conditions["dc-long-20260923|S-u230|u480|think"].accuracy
+\defnum{tces4s.S.u480}{0.0} % tces.json conditions["dc-long-20260923|S-u230|u480|think"].strict
+\defnum{tces4r.S.u0}{51} % tces.json conditions["dc-20260923b|S-u230|u0|think"].resumed
+\defnum{tces4free.S.u0}{37.8} % tces.json conditions["dc-20260923b|S-u230|u0|unforced"].accuracy
+\defnum{tces4.RP.u0}{61.2} % tces.json conditions["dc-20260923b|RP47-u140|u0|think"].accuracy
+\defnum{tces4s.RP.u0}{51.8} % tces.json conditions["dc-20260923b|RP47-u140|u0|think"].strict
+\defnum{tces4.RP.u20}{2.6} % tces.json conditions["dc-20260923b|RP47-u140|u20|think"].accuracy
+\defnum{tces4s.RP.u20}{0.5} % tces.json conditions["dc-20260923b|RP47-u140|u20|think"].strict
+\defnum{tces4.RP.u80}{0.3} % tces.json conditions["dc-long-20260923|RP47-u140|u80|think"].accuracy
+\defnum{tces4s.RP.u80}{0.0} % tces.json conditions["dc-long-20260923|RP47-u140|u80|think"].strict
+\defnum{tces4.RP.u160}{0.0} % tces.json conditions["dc-long-20260923|RP47-u140|u160|think"].accuracy
+\defnum{tces4s.RP.u160}{0.0} % tces.json conditions["dc-long-20260923|RP47-u140|u160|think"].strict
+\defnum{tces4.RP.u320}{0.0} % tces.json conditions["dc-long-20260923|RP47-u140|u320|think"].accuracy
+\defnum{tces4s.RP.u320}{0.0} % tces.json conditions["dc-long-20260923|RP47-u140|u320|think"].strict
+\defnum{tces4.RP.u480}{0.0} % tces.json conditions["dc-long-20260923|RP47-u140|u480|think"].accuracy
+\defnum{tces4s.RP.u480}{0.0} % tces.json conditions["dc-long-20260923|RP47-u140|u480|think"].strict
+\defnum{tces4r.RP.u0}{12} % tces.json conditions["dc-20260923b|RP47-u140|u0|think"].resumed
+\defnum{tces4free.RP.u0}{43.2} % tces.json conditions["dc-20260923b|RP47-u140|u0|unforced"].accuracy
+\defnum{tces4.RS.u0}{58.9} % tces.json conditions["dc-20260923b|RS47-u200|u0|think"].accuracy
+\defnum{tces4s.RS.u0}{34.6} % tces.json conditions["dc-20260923b|RS47-u200|u0|think"].strict
+\defnum{tces4.RS.u20}{40.6} % tces.json conditions["dc-20260923b|RS47-u200|u20|think"].accuracy
+\defnum{tces4s.RS.u20}{22.7} % tces.json conditions["dc-20260923b|RS47-u200|u20|think"].strict
+\defnum{tces4.RS.u80}{35.4} % tces.json conditions["dc-long-20260923|RS47-u200|u80|think"].accuracy
+\defnum{tces4s.RS.u80}{24.2} % tces.json conditions["dc-long-20260923|RS47-u200|u80|think"].strict
+\defnum{tces4.RS.u160}{16.1} % tces.json conditions["dc-long-20260923|RS47-u200|u160|think"].accuracy
+\defnum{tces4s.RS.u160}{13.8} % tces.json conditions["dc-long-20260923|RS47-u200|u160|think"].strict
+\defnum{tces4.RS.u320}{1.0} % tces.json conditions["dc-long-20260923|RS47-u200|u320|think"].accuracy
+\defnum{tces4s.RS.u320}{1.0} % tces.json conditions["dc-long-20260923|RS47-u200|u320|think"].strict
+\defnum{tces4.RS.u480}{0.0} % tces.json conditions["dc-long-20260923|RS47-u200|u480|think"].accuracy
+\defnum{tces4s.RS.u480}{0.0} % tces.json conditions["dc-long-20260923|RS47-u200|u480|think"].strict
+\defnum{tces4r.RS.u0}{35} % tces.json conditions["dc-20260923b|RS47-u200|u0|think"].resumed
+\defnum{tces4free.RS.u0}{39.3} % tces.json conditions["dc-20260923b|RS47-u200|u0|unforced"].accuracy
+\defnum{tces4.RPorig.u0}{68.5} % tces.json conditions["dc-20260923b|B-RPorig|u0|think"].accuracy
+\defnum{tces4s.RPorig.u0}{37.2} % tces.json conditions["dc-20260923b|B-RPorig|u0|think"].strict
+\defnum{tces4.RPorig.u20}{66.4} % tces.json conditions["dc-20260923b|B-RPorig|u20|think"].accuracy
+\defnum{tces4s.RPorig.u20}{35.9} % tces.json conditions["dc-20260923b|B-RPorig|u20|think"].strict
+\defnum{tces4.RPorig.u80}{63.3} % tces.json conditions["dc-20260923b|B-RPorig|u80|think"].accuracy
+\defnum{tces4s.RPorig.u80}{38.5} % tces.json conditions["dc-20260923b|B-RPorig|u80|think"].strict
+\defnum{tces4.RPorig.u480}{0.0} % tces.json conditions["dc-20260923b|B-RPorig|u480|think"].accuracy
+\defnum{tces4s.RPorig.u480}{0.0} % tces.json conditions["dc-20260923b|B-RPorig|u480|think"].strict
+\defnum{tces4.RSorig.u0}{65.1} % tces.json conditions["dc-20260923b|B-RSorig|u0|think"].accuracy
+\defnum{tces4s.RSorig.u0}{28.9} % tces.json conditions["dc-20260923b|B-RSorig|u0|think"].strict
+\defnum{tces4.RSorig.u20}{53.9} % tces.json conditions["dc-20260923b|B-RSorig|u20|think"].accuracy
+\defnum{tces4s.RSorig.u20}{15.1} % tces.json conditions["dc-20260923b|B-RSorig|u20|think"].strict
+\defnum{tces4.RSorig.u80}{40.6} % tces.json conditions["dc-20260923b|B-RSorig|u80|think"].accuracy
+\defnum{tces4s.RSorig.u80}{22.7} % tces.json conditions["dc-20260923b|B-RSorig|u80|think"].strict
+\defnum{tces4.RSorig.u480}{0.0} % tces.json conditions["dc-20260923b|B-RSorig|u480|think"].accuracy
+\defnum{tces4s.RSorig.u480}{0.0} % tces.json conditions["dc-20260923b|B-RSorig|u480|think"].strict
+\defnum{tces4.U20.u0}{59.9} % tces.json conditions["rep-20260923-forced|U-u20|u0|think"].accuracy
+\defnum{tces4s.U20.u0}{10.4} % tces.json conditions["rep-20260923-forced|U-u20|u0|think"].strict
+\defnum{tces4.U20.u20}{58.1} % tces.json conditions["rep-20260923-forced|U-u20|u20|think"].accuracy
+\defnum{tces4s.U20.u20}{25.3} % tces.json conditions["rep-20260923-forced|U-u20|u20|think"].strict
+\defnum{tces4r.U20.u0}{61} % tces.json conditions["rep-20260923-forced|U-u20|u0|think"].resumed
+\defnum{tces4free.U20.u0}{43.8} % tces.json conditions["rep-20260923-forced|U-u20|u0|unforced"].accuracy
+\defnum{tces4.F20.u0}{58.6} % tces.json conditions["rep-20260923-forced|F-u20|u0|think"].accuracy
+\defnum{tces4s.F20.u0}{22.9} % tces.json conditions["rep-20260923-forced|F-u20|u0|think"].strict
+\defnum{tces4.F20.u20}{62.5} % tces.json conditions["rep-20260923-forced|F-u20|u20|think"].accuracy
+\defnum{tces4s.F20.u20}{22.1} % tces.json conditions["rep-20260923-forced|F-u20|u20|think"].strict
+\defnum{tces4r.F20.u0}{43} % tces.json conditions["rep-20260923-forced|F-u20|u0|think"].resumed
+\defnum{tces4free.F20.u0}{51.8} % tces.json conditions["rep-20260923-forced|F-u20|u0|unforced"].accuracy
+\defnum{tces4.U60.u0}{64.8} % tces.json conditions["rep-20260923-forced60|U-u60|u0|think"].accuracy
+\defnum{tces4s.U60.u0}{14.1} % tces.json conditions["rep-20260923-forced60|U-u60|u0|think"].strict
+\defnum{tces4.U60.u20}{46.4} % tces.json conditions["rep-20260923-forced60|U-u60|u20|think"].accuracy
+\defnum{tces4s.U60.u20}{7.6} % tces.json conditions["rep-20260923-forced60|U-u60|u20|think"].strict
+\defnum{tces4r.U60.u0}{62} % tces.json conditions["rep-20260923-forced60|U-u60|u0|think"].resumed
+\defnum{tces4free.U60.u0}{46.1} % tces.json conditions["rep-20260923-forced60|U-u60|u0|unforced"].accuracy
+\defnum{tces4.F60.u0}{66.1} % tces.json conditions["rep-20260923-forced60|F-u60|u0|think"].accuracy
+\defnum{tces4s.F60.u0}{39.6} % tces.json conditions["rep-20260923-forced60|F-u60|u0|think"].strict
+\defnum{tces4.F60.u20}{47.9} % tces.json conditions["rep-20260923-forced60|F-u60|u20|think"].accuracy
+\defnum{tces4s.F60.u20}{28.4} % tces.json conditions["rep-20260923-forced60|F-u60|u20|think"].strict
+\defnum{tces4r.F60.u0}{30} % tces.json conditions["rep-20260923-forced60|F-u60|u0|think"].resumed
+\defnum{tces4free.F60.u0}{65.6} % tces.json conditions["rep-20260923-forced60|F-u60|u0|unforced"].accuracy
+\defnum{tces4.U140.u0}{53.6} % tces.json conditions["rep-20260923-forced|U-u140|u0|think"].accuracy
+\defnum{tces4s.U140.u0}{12.8} % tces.json conditions["rep-20260923-forced|U-u140|u0|think"].strict
+\defnum{tces4.U140.u20}{0.3} % tces.json conditions["rep-20260923-forced|U-u140|u20|think"].accuracy
+\defnum{tces4s.U140.u20}{0.3} % tces.json conditions["rep-20260923-forced|U-u140|u20|think"].strict
+\defnum{tces4r.U140.u0}{51} % tces.json conditions["rep-20260923-forced|U-u140|u0|think"].resumed
+\defnum{tces4free.U140.u0}{33.9} % tces.json conditions["rep-20260923-forced|U-u140|u0|unforced"].accuracy
+\defnum{tces4.F140.u0}{61.7} % tces.json conditions["rep-20260923-forced|F-u140|u0|think"].accuracy
+\defnum{tces4s.F140.u0}{52.9} % tces.json conditions["rep-20260923-forced|F-u140|u0|think"].strict
+\defnum{tces4.F140.u20}{3.1} % tces.json conditions["rep-20260923-forced|F-u140|u20|think"].accuracy
+\defnum{tces4s.F140.u20}{2.3} % tces.json conditions["rep-20260923-forced|F-u140|u20|think"].strict
+\defnum{tces4r.F140.u0}{11} % tces.json conditions["rep-20260923-forced|F-u140|u0|think"].resumed
+\defnum{tces4free.F140.u0}{55.7} % tces.json conditions["rep-20260923-forced|F-u140|u0|unforced"].accuracy
+\defnum{tces4s.handoff.lasting.max}{22.9} % largest of tces4s.{M0,T,S,U20,F20}.u0
+\defnum{tces4s.handoff.lasting.min}{10.4} % smallest of the same
+\defnum{tces4.dose.M0}{$-$9.9} % minus tces.json loss["4k|M0|Stage B"].points
+\defnum{tces4.dose.T}{$-$2.9} % minus tces.json loss["4k|T-u30|Stage B"].points
+\defnum{tces4.dose.S}{+0.5} % minus tces.json loss["4k|S-u230|Stage B"].points
+\defnum{tces4.dose.U.low}{$-$1.8} % minus tces.json loss["4k|U-u20|Stage B"].points
+\defnum{tces4.dose.U.mid}{$-$18.5} % minus tces.json loss["4k|U-u60|Stage B"].points
+\defnum{tces4.dose.U.high}{$-$53.4} % minus tces.json loss["4k|U-u140|Stage B"].points
+\defnum{tces4.dose.F.low}{+3.9} % minus tces.json loss["4k|F-u20|Stage B"].points
+\defnum{tces4.dose.F.mid}{$-$18.2} % minus tces.json loss["4k|F-u60|Stage B"].points
+\defnum{tces4.dose.F.high}{$-$58.6} % minus tces.json loss["4k|F-u140|Stage B"].points
+\defnum{tces4loss.RS}{18.2} % tces.json loss["4k|RS47-u200|Stage B"].points
+\defnum{tces4loss.U60}{18.5} % tces.json loss["4k|U-u60|Stage B"].points
+\defnum{tces4loss.F60}{18.2} % tces.json loss["4k|F-u60|Stage B"].points
+\defnum{tces4cap.RP.u0}{31.3} % tces.json conditions["dc-20260923b|RP47-u140|u0|think"].capped
+\defnum{tces4cap.RP.u20}{90.1} % tces.json conditions["dc-20260923b|RP47-u140|u20|think"].capped
+\defnum{tces4g.U20}{61.5} % tces.json conditions["rep-20260923-gentle|U-u20|u20|think"].accuracy
+\defnum{tces4gs.U20}{10.4} % tces.json conditions["rep-20260923-gentle|U-u20|u20|think"].strict
+\defnum{tces4g.F20}{60.9} % tces.json conditions["rep-20260923-gentle|F-u20|u20|think"].accuracy
+\defnum{tces4gs.F20}{21.6} % tces.json conditions["rep-20260923-gentle|F-u20|u20|think"].strict
+\defnum{tces4g.U140}{29.9} % tces.json conditions["rep-20260923-gentle|U-u140|u20|think"].accuracy
+\defnum{tces4gs.U140}{6.8} % tces.json conditions["rep-20260923-gentle|U-u140|u20|think"].strict
+\defnum{tces4g.F140}{37.2} % tces.json conditions["rep-20260923-gentle-F140|F-u140|u20|think"].accuracy
+\defnum{tces4gs.F140}{28.1} % tces.json conditions["rep-20260923-gentle-F140|F-u140|u20|think"].strict
+\defnum{tces4i.M0}{53.6} % tces.json conditions["rep-20260923-instruct|M0|u20|think"].accuracy
+\defnum{tces4is.M0}{26.3} % tces.json conditions["rep-20260923-instruct|M0|u20|think"].strict
+\defnum{tces4i.U20}{58.9} % tces.json conditions["rep-20260923-instruct|U-u20|u20|think"].accuracy
+\defnum{tces4is.U20}{26.8} % tces.json conditions["rep-20260923-instruct|U-u20|u20|think"].strict
+\defnum{tces4i.F20}{57.8} % tces.json conditions["rep-20260923-instruct|F-u20|u20|think"].accuracy
+\defnum{tces4is.F20}{37.0} % tces.json conditions["rep-20260923-instruct|F-u20|u20|think"].strict
+\defnum{tces4i.U140}{34.9} % tces.json conditions["rep-20260923-instruct|U-u140|u20|think"].accuracy
+\defnum{tces4is.U140}{27.6} % tces.json conditions["rep-20260923-instruct|U-u140|u20|think"].strict
+\defnum{tces4i.F140}{36.7} % tces.json conditions["rep-20260923-instruct|F-u140|u20|think"].accuracy
+\defnum{tces4is.F140}{31.0} % tces.json conditions["rep-20260923-instruct|F-u140|u20|think"].strict
+\defnum{tces4ir.M0}{35} % tces.json conditions["rep-20260923-instruct|M0|u20|think"].resumed
+\defnum{tces4i.keep.max}{58.9} % largest of tces4i.M0, tces4i.U20, tces4i.F20
+\defnum{tces4i.keep.min}{53.6} % smallest of the same
+\defnum{tces4i.median.max}{139} % larger tces_samples rep-20260923-instruct-unforced U-u20 and F-u20 u20: median unforced tokens
+\defnum{tces4i.median.min}{119} % smaller tces_samples rep-20260923-instruct-unforced U-u20 and F-u20 u20: median unforced tokens
+\defnum{reg.RR-D3b.obs}{37.8--41.7} % tces.json conditions: U-u20's and F-u20's unforced accuracy at handoff (rep-20260923-forced u0) less after 20 IT updates (rep-20260923-instruct-unforced u20)
+\defnum{tces4.dmo.U.b}{$-$51.6} % change of U-u140 minus change of U-u20 over Stage B, 4k probes, item bootstrap
+\defnum{tces4.dmo.U.b.ci}{[$-$60.4, $-$42.7]} % change of U-u140 minus change of U-u20 over Stage B, 4k probes, item bootstrap
+\defnum{tces4.dmo.U.g}{$-$25.3} % change of U-u140 minus change of U-u20 over Stage B at 1e-4, 4k probes, item bootstrap
+\defnum{tces4.dmo.U.i}{$-$17.7} % change of U-u140 minus change of U-u20 over instruction tuning, 4k probes, item bootstrap
+\defnum{tces4.dmo.F.b}{$-$62.5} % change of F-u140 minus change of F-u20 over Stage B, 4k probes, item bootstrap
+\defnum{tces4.dmo.F.b.ci}{[$-$70.1, $-$55.2]} % change of F-u140 minus change of F-u20 over Stage B, 4k probes, item bootstrap
+\defnum{tces4.dmo.F.g}{$-$26.8} % change of F-u140 minus change of F-u20 over Stage B at 1e-4, 4k probes, item bootstrap
+\defnum{tces4.dmo.F.i}{$-$24.2} % change of F-u140 minus change of F-u20 over instruction tuning, 4k probes, item bootstrap
+\defnum{tces4.once.maxloss}{1.0} % largest tces.json loss["4k|U-u20 or F-u20|Stage B at 1e-4 or IT"]
+\defnum{tces4.cliff.F140}{45.1} % tces.json conditions["rep-20260923-cliff2|F-u140|u2|think"].accuracy
+\defnum{tces4.rerun.S}{41.9} % tces.json conditions["dc-long80-rep|S-u230|u80|think"].accuracy
+\defnum{tces4s.rerun.S}{23.7} % tces.json conditions["dc-long80-rep|S-u230|u80|think"].strict
+\defnum{tces4.rerun.T}{53.9} % tces.json conditions["dc-long80-rep-T|T-u30|u80|think"].accuracy
+\defnum{tces4s.rerun.T}{31.3} % tces.json conditions["dc-long80-rep-T|T-u30|u80|think"].strict
+\defnum{tces4.rerun.spread}{32.6} % tces4.rerun.T - tces4.T.u80
+\defnum{tces16.M0.u0}{77.6} % tces.json conditions["cap16k-u0-20260924|M0|u0|think"].accuracy
+\defnum{tces16s.M0.u0}{19.3} % tces.json conditions["cap16k-u0-20260924|M0|u0|think"].strict
+\defnum{tces16r.M0.u0}{67} % tces.json conditions["cap16k-u0-20260924|M0|u0|think"].resumed
+\defnum{tces16w4.M0.u0}{50.0} % tces.json conditions["cap16k-u0-20260924|M0|u0|think"].within_4096
+\defnum{tces16w8.M0.u0}{65.1} % tces_samples cap16k-u0-20260924 M0 u0 think: correct within 8,192 tokens
+\defnum{tces16.M0.u20}{73.4} % tces.json conditions["cap16k-stageb-20260924|M0|u20|think"].accuracy
+\defnum{tces16s.M0.u20}{18.8} % tces.json conditions["cap16k-stageb-20260924|M0|u20|think"].strict
+\defnum{tces16r.M0.u20}{61} % tces.json conditions["cap16k-stageb-20260924|M0|u20|think"].resumed
+\defnum{tces16w4.M0.u20}{50.8} % tces.json conditions["cap16k-stageb-20260924|M0|u20|think"].within_4096
+\defnum{tces16w8.M0.u20}{64.8} % tces_samples cap16k-stageb-20260924 M0 u20 think: correct within 8,192 tokens
+\defnum{tces16cap.M0.u20}{22.1} % tces.json conditions["cap16k-stageb-20260924|M0|u20|think"].capped
+\defnum{tces16over4.M0.u20}{46} % tces.json conditions["cap16k-stageb-20260924|M0|u20|think"].over_4096
+\defnum{tces16.T.u0}{78.1} % tces.json conditions["cap16k-u0-20260924|T-u30|u0|think"].accuracy
+\defnum{tces16s.T.u0}{22.9} % tces.json conditions["cap16k-u0-20260924|T-u30|u0|think"].strict
+\defnum{tces16r.T.u0}{63} % tces.json conditions["cap16k-u0-20260924|T-u30|u0|think"].resumed
+\defnum{tces16w4.T.u0}{58.6} % tces.json conditions["cap16k-u0-20260924|T-u30|u0|think"].within_4096
+\defnum{tces16w8.T.u0}{71.6} % tces_samples cap16k-u0-20260924 T-u30 u0 think: correct within 8,192 tokens
+\defnum{tces16.T.u20}{74.7} % tces.json conditions["cap16k-stageb-20260924|T-u30|u20|think"].accuracy
+\defnum{tces16s.T.u20}{34.6} % tces.json conditions["cap16k-stageb-20260924|T-u30|u20|think"].strict
+\defnum{tces16r.T.u20}{45} % tces.json conditions["cap16k-stageb-20260924|T-u30|u20|think"].resumed
+\defnum{tces16w4.T.u20}{55.5} % tces.json conditions["cap16k-stageb-20260924|T-u30|u20|think"].within_4096
+\defnum{tces16w8.T.u20}{65.6} % tces_samples cap16k-stageb-20260924 T-u30 u20 think: correct within 8,192 tokens
+\defnum{tces16cap.T.u20}{18.0} % tces.json conditions["cap16k-stageb-20260924|T-u30|u20|think"].capped
+\defnum{tces16over4.T.u20}{41} % tces.json conditions["cap16k-stageb-20260924|T-u30|u20|think"].over_4096
+\defnum{tces16.S.u0}{77.9} % tces.json conditions["cap16k-u0-20260924|S-u230|u0|think"].accuracy
+\defnum{tces16s.S.u0}{26.3} % tces.json conditions["cap16k-u0-20260924|S-u230|u0|think"].strict
+\defnum{tces16r.S.u0}{59} % tces.json conditions["cap16k-u0-20260924|S-u230|u0|think"].resumed
+\defnum{tces16w4.S.u0}{54.2} % tces.json conditions["cap16k-u0-20260924|S-u230|u0|think"].within_4096
+\defnum{tces16w8.S.u0}{68.8} % tces_samples cap16k-u0-20260924 S-u230 u0 think: correct within 8,192 tokens
+\defnum{tces16.S.u20}{75.8} % tces.json conditions["cap-20260924|S-u230|u20|think"].accuracy
+\defnum{tces16s.S.u20}{10.9} % tces.json conditions["cap-20260924|S-u230|u20|think"].strict
+\defnum{tces16r.S.u20}{81} % tces.json conditions["cap-20260924|S-u230|u20|think"].resumed
+\defnum{tces16w4.S.u20}{54.2} % tces.json conditions["cap-20260924|S-u230|u20|think"].within_4096
+\defnum{tces16w8.S.u20}{65.6} % tces_samples cap-20260924 S-u230 u20 think: correct within 8,192 tokens
+\defnum{tces16cap.S.u20}{16.1} % tces.json conditions["cap-20260924|S-u230|u20|think"].capped
+\defnum{tces16over4.S.u20}{41} % tces.json conditions["cap-20260924|S-u230|u20|think"].over_4096
+\defnum{tces16.U140.u0}{75.5} % tces.json conditions["cap16k-u0-20260924|U-u140|u0|think"].accuracy
+\defnum{tces16s.U140.u0}{17.4} % tces.json conditions["cap16k-u0-20260924|U-u140|u0|think"].strict
+\defnum{tces16r.U140.u0}{66} % tces.json conditions["cap16k-u0-20260924|U-u140|u0|think"].resumed
+\defnum{tces16w4.U140.u0}{52.9} % tces.json conditions["cap16k-u0-20260924|U-u140|u0|think"].within_4096
+\defnum{tces16w8.U140.u0}{65.4} % tces_samples cap16k-u0-20260924 U-u140 u0 think: correct within 8,192 tokens
+\defnum{tces16.U140.u20}{6.0} % tces.json conditions["cap-20260924|U-u140|u20|think"].accuracy
+\defnum{tces16s.U140.u20}{0.8} % tces.json conditions["cap-20260924|U-u140|u20|think"].strict
+\defnum{tces16r.U140.u20}{35} % tces.json conditions["cap-20260924|U-u140|u20|think"].resumed
+\defnum{tces16w4.U140.u20}{1.8} % tces.json conditions["cap-20260924|U-u140|u20|think"].within_4096
+\defnum{tces16w8.U140.u20}{2.9} % tces_samples cap-20260924 U-u140 u20 think: correct within 8,192 tokens
+\defnum{tces16cap.U140.u20}{93.2} % tces.json conditions["cap-20260924|U-u140|u20|think"].capped
+\defnum{tces16over4.U140.u20}{98} % tces.json conditions["cap-20260924|U-u140|u20|think"].over_4096
+\defnum{tces16.F140.u0}{81.5} % tces.json conditions["cap16k-u0-20260924|F-u140|u0|think"].accuracy
+\defnum{tces16s.F140.u0}{68.5} % tces.json conditions["cap16k-u0-20260924|F-u140|u0|think"].strict
+\defnum{tces16r.F140.u0}{14} % tces.json conditions["cap16k-u0-20260924|F-u140|u0|think"].resumed
+\defnum{tces16w4.F140.u0}{60.4} % tces.json conditions["cap16k-u0-20260924|F-u140|u0|think"].within_4096
+\defnum{tces16w8.F140.u0}{73.4} % tces_samples cap16k-u0-20260924 F-u140 u0 think: correct within 8,192 tokens
+\defnum{tces16.F140.u20}{11.7} % tces.json conditions["cap-20260924|F-u140|u20|think"].accuracy
+\defnum{tces16s.F140.u20}{4.9} % tces.json conditions["cap-20260924|F-u140|u20|think"].strict
+\defnum{tces16r.F140.u20}{20} % tces.json conditions["cap-20260924|F-u140|u20|think"].resumed
+\defnum{tces16w4.F140.u20}{4.2} % tces.json conditions["cap-20260924|F-u140|u20|think"].within_4096
+\defnum{tces16w8.F140.u20}{7.3} % tces_samples cap-20260924 F-u140 u20 think: correct within 8,192 tokens
+\defnum{tces16cap.F140.u20}{87.5} % tces.json conditions["cap-20260924|F-u140|u20|think"].capped
+\defnum{tces16over4.F140.u20}{95} % tces.json conditions["cap-20260924|F-u140|u20|think"].over_4096
+\defnum{tces16.draws}{384} % tces.json conditions["cap-20260924|F-u140|u20|think"].n: 192 targeted items x 2 draws
+\defnum{tces16capn.U140}{358} % tces.json conditions["cap-20260924|U-u140|u20|think"].capped_count
+\defnum{tces16scan.U140}{7} % tces.json conditions["cap-20260924|U-u140|u20|think"].capped_with_solution
+\defnum{tces16capn.F140}{336} % tces.json conditions["cap-20260924|F-u140|u20|think"].capped_count
+\defnum{tces16scan.F140}{9} % tces.json conditions["cap-20260924|F-u140|u20|think"].capped_with_solution
+\defnum{tces16loss.S}{2.1} % tces.json loss["16k|S-u230|Stage B|16384"].points
+\defnum{tces16loss.U140}{69.5} % tces.json loss["16k|U-u140|Stage B|16384"].points
+\defnum{tces16loss.F140}{69.8} % tces.json loss["16k|F-u140|Stage B|16384"].points
+\defnum{tces16ex.U140}{67.4} % tces.json excess_over_clone["U-u140"].points: the answer-only loss beyond the clone's
+\defnum{tces16ex.U140.ci}{[60.9, 74.0]} % tces.json excess_over_clone["U-u140"].interval
+\defnum{tces16ex.F140}{67.7} % tces.json excess_over_clone["F-u140"].points: the answer-only loss beyond the clone's
+\defnum{tces16ex.F140.ci}{[60.2, 75.3]} % tces.json excess_over_clone["F-u140"].interval
+\defnum{tces16.lastingloss.max}{4.2} % largest of the 16k losses of M0, T-u30, S-u230
+\defnum{tces16.lastingloss.min}{2.1} % smallest of the same
+\defnum{tces16.handoff.max}{81.5} % largest tces16.*.u0
+\defnum{tces16.handoff.min}{75.5} % smallest tces16.*.u0
+\defnum{tces16.handoff.spread}{6.0} % their difference
+\defnum{tces16.gain.max}{27.6} % largest tces16.*.u0 - tces16w4.*.u0
+\defnum{tces16.gain.min}{19.5} % smallest of the same
+\defnum{tces.hs.M0}{4.9} % tces.json half_skip["dc-20260923b|M0"]
+\defnum{tces.hs.T}{4.1} % tces.json half_skip["dc-20260923b|T-u30"]
+\defnum{tces.hs.S}{5.0} % tces.json half_skip["dc-20260923b|S-u230"]
+\defnum{tces.hs.RP}{1.7} % tces.json half_skip["dc-20260923b|RP47-u140"]
+\defnum{tces.hs.RP60}{3.5} % tces.json half_skip["dc-20260923b|RP47-u60"]
+\defnum{tces.hs.U140}{2.7} % tces.json half_skip["rep-20260923|U-u140"]
+\defnum{tces.hs.rep.S}{4.81} % tces.json half_skip["dc-decision-rep|S-u230"]
+\defnum{tces.hs.rep.T}{4.04} % tces.json half_skip["dc-decision-rep|T-u30"]
+\defnum{tces.halves.M0}{120} % tces.json forced_halving["M0"].halves_at
+\defnum{tces.halves.T}{65} % tces.json forced_halving["T-u30"].halves_at
+\defnum{tces.halves.S}{148} % tces.json forced_halving["S-u230"].halves_at
+\defnum{tces.halves.RP}{10} % tces.json forced_halving["RP47-u140"].halves_at
+\defnum{tces.halves.RS}{105} % tces.json forced_halving["RS47-u200"].halves_at
+\defnum{tces.RS.skip20}{30} % tces.json conditions["dc-20260923b|RS47-u200|u20|decision"].skip
+\defnum{tces.frac.tokens}{37} % depth_texts M0 common texts: positions scored at 1,024 over positions scored at 4,096
+\defnum{e1.M0.acc}{53.5} % tces.json conditions["dc-panels-20260923|E1-M0|u0|think"].accuracy
+\defnum{e1.M0.strict}{12.8} % tces.json conditions["dc-panels-20260923|E1-M0|u0|think"].strict
+\defnum{e1.M0.always}{8} % tces_samples dc-panels-20260923 E1-M0: items correct on every draw
+\defnum{e1.M0.never}{1} % tces_samples dc-panels-20260923 E1-M0: items with no correct draw
+\defnum{e1.M0.snever}{52} % tces_samples dc-panels-20260923 E1-M0: items with no strict-correct draw
+\defnum{e1.RP.acc}{67.7} % tces.json conditions["dc-panels-20260923|E1-RP20|u0|think"].accuracy
+\defnum{e1.RP.strict}{38.1} % tces.json conditions["dc-panels-20260923|E1-RP20|u0|think"].strict
+\defnum{e1.RP.always}{31} % tces_samples dc-panels-20260923 E1-RP20: items correct on every draw
+\defnum{e1.RP.never}{0} % tces_samples dc-panels-20260923 E1-RP20: items with no correct draw
+\defnum{e1.RP.snever}{8} % tces_samples dc-panels-20260923 E1-RP20: items with no strict-correct draw
+\defnum{e1.RS.acc}{66.8} % tces.json conditions["dc-panels-20260923|E1-RS220|u0|think"].accuracy
+\defnum{e1.RS.strict}{28.3} % tces.json conditions["dc-panels-20260923|E1-RS220|u0|think"].strict
+\defnum{e1.RS.always}{18} % tces_samples dc-panels-20260923 E1-RS220: items correct on every draw
+\defnum{e1.RS.never}{2} % tces_samples dc-panels-20260923 E1-RS220: items with no correct draw
+\defnum{e1.RS.snever}{14} % tces_samples dc-panels-20260923 E1-RS220: items with no strict-correct draw
+\defnum{pair.corr}{0.71} % E1: Pearson correlation of per-item accuracy, RP20 and RS220
+\defnum{pair.corr.m0.max}{0.79} % E1: the larger of M0's correlations with RP20 and RS220
+\defnum{pair.corr.m0.min}{0.64} % E1: the smaller of the same
+\defnum{e2.M0}{54.2} % tces.json conditions["dc-panels-20260923|E2-M0|u0|think"].accuracy (held-out items)
+\defnum{e2s.M0}{12.5} % tces.json conditions["dc-panels-20260923|E2-M0|u0|think"].strict (held-out items)
+\defnum{e2.T}{61.5} % tces.json conditions["dc-panels-20260923|E2-T-u30|u0|think"].accuracy (held-out items)
+\defnum{e2s.T}{17.4} % tces.json conditions["dc-panels-20260923|E2-T-u30|u0|think"].strict (held-out items)
+\defnum{e2.S}{58.9} % tces.json conditions["dc-panels-20260923|E2-S-u230|u0|think"].accuracy (held-out items)
+\defnum{e2s.S}{14.8} % tces.json conditions["dc-panels-20260923|E2-S-u230|u0|think"].strict (held-out items)
+\defnum{e2.RP}{60.9} % tces.json conditions["dc-panels-20260923|E2-RP47-u140|u0|think"].accuracy (held-out items)
+\defnum{e2s.RP}{51.6} % tces.json conditions["dc-panels-20260923|E2-RP47-u140|u0|think"].strict (held-out items)
+\defnum{e2.RS}{62.2} % tces.json conditions["dc-panels-20260923|E2-RS47-u200|u0|think"].accuracy (held-out items)
+\defnum{e2s.RS}{35.2} % tces.json conditions["dc-panels-20260923|E2-RS47-u200|u0|think"].strict (held-out items)
+\defnum{lj.M0.u1}{10.45} % tces.json next_batch_loss["dc-20260923b|M0"]["1"]
+\defnum{lj.M0.u2}{8.06} % tces.json next_batch_loss["dc-20260923b|M0"]["2"]
+\defnum{lj.M0.u3}{9.31} % tces.json next_batch_loss["dc-20260923b|M0"]["3"]
+\defnum{lj.T.u1}{10.46} % tces.json next_batch_loss["dc-20260923b|T-u30"]["1"]
+\defnum{lj.T.u2}{7.89} % tces.json next_batch_loss["dc-20260923b|T-u30"]["2"]
+\defnum{lj.T.u3}{9.10} % tces.json next_batch_loss["dc-20260923b|T-u30"]["3"]
+\defnum{lj.S.u1}{10.43} % tces.json next_batch_loss["dc-20260923b|S-u230"]["1"]
+\defnum{lj.S.u2}{7.74} % tces.json next_batch_loss["dc-20260923b|S-u230"]["2"]
+\defnum{lj.S.u3}{10.10} % tces.json next_batch_loss["dc-20260923b|S-u230"]["3"]
+\defnum{lj.RP.u1}{12.90} % tces.json next_batch_loss["dc-20260923b|RP47-u140"]["1"]
+\defnum{lj.RP.u2}{13.12} % tces.json next_batch_loss["dc-20260923b|RP47-u140"]["2"]
+\defnum{lj.RP.u3}{11.66} % tces.json next_batch_loss["dc-20260923b|RP47-u140"]["3"]
+\defnum{lj.RS.u1}{21.01} % tces.json next_batch_loss["dc-20260923b|RS47-u200"]["1"]
+\defnum{lj.RS.u2}{12.32} % tces.json next_batch_loss["dc-20260923b|RS47-u200"]["2"]
+\defnum{lj.RS.u3}{9.17} % tces.json next_batch_loss["dc-20260923b|RS47-u200"]["3"]
+\defnum{lj.U20.u1}{10.89} % tces.json next_batch_loss["rep-20260923-forced|U-u20"]["1"]
+\defnum{lj.U20.u2}{8.05} % tces.json next_batch_loss["rep-20260923-forced|U-u20"]["2"]
+\defnum{lj.U20.u3}{9.08} % tces.json next_batch_loss["rep-20260923-forced|U-u20"]["3"]
+\defnum{lj.U60.u1}{10.56} % tces.json next_batch_loss["rep-20260923-forced60|U-u60"]["1"]
+\defnum{lj.U60.u2}{8.52} % tces.json next_batch_loss["rep-20260923-forced60|U-u60"]["2"]
+\defnum{lj.U60.u3}{9.38} % tces.json next_batch_loss["rep-20260923-forced60|U-u60"]["3"]
+\defnum{lj.U140.u1}{10.35} % tces.json next_batch_loss["rep-20260923-forced|U-u140"]["1"]
+\defnum{lj.U140.u2}{19.50} % tces.json next_batch_loss["rep-20260923-forced|U-u140"]["2"]
+\defnum{lj.U140.u3}{19.44} % tces.json next_batch_loss["rep-20260923-forced|U-u140"]["3"]
+\defnum{lj.F20.u1}{10.97} % tces.json next_batch_loss["rep-20260923-forced|F-u20"]["1"]
+\defnum{lj.F20.u2}{7.86} % tces.json next_batch_loss["rep-20260923-forced|F-u20"]["2"]
+\defnum{lj.F20.u3}{9.11} % tces.json next_batch_loss["rep-20260923-forced|F-u20"]["3"]
+\defnum{lj.F60.u1}{10.82} % tces.json next_batch_loss["rep-20260923-forced60|F-u60"]["1"]
+\defnum{lj.F60.u2}{8.69} % tces.json next_batch_loss["rep-20260923-forced60|F-u60"]["2"]
+\defnum{lj.F60.u3}{9.24} % tces.json next_batch_loss["rep-20260923-forced60|F-u60"]["3"]
+\defnum{lj.F140.u1}{11.77} % tces.json next_batch_loss["rep-20260923-forced|F-u140"]["1"]
+\defnum{lj.F140.u2}{26.91} % tces.json next_batch_loss["rep-20260923-forced|F-u140"]["2"]
+\defnum{lj.F140.u3}{16.19} % tces.json next_batch_loss["rep-20260923-forced|F-u140"]["3"]
+\defnum{lj.gentle.U140}{12.38} % train_log rep-20260923-gentle U-u140 later update 2: loss_sum
+\defnum{lj.gentle.F140}{15.93} % train_log rep-20260923-gentle F-u140 later update 2: loss_sum
+\defnum{lj.gentle.once.max}{8.41} % train_log rep-20260923-gentle U-u20, F-u20 update 2: largest
+\defnum{lj.gentle.once.min}{8.37} % smallest of the same
+\defnum{lj.it.U140}{52.56} % train_log rep-20260923-instruct U-u140 later update 2: loss_sum
+\defnum{lj.it.F140}{52.82} % train_log rep-20260923-instruct F-u140 later update 2: loss_sum
+\defnum{lj.it.others.max}{52.38} % train_log rep-20260923-instruct M0, U-u20, F-u20 update 2: largest
+\defnum{lj.it.others.min}{52.05} % smallest of the same
+\defnum{rho.B}{0.93} % depth.json rank_correlation_with_4k_loss["search"]["B_4096"]
+\defnum{rho.B.RS}{0.89} % depth.json rank_correlation_with_4k_loss["with_solver"]["B_4096"]
+\defnum{rho.group}{0.92} % depth.json rank_correlation_with_4k_loss["search"]["group"]
+\defnum{rho.passes}{0.78} % depth.json rank_correlation_with_4k_loss["search"]["passes"]
+\defnum{rho.fa}{0.23} % Spearman: forced accuracy at handoff against depth.json dose lost_4k, the ten search states
+\defnum{rho.ua}{0.05} % Spearman: unforced accuracy at handoff against depth.json dose lost_4k, the ten search states
+\defnum{rho.loss1}{0.26} % Spearman: loss at later update 1 at handoff against depth.json dose lost_4k, the ten search states
+\defnum{rho.loss2}{0.94} % Spearman: loss at later update 2 at handoff against depth.json dose lost_4k, the ten search states
+\defnum{rho.within.low}{0.4} % Spearman of B_4096 and lost_4k within T, S, U20, F20
+\defnum{rho.within.high}{0.0} % Spearman of B_4096 and lost_4k within U140, F140, RP
+\defnum{pearson.loss2}{$-$0.84} % Pearson: loss at later update 2 against the forced change over Stage B, eleven origins
+\defnum{b.T}{$-$0.0004} % depth.json ["1024"].states["T-u30"].B
+\defnum{b.S}{$-$0.0035} % depth.json ["1024"].states["S-u230"].B
+\defnum{b.U20}{$-$0.0027} % depth.json ["1024"].states["U-u20"].B
+\defnum{b.U60}{0.015} % depth.json ["1024"].states["U-u60"].B
+\defnum{b.U140}{0.107} % depth.json ["1024"].states["U-u140"].B
+\defnum{b.F20}{$-$0.0025} % depth.json ["1024"].states["F-u20"].B
+\defnum{b.F60}{0.016} % depth.json ["1024"].states["F-u60"].B
+\defnum{b.F140}{0.161} % depth.json ["1024"].states["F-u140"].B
+\defnum{b.RP}{0.061} % depth.json ["1024"].states["RP47-u140"].B
+\defnum{b.RP20}{$-$0.0009} % depth.json ["1024"].states["RP47-u20"].B
+\defnum{b.RP60}{0.013} % depth.json ["1024"].states["RP47-u60"].B
+\defnum{b.RS}{0.093} % depth.json ["1024"].states["RS47-u200"].B
+\defnum{a.RP}{7.8} % depth.json ["1024"].states["RP47-u140"].A, %
+\defnum{a.RP20}{2.2} % depth.json ["1024"].states["RP47-u20"].A, %
+\defnum{a.RP60}{4.1} % depth.json ["1024"].states["RP47-u60"].A, %
+\defnum{a.RS}{9.5} % depth.json ["1024"].states["RS47-u200"].A, %
+\defnum{b.offset.lo}{0.0033} % depth.json ["1024"].states["M0"].top_p_offset_lower_bound
+\defnum{b.offset.hi}{0.051} % -ln 0.95, the offset when M0's nucleus is its top token alone
+\defnum{br.m0top}{0.55} % depth.json ["1024"].states["M0"].branch_top_probability_base
+\defnum{br.U140}{0.66} % depth.json ["1024"].states[...].branch_top_probability_state (all of M0's branch points)
+\defnum{br.F140}{0.69} % depth.json ["1024"].states[...].branch_top_probability_state (all of M0's branch points)
+\defnum{br.last.to}{0.58} % depth.json ["1024"].states[...].branch_top_probability_state (all of M0's branch points), pooled over T-u30, S-u230, U-u20 and F-u20
+\defnum{n1.b.T}{$-$0.0001} % depth.json ["4096"].states["T-u30"].B
+\defnum{n1.a.T}{1.3} % depth.json ["4096"].states["T-u30"].A, %
+\defnum{n1.alt.T}{0.98} % depth.json ["4096"].states["T-u30"].alternative_probability_kept
+\defnum{n1.b.S}{$-$0.0034} % depth.json ["4096"].states["S-u230"].B
+\defnum{n1.a.S}{2.2} % depth.json ["4096"].states["S-u230"].A, %
+\defnum{n1.alt.S}{0.91} % depth.json ["4096"].states["S-u230"].alternative_probability_kept
+\defnum{n1.b.U140}{0.097} % depth.json ["4096"].states["U-u140"].B
+\defnum{n1.a.U140}{7.6} % depth.json ["4096"].states["U-u140"].A, %
+\defnum{n1.alt.U140}{0.41} % depth.json ["4096"].states["U-u140"].alternative_probability_kept
+\defnum{n1.b.F140}{0.139} % depth.json ["4096"].states["F-u140"].B
+\defnum{n1.a.F140}{8.1} % depth.json ["4096"].states["F-u140"].A, %
+\defnum{n1.alt.F140}{0.30} % depth.json ["4096"].states["F-u140"].alternative_probability_kept
+\defnum{n1.b.U2}{0.154} % depth.json ["4096"].states["U2-u140"].B
+\defnum{n1.a.U2}{8.2} % depth.json ["4096"].states["U2-u140"].A, %
+\defnum{n1.alt.U2}{0.25} % depth.json ["4096"].states["U2-u140"].alternative_probability_kept
+\defnum{n1.b.FA1}{0.0085} % depth.json ["4096"].states["FA1-u140"].B
+\defnum{n1.a.FA1}{3.1} % depth.json ["4096"].states["FA1-u140"].A, %
+\defnum{n1.alt.FA1}{0.95} % depth.json ["4096"].states["FA1-u140"].alternative_probability_kept
+\defnum{n1.b.FA025}{0.022} % depth.json ["4096"].states["FA025-u140"].B
+\defnum{n1.a.FA025}{4.9} % depth.json ["4096"].states["FA025-u140"].A, %
+\defnum{n1.alt.FA025}{0.87} % depth.json ["4096"].states["FA025-u140"].alternative_probability_kept
+\defnum{n1.b.FN}{0.013} % depth.json ["4096"].states["FN-u140"].B
+\defnum{n1.a.FN}{4.1} % depth.json ["4096"].states["FN-u140"].A, %
+\defnum{n1.alt.FN}{0.78} % depth.json ["4096"].states["FN-u140"].alternative_probability_kept
+\defnum{n1x.b.U20}{$-$0.0027} % depth.json ["4096"].states["U-u20"].B
+\defnum{n1x.a.U20}{1.9} % depth.json ["4096"].states["U-u20"].A, %
+\defnum{n1x.alt.U20}{0.89} % depth.json ["4096"].states["U-u20"].alternative_probability_kept
+\defnum{n1x.b.U60}{0.012} % depth.json ["4096"].states["U-u60"].B
+\defnum{n1x.a.U60}{3.7} % depth.json ["4096"].states["U-u60"].A, %
+\defnum{n1x.alt.U60}{0.74} % depth.json ["4096"].states["U-u60"].alternative_probability_kept
+\defnum{n1x.b.F20}{$-$0.0024} % depth.json ["4096"].states["F-u20"].B
+\defnum{n1x.a.F20}{1.9} % depth.json ["4096"].states["F-u20"].A, %
+\defnum{n1x.alt.F20}{0.90} % depth.json ["4096"].states["F-u20"].alternative_probability_kept
+\defnum{n1x.b.F60}{0.013} % depth.json ["4096"].states["F-u60"].B
+\defnum{n1x.a.F60}{3.8} % depth.json ["4096"].states["F-u60"].A, %
+\defnum{n1x.alt.F60}{0.74} % depth.json ["4096"].states["F-u60"].alternative_probability_kept
+\defnum{n1x.b.RP}{0.047} % depth.json ["4096"].states["RP47-u140"].B
+\defnum{n1x.a.RP}{6.8} % depth.json ["4096"].states["RP47-u140"].A, %
+\defnum{n1x.alt.RP}{0.68} % depth.json ["4096"].states["RP47-u140"].alternative_probability_kept
+\defnum{n1x.b.RS}{0.068} % depth.json ["4096"].states["RS47-u200"].B
+\defnum{n1x.a.RS}{7.8} % depth.json ["4096"].states["RS47-u200"].A, %
+\defnum{n1x.alt.RS}{0.67} % depth.json ["4096"].states["RS47-u200"].alternative_probability_kept
+\defnum{n1.bfrac.M0}{0} % definition: B of M0 against itself is 0
+\defnum{n1.bfrac.T}{0.0} % B of T-u30 over M0's NLL, 4,096 tokens, %
+\defnum{n1.bfrac.S}{$-$0.9} % B of S-u230 over M0's NLL, 4,096 tokens, %
+\defnum{n1.bfrac.U140}{25} % B of U-u140 over M0's NLL, 4,096 tokens, %
+\defnum{n1.bfrac.F140}{36} % B of F-u140 over M0's NLL, 4,096 tokens, %
+\defnum{n1.bfrac.U2}{39} % B of U2-u140 over M0's NLL, 4,096 tokens, %
+\defnum{n1.bfrac.FA1}{2.2} % B of FA1-u140 over M0's NLL, 4,096 tokens, %
+\defnum{n1.bfrac.FA025}{5.7} % B of FA025-u140 over M0's NLL, 4,096 tokens, %
+\defnum{n1.bfrac.FN}{3.4} % B of FN-u140 over M0's NLL, 4,096 tokens, %
+\defnum{n1x.bfrac.U60}{3.2} % B of U-u60 over M0's NLL, 4,096 tokens, %
+\defnum{n1x.bfrac.F60}{3.4} % B of F-u60 over M0's NLL, 4,096 tokens, %
+\defnum{n1.kept.F140}{68} % depth.json ["4096"].states["F-u140"].kept_share, %
+\defnum{n1.kept.U2}{71} % depth.json ["4096"].states["U2-u140"].kept_share, %
+\defnum{n1.nll}{0.390} % depth.json ["4096"].states["M0"].base_nll
+\defnum{n1x.b.gap}{0.046} % lowest B at 7.7 passes without added data (U, F, RP, U2) minus highest lasting B (M0, T, S), 4,096 tokens
+\defnum{n1x.shrink.min}{8.2} % smallest share of B at 1,024 tokens lost at 4,096, over the states with positive B
+\defnum{n1x.shrink.max}{27} % largest share of B at 1,024 tokens lost at 4,096, over the states with positive B
+\defnum{bprof.T.4-7}{0.0057} % depth_texts depth-20260923 T-u30, common texts: B over response positions 4-7
+\defnum{bprof.T.8-15}{0.0003} % depth_texts depth-20260923 T-u30, common texts: B over response positions 8-15
+\defnum{bprof.T.16-31}{$-$0.0010} % depth_texts depth-20260923 T-u30, common texts: B over response positions 16-31
+\defnum{bprof.T.32-63}{$-$0.0017} % depth_texts depth-20260923 T-u30, common texts: B over response positions 32-63
+\defnum{bprof.T.64-127}{$-$0.0004} % depth_texts depth-20260923 T-u30, common texts: B over response positions 64-127
+\defnum{bprof.T.128-255}{$-$0.0006} % depth_texts depth-20260923 T-u30, common texts: B over response positions 128-255
+\defnum{bprof.T.256-511}{$-$0.0003} % depth_texts depth-20260923 T-u30, common texts: B over response positions 256-511
+\defnum{bprof.T.512-1024}{$-$0.0002} % depth_texts depth-20260923 T-u30, common texts: B over response positions 512-1024
+\defnum{bprof.S.4-7}{$-$0.018} % depth_texts depth-20260923 S-u230, common texts: B over response positions 4-7
+\defnum{bprof.S.8-15}{$-$0.0040} % depth_texts depth-20260923 S-u230, common texts: B over response positions 8-15
+\defnum{bprof.S.16-31}{$-$0.0033} % depth_texts depth-20260923 S-u230, common texts: B over response positions 16-31
+\defnum{bprof.S.32-63}{$-$0.0044} % depth_texts depth-20260923 S-u230, common texts: B over response positions 32-63
+\defnum{bprof.S.64-127}{$-$0.0044} % depth_texts depth-20260923 S-u230, common texts: B over response positions 64-127
+\defnum{bprof.S.128-255}{$-$0.0039} % depth_texts depth-20260923 S-u230, common texts: B over response positions 128-255
+\defnum{bprof.S.256-511}{$-$0.0033} % depth_texts depth-20260923 S-u230, common texts: B over response positions 256-511
+\defnum{bprof.S.512-1024}{$-$0.0032} % depth_texts depth-20260923 S-u230, common texts: B over response positions 512-1024
+\defnum{bprof.U20.4-7}{0.0059} % depth_texts depth-20260923 U-u20, common texts: B over response positions 4-7
+\defnum{bprof.U20.8-15}{$-$0.0026} % depth_texts depth-20260923 U-u20, common texts: B over response positions 8-15
+\defnum{bprof.U20.16-31}{$-$0.0019} % depth_texts depth-20260923 U-u20, common texts: B over response positions 16-31
+\defnum{bprof.U20.32-63}{$-$0.0030} % depth_texts depth-20260923 U-u20, common texts: B over response positions 32-63
+\defnum{bprof.U20.64-127}{$-$0.0037} % depth_texts depth-20260923 U-u20, common texts: B over response positions 64-127
+\defnum{bprof.U20.128-255}{$-$0.0029} % depth_texts depth-20260923 U-u20, common texts: B over response positions 128-255
+\defnum{bprof.U20.256-511}{$-$0.0026} % depth_texts depth-20260923 U-u20, common texts: B over response positions 256-511
+\defnum{bprof.U20.512-1024}{$-$0.0027} % depth_texts depth-20260923 U-u20, common texts: B over response positions 512-1024
+\defnum{bprof.F20.4-7}{0.0017} % depth_texts depth-20260923 F-u20, common texts: B over response positions 4-7
+\defnum{bprof.F20.8-15}{$-$0.0021} % depth_texts depth-20260923 F-u20, common texts: B over response positions 8-15
+\defnum{bprof.F20.16-31}{$-$0.0003} % depth_texts depth-20260923 F-u20, common texts: B over response positions 16-31
+\defnum{bprof.F20.32-63}{$-$0.0025} % depth_texts depth-20260923 F-u20, common texts: B over response positions 32-63
+\defnum{bprof.F20.64-127}{$-$0.0032} % depth_texts depth-20260923 F-u20, common texts: B over response positions 64-127
+\defnum{bprof.F20.128-255}{$-$0.0030} % depth_texts depth-20260923 F-u20, common texts: B over response positions 128-255
+\defnum{bprof.F20.256-511}{$-$0.0026} % depth_texts depth-20260923 F-u20, common texts: B over response positions 256-511
+\defnum{bprof.F20.512-1024}{$-$0.0024} % depth_texts depth-20260923 F-u20, common texts: B over response positions 512-1024
+\defnum{bprof.U60.4-7}{0.025} % depth_texts depth-20260923 U-u60, common texts: B over response positions 4-7
+\defnum{bprof.U60.8-15}{$-$0.0020} % depth_texts depth-20260923 U-u60, common texts: B over response positions 8-15
+\defnum{bprof.U60.16-31}{$-$0.0008} % depth_texts depth-20260923 U-u60, common texts: B over response positions 16-31
+\defnum{bprof.U60.32-63}{0.019} % depth_texts depth-20260923 U-u60, common texts: B over response positions 32-63
+\defnum{bprof.U60.64-127}{0.020} % depth_texts depth-20260923 U-u60, common texts: B over response positions 64-127
+\defnum{bprof.U60.128-255}{0.019} % depth_texts depth-20260923 U-u60, common texts: B over response positions 128-255
+\defnum{bprof.U60.256-511}{0.017} % depth_texts depth-20260923 U-u60, common texts: B over response positions 256-511
+\defnum{bprof.U60.512-1024}{0.013} % depth_texts depth-20260923 U-u60, common texts: B over response positions 512-1024
+\defnum{bprof.F60.4-7}{0.015} % depth_texts depth-20260923 F-u60, common texts: B over response positions 4-7
+\defnum{bprof.F60.8-15}{0.0004} % depth_texts depth-20260923 F-u60, common texts: B over response positions 8-15
+\defnum{bprof.F60.16-31}{0.0072} % depth_texts depth-20260923 F-u60, common texts: B over response positions 16-31
+\defnum{bprof.F60.32-63}{0.0092} % depth_texts depth-20260923 F-u60, common texts: B over response positions 32-63
+\defnum{bprof.F60.64-127}{0.014} % depth_texts depth-20260923 F-u60, common texts: B over response positions 64-127
+\defnum{bprof.F60.128-255}{0.020} % depth_texts depth-20260923 F-u60, common texts: B over response positions 128-255
+\defnum{bprof.F60.256-511}{0.016} % depth_texts depth-20260923 F-u60, common texts: B over response positions 256-511
+\defnum{bprof.F60.512-1024}{0.016} % depth_texts depth-20260923 F-u60, common texts: B over response positions 512-1024
+\defnum{bprof.U140.4-7}{0.023} % depth_texts depth-20260923 U-u140, common texts: B over response positions 4-7
+\defnum{bprof.U140.8-15}{$-$0.0014} % depth_texts depth-20260923 U-u140, common texts: B over response positions 8-15
+\defnum{bprof.U140.16-31}{0.0003} % depth_texts depth-20260923 U-u140, common texts: B over response positions 16-31
+\defnum{bprof.U140.32-63}{0.080} % depth_texts depth-20260923 U-u140, common texts: B over response positions 32-63
+\defnum{bprof.U140.64-127}{0.114} % depth_texts depth-20260923 U-u140, common texts: B over response positions 64-127
+\defnum{bprof.U140.128-255}{0.132} % depth_texts depth-20260923 U-u140, common texts: B over response positions 128-255
+\defnum{bprof.U140.256-511}{0.123} % depth_texts depth-20260923 U-u140, common texts: B over response positions 256-511
+\defnum{bprof.U140.512-1024}{0.099} % depth_texts depth-20260923 U-u140, common texts: B over response positions 512-1024
+\defnum{bprof.F140.4-7}{0.034} % depth_texts depth-20260923 F-u140, common texts: B over response positions 4-7
+\defnum{bprof.F140.8-15}{0.014} % depth_texts depth-20260923 F-u140, common texts: B over response positions 8-15
+\defnum{bprof.F140.16-31}{0.032} % depth_texts depth-20260923 F-u140, common texts: B over response positions 16-31
+\defnum{bprof.F140.32-63}{0.103} % depth_texts depth-20260923 F-u140, common texts: B over response positions 32-63
+\defnum{bprof.F140.64-127}{0.161} % depth_texts depth-20260923 F-u140, common texts: B over response positions 64-127
+\defnum{bprof.F140.128-255}{0.207} % depth_texts depth-20260923 F-u140, common texts: B over response positions 128-255
+\defnum{bprof.F140.256-511}{0.181} % depth_texts depth-20260923 F-u140, common texts: B over response positions 256-511
+\defnum{bprof.F140.512-1024}{0.150} % depth_texts depth-20260923 F-u140, common texts: B over response positions 512-1024
+\defnum{bprof.RP.4-7}{0.030} % depth_texts depth-20260923 RP47-u140, common texts: B over response positions 4-7
+\defnum{bprof.RP.8-15}{0.018} % depth_texts depth-20260923 RP47-u140, common texts: B over response positions 8-15
+\defnum{bprof.RP.16-31}{0.0062} % depth_texts depth-20260923 RP47-u140, common texts: B over response positions 16-31
+\defnum{bprof.RP.32-63}{0.081} % depth_texts depth-20260923 RP47-u140, common texts: B over response positions 32-63
+\defnum{bprof.RP.64-127}{0.093} % depth_texts depth-20260923 RP47-u140, common texts: B over response positions 64-127
+\defnum{bprof.RP.128-255}{0.086} % depth_texts depth-20260923 RP47-u140, common texts: B over response positions 128-255
+\defnum{bprof.RP.256-511}{0.067} % depth_texts depth-20260923 RP47-u140, common texts: B over response positions 256-511
+\defnum{bprof.RP.512-1024}{0.048} % depth_texts depth-20260923 RP47-u140, common texts: B over response positions 512-1024
+\defnum{bprof.RS.4-7}{0.185} % depth_texts depth-20260923 RS47-u200, common texts: B over response positions 4-7
+\defnum{bprof.RS.8-15}{0.075} % depth_texts depth-20260923 RS47-u200, common texts: B over response positions 8-15
+\defnum{bprof.RS.16-31}{0.043} % depth_texts depth-20260923 RS47-u200, common texts: B over response positions 16-31
+\defnum{bprof.RS.32-63}{0.108} % depth_texts depth-20260923 RS47-u200, common texts: B over response positions 32-63
+\defnum{bprof.RS.64-127}{0.145} % depth_texts depth-20260923 RS47-u200, common texts: B over response positions 64-127
+\defnum{bprof.RS.128-255}{0.137} % depth_texts depth-20260923 RS47-u200, common texts: B over response positions 128-255
+\defnum{bprof.RS.256-511}{0.093} % depth_texts depth-20260923 RS47-u200, common texts: B over response positions 256-511
+\defnum{bprof.RS.512-1024}{0.075} % depth_texts depth-20260923 RS47-u200, common texts: B over response positions 512-1024
+\defnum{bprof.lasting.max}{0.004} % largest |B| from position 8 on over T-u30, S-u230, U-u20, F-u20
+\defnum{anc.h16.FA1}{75.3} % tces.json conditions["anchor-20260924|FA1-u140|u0|think"].accuracy
+\defnum{anc.h4.FA1}{51.0} % tces.json conditions["anchor-20260924|FA1-u140|u0|think"].within_4096
+\defnum{anc.a16.FA1}{48.2} % tces.json conditions["anchor-20260924|FA1-u140|u20|think"].accuracy
+\defnum{anc.a4.FA1}{25.8} % tces.json conditions["anchor-20260924|FA1-u140|u20|think"].within_4096
+\defnum{anc.cap.FA1}{49.0} % tces.json conditions["anchor-20260924|FA1-u140|u20|think"].capped
+\defnum{anc.strict.FA1}{13.0} % tces.json conditions["anchor-20260924|FA1-u140|u20|think"].strict
+\defnum{anc.free.FA1}{62.2} % tces.json conditions["anchor-20260924|FA1-u140|u0|unforced"].within_4096
+\defnum{anc.d16.FA1}{+36.5} % tces.json anchor_minus_F_after["FA1-u140"].estimate
+\defnum{anc.d16ci.FA1}{[30.5, 42.2]} % tces.json anchor_minus_F_after["FA1-u140"].interval
+\defnum{anc.b.FA1}{0.0093} % depth_texts anchor-20260924 FA1-u140, common texts: B at 1,024 tokens
+\defnum{anc.h16.FA025}{78.6} % tces.json conditions["anchor-20260924|FA025-u140|u0|think"].accuracy
+\defnum{anc.h4.FA025}{53.6} % tces.json conditions["anchor-20260924|FA025-u140|u0|think"].within_4096
+\defnum{anc.a16.FA025}{27.9} % tces.json conditions["anchor-20260924|FA025-u140|u20|think"].accuracy
+\defnum{anc.a4.FA025}{7.6} % tces.json conditions["anchor-20260924|FA025-u140|u20|think"].within_4096
+\defnum{anc.cap.FA025}{71.1} % tces.json conditions["anchor-20260924|FA025-u140|u20|think"].capped
+\defnum{anc.strict.FA025}{10.2} % tces.json conditions["anchor-20260924|FA025-u140|u20|think"].strict
+\defnum{anc.free.FA025}{61.7} % tces.json conditions["anchor-20260924|FA025-u140|u0|unforced"].within_4096
+\defnum{anc.d16.FA025}{+16.1} % tces.json anchor_minus_F_after["FA025-u140"].estimate
+\defnum{anc.d16ci.FA025}{[10.9, 21.4]} % tces.json anchor_minus_F_after["FA025-u140"].interval
+\defnum{anc.b.FA025}{0.024} % depth_texts anchor-20260924 FA025-u140, common texts: B at 1,024 tokens
+\defnum{anc.h16.FN}{85.7} % tces.json conditions["anchor-20260924|FN-u140|u0|think"].accuracy
+\defnum{anc.h4.FN}{58.3} % tces.json conditions["anchor-20260924|FN-u140|u0|think"].within_4096
+\defnum{anc.a16.FN}{25.3} % tces.json conditions["anchor-20260924|FN-u140|u20|think"].accuracy
+\defnum{anc.a4.FN}{4.9} % tces.json conditions["anchor-20260924|FN-u140|u20|think"].within_4096
+\defnum{anc.cap.FN}{72.4} % tces.json conditions["anchor-20260924|FN-u140|u20|think"].capped
+\defnum{anc.strict.FN}{6.5} % tces.json conditions["anchor-20260924|FN-u140|u20|think"].strict
+\defnum{anc.free.FN}{55.2} % tces.json conditions["anchor-20260924|FN-u140|u0|unforced"].within_4096
+\defnum{anc.d16.FN}{+13.5} % tces.json anchor_minus_F_after["FN-u140"].estimate
+\defnum{anc.d16ci.FN}{[7.8, 19.3]} % tces.json anchor_minus_F_after["FN-u140"].interval
+\defnum{anc.b.FN}{0.015} % depth_texts anchor-20260924 FN-u140, common texts: B at 1,024 tokens
+\defnum{anc.h16.U2}{70.6} % tces.json conditions["anchor-20260924|U2-u140|u0|think"].accuracy
+\defnum{anc.h4.U2}{45.3} % tces.json conditions["anchor-20260924|U2-u140|u0|think"].within_4096
+\defnum{anc.a16.U2}{6.5} % tces.json conditions["anchor-20260924|U2-u140|u20|think"].accuracy
+\defnum{anc.a4.U2}{0.3} % tces.json conditions["anchor-20260924|U2-u140|u20|think"].within_4096
+\defnum{anc.cap.U2}{92.2} % tces.json conditions["anchor-20260924|U2-u140|u20|think"].capped
+\defnum{anc.strict.U2}{2.1} % tces.json conditions["anchor-20260924|U2-u140|u20|think"].strict
+\defnum{anc.free.U2}{22.4} % tces.json conditions["anchor-20260924|U2-u140|u0|unforced"].within_4096
+\defnum{anc.d16.U2}{$-$5.2} % tces.json anchor_minus_F_after["U2-u140"].estimate
+\defnum{anc.d16ci.U2}{[$-$9.6, $-$1.0]} % tces.json anchor_minus_F_after["U2-u140"].interval
+\defnum{anc.b.U2}{0.172} % depth_texts anchor-20260924 U2-u140, common texts: B at 1,024 tokens
+\defnum{anc.h4.F140}{61.7} % tces.json conditions["rep-20260923-forced|F-u140|u0|think"].accuracy
+\defnum{anc.a4.F140}{4.2} % tces.json conditions["cap-20260924|F-u140|u20|think"].within_4096
+\defnum{anc.free.F140}{55.7} % tces.json conditions["rep-20260923-forced|F-u140|u0|unforced"].accuracy
+\defnum{anc.gap16.FA1}{6.3} % tces.json conditions["cap16k-u0-20260924|F-u140|u0|think"].accuracy - anc.h16.FA1
+\defnum{anc.gap4.FA1}{10.7} % anc.h4.F140 - anc.h4.FA1
+\defnum{anc.gap16.FA025}{2.9} % tces.json conditions["cap16k-u0-20260924|F-u140|u0|think"].accuracy - anc.h16.FA025
+\defnum{anc.gap4.FA025}{8.1} % anc.h4.F140 - anc.h4.FA025
+\defnum{anc.gain.F140}{21.1} % tces.json conditions["cap16k-u0-20260924|F-u140|u0|think"]: handoff accuracy within 16,384 tokens minus within 4,096, same samples
+\defnum{anc.gain.FA1}{24.2} % anc.h16.FA1 - anc.h4.FA1: handoff accuracy within 16,384 tokens minus within 4,096, same samples
+\defnum{anc.fit.FA1}{85} % depth.json drilled_text_fit.drop_share_of_F140["FA1-u140"], %
+\defnum{anc.fit.FA025}{99} % depth.json drilled_text_fit.drop_share_of_F140["FA025-u140"], %
+\defnum{anc.fit.FN}{36} % depth.json drilled_text_fit.drop_share_of_F140["FN-u140"], %
+\defnum{anc.loss16.FA1}{27.1} % tces.json loss["16k|FA1-u140|Stage B|16384"].points
+\defnum{pair.acc.RP}{34.6} % replay-v1/followup/profiles/seed-11-R-P.json panels.targeted.exact_success_rate
+\defnum{pair1.held.RP}{35.8} % replay-v1/followup/profiles/seed-11-R-P.json panels.sentinel.exact_success_rate
+\defnum{pair.never.RP}{9} % replay-v1/followup/profiles/seed-11-R-P.json panels.targeted: 256 x (1 - mean_pass_at_k["16"])
+\defnum{pair2.held.RP}{43.1} % replay-v1/order-seed47-20260909/R-P-profile.json panels.sentinel.exact_success_rate
+\defnum{pair.hl.RP}{1.69} % replay-v1/followup/readout.json blocks["11"].arms["R-P"].curves.targeted.half_life.update
+\defnum{pair.match.RP}{1,503} % replay-v1/followup/readout.json blocks["11"].matching.selected["R-P_successes"]
+\defnum{pair.acc.RS}{35.7} % replay-v1/followup/profiles/seed-11-R-S.json panels.targeted.exact_success_rate
+\defnum{pair1.held.RS}{2.8} % replay-v1/followup/profiles/seed-11-R-S.json panels.sentinel.exact_success_rate
+\defnum{pair.never.RS}{86} % replay-v1/followup/profiles/seed-11-R-S.json panels.targeted: 256 x (1 - mean_pass_at_k["16"])
+\defnum{pair.median.RS}{84} % replay-v1/followup/profiles/seed-11-R-S.json panels.targeted.completion_token_length.median
+\defnum{pair2.held.RS}{7.6} % replay-v1/order-seed47-20260909/R-S-profile.json panels.sentinel.exact_success_rate
+\defnum{pair.hl.RS}{4.25} % replay-v1/followup/readout.json blocks["11"].arms["R-S"].curves.targeted.half_life.update
+\defnum{pair.match.RS}{1,504} % replay-v1/followup/readout.json blocks["11"].matching.selected["R-S_successes"]
+\defnum{pair.len.u5}{23} % replay-v1/followup/readout.json blocks["11"].arms["R-P"].failures.a_monitor, update 5: targeted.tokens_median
+\defnum{pair.len.u10}{571} % replay-v1/followup/readout.json blocks["11"].arms["R-P"].failures.a_monitor, update 10: targeted.tokens_median
+\defnum{pair.len.u20}{22} % replay-v1/followup/readout.json blocks["11"].arms["R-P"].failures.a_monitor, update 20: targeted.tokens_median
+\defnum{pair2.RP.u0}{43.5} % replay-v1/order-seed47-20260909/readout.json blocks["47"].arms["R-P"].curves.targeted.raw at update 0
+\defnum{pair2.RP.u5}{0.3} % replay-v1/order-seed47-20260909/readout.json blocks["47"].arms["R-P"].curves.targeted.raw at update 5
+\defnum{m.h.base}{94.7} % math.json pilot-20260924 accuracy["M0|forced"]
+\defnum{m.h.D20}{95.4} % math.json pilot-20260924 accuracy["D-u20|forced"]
+\defnum{m.h.D60}{95.1} % math.json pilot-20260924 accuracy["D-u60|forced"]
+\defnum{m.h.D140}{95.4} % math.json pilot-20260924 accuracy["D-u140|forced"]
+\defnum{m.h.O140}{94.6} % math.json pilot-20260924 accuracy["O-u140|forced"]
+\defnum{m.it.base}{95.6} % math.json pilot-20260924 accuracy["M0+it|forced"]
+\defnum{m.it.D20}{94.5} % math.json pilot-20260924 accuracy["D-u20+it|forced"]
+\defnum{m.it.D60}{94.0} % math.json pilot-20260924 accuracy["D-u60+it|forced"]
+\defnum{m.it.D140}{59.3} % math.json pilot-20260924 accuracy["D-u140+it|forced"]
+\defnum{m.it.O140}{94.7} % math.json pilot-20260924 accuracy["O-u140+it|forced"]
+\defnum{m.b.base}{91.7} % math.json pilot-20260924 accuracy["M0+b|forced"]
+\defnum{m.b.D20}{94.3} % math.json pilot-20260924 accuracy["D-u20+b|forced"]
+\defnum{m.b.D60}{92.8} % math.json pilot-20260924 accuracy["D-u60+b|forced"]
+\defnum{m.b.D140}{22.5} % math.json pilot-20260924 accuracy["D-u140+b|forced"]
+\defnum{m.b.O140}{94.8} % math.json pilot-20260924 accuracy["O-u140+b|forced"]
+\defnum{mfree.h.base}{74.7} % math.json pilot-20260924 accuracy["M0|unforced"]
+\defnum{mfree.h.D20}{95.0} % math.json pilot-20260924 accuracy["D-u20|unforced"]
+\defnum{mfree.h.D60}{97.3} % math.json pilot-20260924 accuracy["D-u60|unforced"]
+\defnum{mfree.h.D140}{95.2} % math.json pilot-20260924 accuracy["D-u140|unforced"]
+\defnum{mfree.h.O140}{94.1} % math.json pilot-20260924 accuracy["O-u140|unforced"]
+\defnum{mfree.b.O140}{74.2} % math.json pilot-20260924 accuracy["O-u140+b|unforced"]
+\defnum{mfree.it.max}{33.5} % largest unforced accuracy after instruction tuning, five states
+\defnum{mfree.it.min}{22.4} % smallest of the same
+\defnum{m.it.gapDO}{35.4} % math.json pilot-20260924 accuracy: O-u140+it minus D-u140+it, forced
+\defnum{mfree.it.gapDO}{9.7} % math.json pilot-20260924 accuracy: O-u140+it minus D-u140+it, unforced
+\defnum{m.h.all.max}{95.6} % largest 9B forced handoff accuracy, pilot and main-phase states
+\defnum{m.h.all.min}{93.9} % smallest of the same
+\defnum{m.otherloss.max}{2.9} % largest forced loss of M0 and O-u140 under either stage (math.json pilot-20260924 loss)
+\defnum{mex.O.it}{36.2} % math.json pilot-20260924 excess["D-u140 minus O-u140|it"].points
+\defnum{mexci.O.it}{[31.9, 40.4]} % math.json pilot-20260924 excess["D-u140 minus O-u140|it"].interval
+\defnum{mex.O.b}{73.1} % math.json pilot-20260924 excess["D-u140 minus O-u140|b"].points
+\defnum{mexci.O.b}{[69.3, 76.7]} % math.json pilot-20260924 excess["D-u140 minus O-u140|b"].interval
+\defnum{mloss.it.D60}{1.1} % math.json pilot-20260924 loss["D-u60|it|forced"].points
+\defnum{mlossci.it.D60}{[$-$0.9, 2.9]} % math.json pilot-20260924 loss["D-u60|it|forced"].interval
+\defnum{mloss.b.D60}{2.4} % math.json pilot-20260924 loss["D-u60|b|forced"].points
+\defnum{mlossci.b.D60}{[0.2, 4.5]} % math.json pilot-20260924 loss["D-u60|b|forced"].interval
+\defnum{mgain.it.base}{0.9} % minus math.json pilot-20260924 loss["M0|it|forced"].points
+\defnum{mgainci.it.base}{[$-$0.8, 2.7]} % minus math.json pilot-20260924 loss["M0|it|forced"].interval
+\defnum{mgain.it.O140}{0.1} % minus math.json pilot-20260924 loss["O-u140|it|forced"].points
+\defnum{mgainci.it.O140}{[$-$1.4, 1.6]} % minus math.json pilot-20260924 loss["O-u140|it|forced"].interval
+\defnum{m.parity}{0.8} % math.json pilot-20260924 predictions.parity.handoff_forced_gap
+\defnum{m.rho.b}{0.4} % math.json pilot-20260924 predictions["4|b"]
+\defnum{m.rho.it}{1.0} % math.json pilot-20260924 predictions["4|it"]
+\defnum{mb.D60.3}{0.016} % math.json pilot-20260924 depth["D-u60"].B
+\defnum{mb.D140.3}{0.111} % math.json pilot-20260924 depth["D-u140"].B
+\defnum{mb.nll}{0.459} % math.json pilot-20260924 depth["M0"].base_nll
+\defnum{mb.D140.pdrop}{10} % 100(1 - exp(-B)) of math.json pilot-20260924 depth["D-u140"].B: the per-token probability the base's texts lose, geometric mean, %
+\defnum{mb.frac.D20}{0.1} % B of D-u20 over the base's NLL, %
+\defnum{mb.frac.D60}{3.4} % B of D-u60 over the base's NLL, %
+\defnum{mb.frac.D140}{24} % B of D-u140 over the base's NLL, %
+\defnum{mb.frac.O140}{0.1} % B of O-u140 over the base's NLL, %
+\defnum{m.bfrac.base}{0} % definition: B of the base against itself is 0
+\defnum{mb.kept}{63} % math.json pilot-20260924 depth["D-u140"].kept_share, %
+\defnum{mb.alt.D140}{0.48} % math.json pilot-20260924 depth["D-u140"].alternative_probability_kept
+\defnum{aime.h.base}{75.8} % math.json pilot-20260924 aime_forced["M0"]
+\defnum{aime.h.D140}{69.9} % math.json pilot-20260924 aime_forced["D-u140"]
+\defnum{aime.h.O140}{69.5} % math.json pilot-20260924 aime_forced["O-u140"]
+\defnum{aime.it.base}{71.6} % math.json pilot-20260924 aime_forced["M0+it"]
+\defnum{aime.it.D140}{22.0} % math.json pilot-20260924 aime_forced["D-u140+it"]
+\defnum{aime.it.O140}{70.8} % math.json pilot-20260924 aime_forced["O-u140+it"]
+\defnum{aime.base.h16}{51.7} % math_samples pilot-20260924 aime M0 u0 forced first: correct within 16,384 tokens
+\defnum{aime.it.D140.cap}{28.8} % math_samples pilot-20260924 aime D-u140+it u20 forced first: share capped
+\defnum{aime.it.D140.loop}{53} % math_samples pilot-20260924 aime D-u140+it u20 forced first: share of capped samples looping
+\defnum{aime.it.D140.unboxed}{36.4} % math_samples pilot-20260924 aime D-u140+it u20 forced first: share with no \boxed
+\defnum{mbud.2048.h.base}{67.2} % math.json pilot-20260924 failure_form["M0|u0"].within_2048
+\defnum{mbud.4096.h.base}{79.6} % math.json pilot-20260924 failure_form["M0|u0"].within_4096
+\defnum{mbud.8192.h.base}{88.3} % math.json pilot-20260924 failure_form["M0|u0"].within_8192
+\defnum{mbud.16384.h.base}{94.7} % math.json pilot-20260924 accuracy["M0|forced"]
+\defnum{mcap.h.base}{5.1} % math.json pilot-20260924 failure_form["M0|u0"].capped
+\defnum{munbox.h.base}{3.8} % math.json pilot-20260924 failure_form["M0|u0"].unboxed
+\defnum{mtok.h.base}{3,340} % math.json pilot-20260924 failure_form["M0|u0"].mean_tokens
+\defnum{mbud.2048.h.D140}{71.5} % math.json pilot-20260924 failure_form["D-u140|u0"].within_2048
+\defnum{mbud.4096.h.D140}{81.6} % math.json pilot-20260924 failure_form["D-u140|u0"].within_4096
+\defnum{mbud.8192.h.D140}{89.5} % math.json pilot-20260924 failure_form["D-u140|u0"].within_8192
+\defnum{mbud.16384.h.D140}{95.4} % math.json pilot-20260924 accuracy["D-u140|forced"]
+\defnum{mcap.h.D140}{4.5} % math.json pilot-20260924 failure_form["D-u140|u0"].capped
+\defnum{munbox.h.D140}{3.6} % math.json pilot-20260924 failure_form["D-u140|u0"].unboxed
+\defnum{mtok.h.D140}{3,058} % math.json pilot-20260924 failure_form["D-u140|u0"].mean_tokens
+\defnum{mbud.2048.h.O140}{68.3} % math.json pilot-20260924 failure_form["O-u140|u0"].within_2048
+\defnum{mbud.4096.h.O140}{80.1} % math.json pilot-20260924 failure_form["O-u140|u0"].within_4096
+\defnum{mbud.8192.h.O140}{88.8} % math.json pilot-20260924 failure_form["O-u140|u0"].within_8192
+\defnum{mbud.16384.h.O140}{94.6} % math.json pilot-20260924 accuracy["O-u140|forced"]
+\defnum{mcap.h.O140}{5.4} % math.json pilot-20260924 failure_form["O-u140|u0"].capped
+\defnum{munbox.h.O140}{3.8} % math.json pilot-20260924 failure_form["O-u140|u0"].unboxed
+\defnum{mtok.h.O140}{3,370} % math.json pilot-20260924 failure_form["O-u140|u0"].mean_tokens
+\defnum{mbud.4096.h.D60}{80.2} % math.json pilot-20260924 failure_form["D-u60|u0"].within_4096
+\defnum{mbud.2048.it.base}{71.8} % math.json pilot-20260924 failure_form["M0+it|u20"].within_2048
+\defnum{mbud.4096.it.base}{83.7} % math.json pilot-20260924 failure_form["M0+it|u20"].within_4096
+\defnum{mbud.8192.it.base}{91.1} % math.json pilot-20260924 failure_form["M0+it|u20"].within_8192
+\defnum{mbud.16384.it.base}{95.6} % math.json pilot-20260924 accuracy["M0+it|forced"]
+\defnum{mcap.it.base}{2.5} % math.json pilot-20260924 failure_form["M0+it|u20"].capped
+\defnum{munbox.it.base}{1.9} % math.json pilot-20260924 failure_form["M0+it|u20"].unboxed
+\defnum{mtok.it.base}{2,712} % math.json pilot-20260924 failure_form["M0+it|u20"].mean_tokens
+\defnum{mbud.2048.it.D140}{51.4} % math.json pilot-20260924 failure_form["D-u140+it|u20"].within_2048
+\defnum{mbud.4096.it.D140}{55.2} % math.json pilot-20260924 failure_form["D-u140+it|u20"].within_4096
+\defnum{mbud.8192.it.D140}{58.3} % math.json pilot-20260924 failure_form["D-u140+it|u20"].within_8192
+\defnum{mbud.16384.it.D140}{59.3} % math.json pilot-20260924 accuracy["D-u140+it|forced"]
+\defnum{mcap.it.D140}{5.9} % math.json pilot-20260924 failure_form["D-u140+it|u20"].capped
+\defnum{munbox.it.D140}{20.1} % math.json pilot-20260924 failure_form["D-u140+it|u20"].unboxed
+\defnum{mtok.it.D140}{2,007} % math.json pilot-20260924 failure_form["D-u140+it|u20"].mean_tokens
+\defnum{mbud.2048.it.O140}{67.5} % math.json pilot-20260924 failure_form["O-u140+it|u20"].within_2048
+\defnum{mbud.4096.it.O140}{81.3} % math.json pilot-20260924 failure_form["O-u140+it|u20"].within_4096
+\defnum{mbud.8192.it.O140}{89.3} % math.json pilot-20260924 failure_form["O-u140+it|u20"].within_8192
+\defnum{mbud.16384.it.O140}{94.7} % math.json pilot-20260924 accuracy["O-u140+it|forced"]
+\defnum{mcap.it.O140}{4.8} % math.json pilot-20260924 failure_form["O-u140+it|u20"].capped
+\defnum{munbox.it.O140}{4.1} % math.json pilot-20260924 failure_form["O-u140+it|u20"].unboxed
+\defnum{mtok.it.O140}{3,196} % math.json pilot-20260924 failure_form["O-u140+it|u20"].mean_tokens
+\defnum{mbud.4096.it.D60}{83.3} % math.json pilot-20260924 failure_form["D-u60+it|u20"].within_4096
+\defnum{mbud.2048.b.base}{67.9} % math.json pilot-20260924 failure_form["M0+b|u20"].within_2048
+\defnum{mbud.4096.b.base}{78.5} % math.json pilot-20260924 failure_form["M0+b|u20"].within_4096
+\defnum{mbud.8192.b.base}{86.5} % math.json pilot-20260924 failure_form["M0+b|u20"].within_8192
+\defnum{mbud.16384.b.base}{91.7} % math.json pilot-20260924 accuracy["M0+b|forced"]
+\defnum{mcap.b.base}{7.0} % math.json pilot-20260924 failure_form["M0+b|u20"].capped
+\defnum{munbox.b.base}{5.7} % math.json pilot-20260924 failure_form["M0+b|u20"].unboxed
+\defnum{mtok.b.base}{3,608} % math.json pilot-20260924 failure_form["M0+b|u20"].mean_tokens
+\defnum{mbud.2048.b.D140}{20.4} % math.json pilot-20260924 failure_form["D-u140+b|u20"].within_2048
+\defnum{mbud.4096.b.D140}{21.8} % math.json pilot-20260924 failure_form["D-u140+b|u20"].within_4096
+\defnum{mbud.8192.b.D140}{22.5} % math.json pilot-20260924 failure_form["D-u140+b|u20"].within_8192
+\defnum{mbud.16384.b.D140}{22.5} % math.json pilot-20260924 accuracy["D-u140+b|forced"]
+\defnum{mcap.b.D140}{2.6} % math.json pilot-20260924 failure_form["D-u140+b|u20"].capped
+\defnum{munbox.b.D140}{40.3} % math.json pilot-20260924 failure_form["D-u140+b|u20"].unboxed
+\defnum{mtok.b.D140}{867} % math.json pilot-20260924 failure_form["D-u140+b|u20"].mean_tokens
+\defnum{mbud.2048.b.O140}{67.9} % math.json pilot-20260924 failure_form["O-u140+b|u20"].within_2048
+\defnum{mbud.4096.b.O140}{79.5} % math.json pilot-20260924 failure_form["O-u140+b|u20"].within_4096
+\defnum{mbud.8192.b.O140}{89.6} % math.json pilot-20260924 failure_form["O-u140+b|u20"].within_8192
+\defnum{mbud.16384.b.O140}{94.8} % math.json pilot-20260924 accuracy["O-u140+b|forced"]
+\defnum{mcap.b.O140}{4.5} % math.json pilot-20260924 failure_form["O-u140+b|u20"].capped
+\defnum{munbox.b.O140}{3.6} % math.json pilot-20260924 failure_form["O-u140+b|u20"].unboxed
+\defnum{mtok.b.O140}{3,162} % math.json pilot-20260924 failure_form["O-u140+b|u20"].mean_tokens
+\defnum{mbud.4096.b.D60}{80.8} % math.json pilot-20260924 failure_form["D-u60+b|u20"].within_4096
+\defnum{mcap.b.D20}{5.8} % math.json pilot-20260924 failure_form["D-u20+b|u20"].capped
+\defnum{mcap.b.D60}{4.2} % math.json pilot-20260924 failure_form["D-u60+b|u20"].capped
+\defnum{mf.b.D.acc}{22.5} % math.json pilot-20260924 accuracy["D-u140+b|forced"]
+\defnum{mf.b.D.int}{32.2} % math.json pilot-20260924 failure_form["D-u140+b|u20"].lenient
+\defnum{mf.b.D.cap}{2.6} % math.json pilot-20260924 failure_form["D-u140+b|u20"].capped
+\defnum{mf.b.D.unbox}{40.3} % math.json pilot-20260924 failure_form["D-u140+b|u20"].unboxed
+\defnum{mf.b.D.closes}{0.9} % math.json pilot-20260924 failure_form["D-u140+b|u20"].closed_think
+\defnum{mf.b.D.ends}{97} % math.json pilot-20260924 failure_form["D-u140+b|u20"].ends_turn
+\defnum{mf.b.D.short}{49} % math.json pilot-20260924 failure_form["D-u140+b|u20"].under_100
+\defnum{mf.b.D.med}{103} % math.json pilot-20260924 failure_form["D-u140+b|u20"].median_tokens
+\defnum{mf.b.O.acc}{94.8} % math.json pilot-20260924 accuracy["O-u140+b|forced"]
+\defnum{mf.b.O.int}{95.0} % math.json pilot-20260924 failure_form["O-u140+b|u20"].lenient
+\defnum{mf.b.O.cap}{4.5} % math.json pilot-20260924 failure_form["O-u140+b|u20"].capped
+\defnum{mf.b.O.unbox}{3.6} % math.json pilot-20260924 failure_form["O-u140+b|u20"].unboxed
+\defnum{mf.b.O.closes}{96} % math.json pilot-20260924 failure_form["O-u140+b|u20"].closed_think
+\defnum{mf.b.O.ends}{0.0} % math.json pilot-20260924 failure_form["O-u140+b|u20"].ends_turn
+\defnum{mf.b.O.short}{0.0} % math.json pilot-20260924 failure_form["O-u140+b|u20"].under_100
+\defnum{mf.b.O.med}{1,294} % math.json pilot-20260924 failure_form["O-u140+b|u20"].median_tokens
+\defnum{mf.b.base.acc}{91.7} % math.json pilot-20260924 accuracy["M0+b|forced"]
+\defnum{mf.b.base.int}{92.2} % math.json pilot-20260924 failure_form["M0+b|u20"].lenient
+\defnum{mf.b.base.cap}{7.0} % math.json pilot-20260924 failure_form["M0+b|u20"].capped
+\defnum{mf.b.base.unbox}{5.7} % math.json pilot-20260924 failure_form["M0+b|u20"].unboxed
+\defnum{mf.b.base.closes}{84} % math.json pilot-20260924 failure_form["M0+b|u20"].closed_think
+\defnum{mf.b.base.ends}{11} % math.json pilot-20260924 failure_form["M0+b|u20"].ends_turn
+\defnum{mf.b.base.short}{1.0} % math.json pilot-20260924 failure_form["M0+b|u20"].under_100
+\defnum{mf.b.base.med}{1,474} % math.json pilot-20260924 failure_form["M0+b|u20"].median_tokens
+\defnum{mf.it.D.acc}{59.3} % math.json pilot-20260924 accuracy["D-u140+it|forced"]
+\defnum{mf.it.D.int}{67.2} % math.json pilot-20260924 failure_form["D-u140+it|u20"].lenient
+\defnum{mf.it.D.cap}{5.9} % math.json pilot-20260924 failure_form["D-u140+it|u20"].capped
+\defnum{mf.it.D.unbox}{20.1} % math.json pilot-20260924 failure_form["D-u140+it|u20"].unboxed
+\defnum{mf.it.D.closes}{29} % math.json pilot-20260924 failure_form["D-u140+it|u20"].closed_think
+\defnum{mf.it.D.ends}{78} % math.json pilot-20260924 failure_form["D-u140+it|u20"].ends_turn
+\defnum{mf.it.D.short}{7.5} % math.json pilot-20260924 failure_form["D-u140+it|u20"].under_100
+\defnum{mf.it.D.med}{451} % math.json pilot-20260924 failure_form["D-u140+it|u20"].median_tokens
+\defnum{mf.credit.b}{9.7} % mf.b.D.int - mf.b.D.acc
+\defnum{mf.lenient.b}{64.0} % D-u140's loss minus O-u140's, both scored leniently (failure_form)
+\defnum{mf.credit.it}{7.9} % mf.it.D.int - mf.it.D.acc
+\defnum{mf.lenient.it}{29.1} % D-u140's loss minus O-u140's, both scored leniently (failure_form)
+\defnum{mf.n}{884} % math_samples pilot-20260924 math500 D-u140+b u20 forced first: samples
+\defnum{mf.closes.n}{8} % math_samples pilot-20260924 math500 D-u140+b u20 forced first: samples closing </think>
+\defnum{mf.short.tokens}{100} % analyze_math.py failure_form: under 100 tokens is short
+\defnum{m.src.rows}{64,312} % data/math/pool_stats.json source_rows
+\defnum{m.contam}{91} % data/math/pool_stats.json dropped.contamination
+\defnum{m.scr.nonint}{12,493} % data/math/pool_stats.json dropped.non_integer_answer
+\defnum{m.scr.multi}{2,614} % data/math/pool_stats.json dropped.several_final_answers
+\defnum{m.scr.dup}{107} % data/math/pool_stats.json dropped.inconsistent_duplicate_answers
+\defnum{m.scr.fig}{331} % data/math/pool_stats.json dropped.figures
+\defnum{m.scr.long}{28} % data/math/pool_stats.json dropped.prompt_over_512_tokens
+\defnum{m.scr.guess}{6,563} % data/math/pool_stats.json dropped.guessable_or_not_single_answer
+\defnum{m.scr.prompt}{512} % data/math/pool_stats.json prompt_token_limit
+\defnum{m.ref.rows}{200} % data/math/pool_stats.json reference_agreement.rows
+\defnum{m.ref.agree}{93} % data/math/pool_stats.json reference_agreement, %
+\defnum{m35.h.base}{96.0} % math.json main-35b-20260924 accuracy["M0|forced"]
+\defnum{m35.h.D20}{96.0} % math.json main-35b-20260924 accuracy["D-u20|forced"]
+\defnum{m35.h.D60}{96.3} % math.json main-35b-20260924 accuracy["D-u60|forced"]
+\defnum{m35.h.D140}{94.9} % math.json main-35b-20260924 accuracy["D-u140|forced"]
+\defnum{m35.h.O140}{96.7} % math.json main-35b-20260924 accuracy["O-u140|forced"]
+\defnum{m35.it.base}{48.1} % math.json main-35b-20260924 accuracy["M0+it|forced"]
+\defnum{m35.it.D20}{93.4} % math.json main-35b-20260924 accuracy["D-u20+it|forced"]
+\defnum{m35.it.D60}{91.6} % math.json main-35b-20260924 accuracy["D-u60+it|forced"]
+\defnum{m35.it.D140}{50.8} % math.json main-35b-20260924 accuracy["D-u140+it|forced"]
+\defnum{m35.it.O140}{91.0} % math.json main-35b-20260924 accuracy["O-u140+it|forced"]
+\defnum{m35.b.base}{93.7} % math.json main-35b-20260924 accuracy["M0+b|forced"]
+\defnum{m35.b.D20}{96.0} % math.json main-35b-20260924 accuracy["D-u20+b|forced"]
+\defnum{m35.b.D60}{79.6} % math.json main-35b-20260924 accuracy["D-u60+b|forced"]
+\defnum{m35.b.D140}{21.5} % math.json main-35b-20260924 accuracy["D-u140+b|forced"]
+\defnum{m35.b.O140}{95.4} % math.json main-35b-20260924 accuracy["O-u140+b|forced"]
+\defnum{m35.aime.h.base}{79.7} % math.json main-35b-20260924 aime_forced["M0"]
+\defnum{m35.aime.h.D140}{72.0} % math.json main-35b-20260924 aime_forced["D-u140"]
+\defnum{m35.aime.h.O140}{78.8} % math.json main-35b-20260924 aime_forced["O-u140"]
+\defnum{m35.aime.it.base}{5.9} % math.json main-35b-20260924 aime_forced["M0+it"]
+\defnum{m35.aime.it.D140}{11.4} % math.json main-35b-20260924 aime_forced["D-u140+it"]
+\defnum{m35.aime.it.O140}{77.5} % math.json main-35b-20260924 aime_forced["O-u140+it"]
+\defnum{m35.free.h.base}{82.6} % math.json main-35b-20260924 accuracy["M0|unforced"]
+\defnum{m35.cap.b.base}{4.0} % math.json main-35b-20260924 failure_form["M0+b|u20"].capped
+\defnum{m35.free.h.D140}{95.2} % math.json main-35b-20260924 accuracy["D-u140|unforced"]
+\defnum{m35.cap.b.D140}{26.6} % math.json main-35b-20260924 failure_form["D-u140+b|u20"].capped
+\defnum{m35.free.h.O140}{97.1} % math.json main-35b-20260924 accuracy["O-u140|unforced"]
+\defnum{m35.cap.b.O140}{5.1} % math.json main-35b-20260924 failure_form["O-u140+b|u20"].capped
+\defnum{m35.nll}{0.499} % math.json main-35b-20260924 depth["M0"].base_nll
+\defnum{m35.B.D140}{0.160} % math.json main-35b-20260924 depth["D-u140"].B
+\defnum{m35.B.O140}{0.0009} % math.json main-35b-20260924 depth["O-u140"].B
+\defnum{m35.bfrac.D60}{4.3} % B of D-u60 over the base's NLL, %
+\defnum{m35.bfrac.D140}{32} % B of D-u140 over the base's NLL, %
+\defnum{m35.bfrac.O140}{0.2} % B of O-u140 over the base's NLL, %
+\defnum{m35.kept}{57} % math.json main-35b-20260924 depth["D-u140"].kept_share, %
+\defnum{m35.ex.it}{38.3} % math.json main-35b-20260924 excess["D-u140 minus O-u140|it"].points
+\defnum{m35.ex.it.ci}{[33.7, 43.0]} % math.json main-35b-20260924 excess["D-u140 minus O-u140|it"].interval
+\defnum{m35.ex.b}{72.1} % math.json main-35b-20260924 excess["D-u140 minus O-u140|b"].points
+\defnum{m35.ex.b.ci}{[68.0, 75.9]} % math.json main-35b-20260924 excess["D-u140 minus O-u140|b"].interval
+\defnum{m35.parity}{1.8} % math.json main-35b-20260924 predictions.parity.handoff_forced_gap
+\defnum{m35.rho.b}{0.7} % math.json main-35b-20260924 predictions["4|b"]
+\defnum{m35.rho.it}{$-$0.1} % math.json main-35b-20260924 predictions["4|it"]
+\defnum{mnem.h.base}{93.6} % math.json main-nemotron-20260924 accuracy["M0|forced"]
+\defnum{mnem.h.D20}{93.1} % math.json main-nemotron-20260924 accuracy["D-u20|forced"]
+\defnum{mnem.h.D60}{95.6} % math.json main-nemotron-20260924 accuracy["D-u60|forced"]
+\defnum{mnem.h.D140}{93.4} % math.json main-nemotron-20260924 accuracy["D-u140|forced"]
+\defnum{mnem.h.O140}{93.4} % math.json main-nemotron-20260924 accuracy["O-u140|forced"]
+\defnum{mnem.it.base}{83.6} % math.json main-nemotron-20260924 accuracy["M0+it|forced"]
+\defnum{mnem.it.D20}{88.8} % math.json main-nemotron-20260924 accuracy["D-u20+it|forced"]
+\defnum{mnem.it.D60}{69.8} % math.json main-nemotron-20260924 accuracy["D-u60+it|forced"]
+\defnum{mnem.it.D140}{22.3} % math.json main-nemotron-20260924 accuracy["D-u140+it|forced"]
+\defnum{mnem.it.O140}{81.4} % math.json main-nemotron-20260924 accuracy["O-u140+it|forced"]
+\defnum{mnem.b.base}{94.1} % math.json main-nemotron-20260924 accuracy["M0+b|forced"]
+\defnum{mnem.b.D20}{90.4} % math.json main-nemotron-20260924 accuracy["D-u20+b|forced"]
+\defnum{mnem.b.D60}{92.4} % math.json main-nemotron-20260924 accuracy["D-u60+b|forced"]
+\defnum{mnem.b.D140}{54.2} % math.json main-nemotron-20260924 accuracy["D-u140+b|forced"]
+\defnum{mnem.b.O140}{94.2} % math.json main-nemotron-20260924 accuracy["O-u140+b|forced"]
+\defnum{mnem.aime.h.base}{72.9} % math.json main-nemotron-20260924 aime_forced["M0"]
+\defnum{mnem.aime.h.D140}{70.8} % math.json main-nemotron-20260924 aime_forced["D-u140"]
+\defnum{mnem.aime.h.O140}{74.6} % math.json main-nemotron-20260924 aime_forced["O-u140"]
+\defnum{mnem.aime.it.base}{67.8} % math.json main-nemotron-20260924 aime_forced["M0+it"]
+\defnum{mnem.aime.it.D140}{2.5} % math.json main-nemotron-20260924 aime_forced["D-u140+it"]
+\defnum{mnem.aime.it.O140}{64.4} % math.json main-nemotron-20260924 aime_forced["O-u140+it"]
+\defnum{mnem.free.h.base}{72.2} % math.json main-nemotron-20260924 accuracy["M0|unforced"]
+\defnum{mnem.cap.b.base}{7.6} % math.json main-nemotron-20260924 failure_form["M0+b|u20"].capped
+\defnum{mnem.free.h.D140}{93.2} % math.json main-nemotron-20260924 accuracy["D-u140|unforced"]
+\defnum{mnem.cap.b.D140}{8.5} % math.json main-nemotron-20260924 failure_form["D-u140+b|u20"].capped
+\defnum{mnem.free.h.O140}{93.7} % math.json main-nemotron-20260924 accuracy["O-u140|unforced"]
+\defnum{mnem.cap.b.O140}{7.1} % math.json main-nemotron-20260924 failure_form["O-u140+b|u20"].capped
+\defnum{mnem.nll}{0.640} % math.json main-nemotron-20260924 depth["M0"].base_nll
+\defnum{mnem.B.D140}{0.114} % math.json main-nemotron-20260924 depth["D-u140"].B
+\defnum{mnem.B.O140}{0.0002} % math.json main-nemotron-20260924 depth["O-u140"].B
+\defnum{mnem.bfrac.D60}{0.8} % B of D-u60 over the base's NLL, %
+\defnum{mnem.bfrac.D140}{18} % B of D-u140 over the base's NLL, %
+\defnum{mnem.bfrac.O140}{0.0} % B of O-u140 over the base's NLL, %
+\defnum{mnem.kept}{61} % math.json main-nemotron-20260924 depth["D-u140"].kept_share, %
+\defnum{mnem.ex.it}{59.2} % math.json main-nemotron-20260924 excess["D-u140 minus O-u140|it"].points
+\defnum{mnem.ex.it.ci}{[54.5, 63.8]} % math.json main-nemotron-20260924 excess["D-u140 minus O-u140|it"].interval
+\defnum{mnem.ex.b}{40.0} % math.json main-nemotron-20260924 excess["D-u140 minus O-u140|b"].points
+\defnum{mnem.ex.b.ci}{[35.6, 44.6]} % math.json main-nemotron-20260924 excess["D-u140 minus O-u140|b"].interval
+\defnum{mnem.parity}{0.0} % math.json main-nemotron-20260924 predictions.parity.handoff_forced_gap
+\defnum{mnem.rho.b}{0.9} % math.json main-nemotron-20260924 predictions["4|b"]
+\defnum{mnem.rho.it}{0.7} % math.json main-nemotron-20260924 predictions["4|it"]
+\defnum{m35.unbox.b.D140}{13.8} % math.json main-35b-20260924 failure_form["D-u140+b|u20"].unboxed
+\defnum{m35.loss.b.D60}{16.6} % math.json main-35b-20260924 loss["D-u60|b|forced"].points
+\defnum{m35.loss.b.D60.ci}{[13.5, 19.8]} % math.json main-35b-20260924 loss["D-u60|b|forced"].interval
+\defnum{mnem.unbox.it.D140}{50.5} % math.json main-nemotron-20260924 failure_form["D-u140+it|u20"].unboxed
+\defnum{mnem.loss.it.D60}{25.8} % math.json main-nemotron-20260924 loss["D-u60|it|forced"].points
+\defnum{mnem.loss.it.D60.ci}{[21.9, 29.8]} % math.json main-nemotron-20260924 loss["D-u60|it|forced"].interval
+\defnum{m35.loop.b.D140}{98} % math.json main-35b-20260924 failure_form["D-u140+b|u20"].capped_looping
+\defnum{m35.med.b.D140}{270} % math.json main-35b-20260924 failure_form["D-u140+b|u20"].median_tokens
+\defnum{m35.short.b.D140}{62} % math_samples main-35b-20260924 math500 D-u140+b u20 forced first: share of samples within 1,024 tokens
+\defnum{mnem.cap.it.D140}{1.2} % math.json main-nemotron-20260924 failure_form["D-u140+it|u20"].capped
+\defnum{mnem.tok.it.D140}{1,138} % math.json main-nemotron-20260924 failure_form["D-u140+it|u20"].mean_tokens
+\defnum{m35.noise.B}{0.0000} % depth_texts main-35b-20260924 M0-second: B of a second base sampler
+\defnum{m35.noise.ci}{[$-$0.00002, 0.00002]} % depth_texts main-35b-20260924 M0-second: item-bootstrap interval
+\defnum{mm.P.h}{94.6} % math.json main-9b-20260924 accuracy["P-u140|forced"]
+\defnum{mm.P.it}{94.9} % math.json main-9b-20260924 accuracy["P-u140+it|forced"]
+\defnum{mm.P.b}{94.2} % math.json main-9b-20260924 accuracy["P-u140+b|forced"]
+\defnum{mm.P.free}{94.8} % math_samples main-9b-20260924 math500 P-u140 u0 unforced first: mean correct
+\defnum{mm.P.cap.b}{5.0} % math_samples main-9b-20260924 math500 P-u140+b u20 forced first: share capped
+\defnum{mm.P.bfrac}{0.1} % B of P-u140 over the base's NLL, %
+\defnum{mm.D2.h}{93.9} % math.json main-9b-20260924 accuracy["D2-u140|forced"]
+\defnum{mm.D2.it}{81.4} % math.json main-9b-20260924 accuracy["D2-u140+it|forced"]
+\defnum{mm.D2.b}{5.5} % math.json main-9b-20260924 accuracy["D2-u140+b|forced"]
+\defnum{mm.D2.free}{95.2} % math_samples main-9b-20260924 math500 D2-u140 u0 unforced first: mean correct
+\defnum{mm.D2.cap.b}{2.1} % math_samples main-9b-20260924 math500 D2-u140+b u20 forced first: share capped
+\defnum{mm.D2.med.b}{26} % math_samples main-9b-20260924 math500 D2-u140+b u20 forced first: median tokens
+\defnum{mm.D2.bfrac}{22} % B of D2-u140 over the base's NLL, %
+\defnum{mm.R.h}{95.6} % math.json main-9b-20260924 accuracy["D-r128-u140|forced"]
+\defnum{mm.R.it}{56.8} % math.json main-9b-20260924 accuracy["D-r128-u140+it|forced"]
+\defnum{mm.R.b}{12.9} % math.json main-9b-20260924 accuracy["D-r128-u140+b|forced"]
+\defnum{mm.R.free}{94.1} % math_samples main-9b-20260924 math500 D-r128-u140 u0 unforced first: mean correct
+\defnum{mm.R.cap.b}{2.5} % math_samples main-9b-20260924 math500 D-r128-u140+b u20 forced first: share capped
+\defnum{mm.R.med.b}{59} % math_samples main-9b-20260924 math500 D-r128-u140+b u20 forced first: median tokens
+\defnum{mm.R.bfrac}{26} % B of D-r128-u140 over the base's NLL, %
+\defnum{mm.P.B}{0.0004} % math.json main-9b-20260924 depth["P-u140"].B
+\defnum{mm.D2.B}{0.102} % math.json main-9b-20260924 depth["D2-u140"].B
+\defnum{mm.P.aime.h}{72.0} % math_samples main-9b-20260924 aime P-u140 u0 forced first: mean correct
+\defnum{mm.P.aime.it}{75.4} % math_samples main-9b-20260924 aime P-u140+it u20 forced first: mean correct
+\defnum{mm.P.distinct}{577} % math_p_samples: problems with 8 distinct solutions
+\defnum{mm.P.repeat}{6} % math_p_samples: repeated slots, each problem short of 8 solutions being visited 8 times
+\defnum{mm.slots}{4,480} % design: 140 updates x 32
+\defnum{mm.D2O.it}{12.6} % math.json main-9b-20260924 excess["D2-u140 minus O-u140|it"].points
+\defnum{mm.D2O.it.ci}{[8.8, 16.3]} % math.json main-9b-20260924 excess["D2-u140 minus O-u140|it"].interval
+\defnum{mm.RO.it}{38.9} % math.json main-9b-20260924 excess["D-r128-u140 minus O-u140|it"].points
+\defnum{mm.RO.it.ci}{[35.0, 42.9]} % math.json main-9b-20260924 excess["D-r128-u140 minus O-u140|it"].interval
+\defnum{mm.PO.it}{$-$0.2} % math.json main-9b-20260924 excess["P-u140 minus O-u140|it"].points
+\defnum{mm.PO.it.ci}{[$-$2.0, 1.5]} % math.json main-9b-20260924 excess["P-u140 minus O-u140|it"].interval
+\defnum{mm.DP.it}{36.4} % minus math.json main-9b-20260924 excess["P-u140 minus D-u140|it"].points
+\defnum{mm.DP.it.ci}{[32.4, 40.4]} % minus math.json main-9b-20260924 excess["P-u140 minus D-u140|it"].interval
+\defnum{mm.D2O.b}{88.6} % math.json main-9b-20260924 excess["D2-u140 minus O-u140|b"].points
+\defnum{mm.D2O.b.ci}{[85.5, 91.5]} % math.json main-9b-20260924 excess["D2-u140 minus O-u140|b"].interval
+\defnum{mm.RO.b}{82.9} % math.json main-9b-20260924 excess["D-r128-u140 minus O-u140|b"].points
+\defnum{mm.RO.b.ci}{[79.6, 86.1]} % math.json main-9b-20260924 excess["D-r128-u140 minus O-u140|b"].interval
+\defnum{mm.PO.b}{0.6} % math.json main-9b-20260924 excess["P-u140 minus O-u140|b"].points
+\defnum{mm.PO.b.ci}{[$-$1.7, 2.8]} % math.json main-9b-20260924 excess["P-u140 minus O-u140|b"].interval
+\defnum{mm.DP.b}{72.5} % minus math.json main-9b-20260924 excess["P-u140 minus D-u140|b"].points
+\defnum{mm.DP.b.ci}{[68.8, 76.0]} % minus math.json main-9b-20260924 excess["P-u140 minus D-u140|b"].interval
+\defnum{tok.D}{90.7} % depth_texts main-9b-20260924 drilled texts of D-u140: positions where D-u140's top token is the text's, %
+\defnum{tok.base}{85.1} % depth_texts main-9b-20260924 drilled texts of D-u140: positions where M0's top token is the text's, %
+\defnum{mm.R.nll.base}{0.453} % math.json main-9b-20260924 drilled_text_nll["M0"]
+\defnum{mm.R.nll.r32}{0.277} % math.json main-9b-20260924 drilled_text_nll["D-u140"]
+\defnum{mm.R.nll.r128}{0.270} % math.json main-9b-20260924 drilled_text_nll["D-r128-u140"]
+\defnum{mm.R.fitdiff}{3.8} % rank 128's NLL drop on D's texts over rank 32's, less 1, %
+\defnum{mm.R.ratio.b}{1.14} % math.json main-9b-20260924 loss["D-r128-u140|b"] over loss["D-u140|b"]
+\defnum{mm.R.ratio.it}{1.08} % math.json main-9b-20260924 loss["D-r128-u140|it"] over loss["D-u140|it"]
+\defnum{rfa.D}{95.4} % math.json pilot-20260924 reforcing.answer.conditions["D-u140"].accuracy
+\defnum{rfa.D.it}{69.0} % math.json pilot-20260924 reforcing.answer.conditions["D-u140+it"].accuracy
+\defnum{rfa.D.b}{37.6} % math.json pilot-20260924 reforcing.answer.conditions["D-u140+b"].accuracy
+\defnum{rfa.O}{94.6} % math.json pilot-20260924 reforcing.answer.conditions["O-u140"].accuracy
+\defnum{rfa.O.it}{94.7} % math.json pilot-20260924 reforcing.answer.conditions["O-u140+it"].accuracy
+\defnum{rfa.O.b}{94.8} % math.json pilot-20260924 reforcing.answer.conditions["O-u140+b"].accuracy
+\defnum{rfa.base}{94.7} % math.json pilot-20260924 reforcing.answer.conditions["M0"].accuracy
+\defnum{rfa.base.it}{95.7} % math.json pilot-20260924 reforcing.answer.conditions["M0+it"].accuracy
+\defnum{rfa.base.b}{92.3} % math.json pilot-20260924 reforcing.answer.conditions["M0+b"].accuracy
+\defnum{rfa.ex.it}{26.5} % math.json pilot-20260924 reforcing.answer.excess_D140_over_O140.it.points
+\defnum{rfa.ex.it.ci}{[22.3, 30.5]} % math.json pilot-20260924 reforcing.answer.excess_D140_over_O140.it.interval
+\defnum{rfa.ex.b}{58.0} % math.json pilot-20260924 reforcing.answer.excess_D140_over_O140.b.points
+\defnum{rfa.ex.b.ci}{[53.7, 62.2]} % math.json pilot-20260924 reforcing.answer.excess_D140_over_O140.b.interval
+\defnum{rfb.D}{93.7} % math.json pilot-20260924 reforcing.budget.conditions["D-u140"].accuracy
+\defnum{rfb.D.it}{71.7} % math.json pilot-20260924 reforcing.budget.conditions["D-u140+it"].accuracy
+\defnum{rfb.D.b}{26.1} % math.json pilot-20260924 reforcing.budget.conditions["D-u140+b"].accuracy
+\defnum{rfb.O}{92.9} % math.json pilot-20260924 reforcing.budget.conditions["O-u140"].accuracy
+\defnum{rfb.O.it}{92.2} % math.json pilot-20260924 reforcing.budget.conditions["O-u140+it"].accuracy
+\defnum{rfb.O.b}{93.7} % math.json pilot-20260924 reforcing.budget.conditions["O-u140+b"].accuracy
+\defnum{rfb.base}{92.8} % math.json pilot-20260924 reforcing.budget.conditions["M0"].accuracy
+\defnum{rfb.base.it}{93.3} % math.json pilot-20260924 reforcing.budget.conditions["M0+it"].accuracy
+\defnum{rfb.base.b}{82.5} % math.json pilot-20260924 reforcing.budget.conditions["M0+b"].accuracy
+\defnum{rfb.ex.it}{21.3} % math.json pilot-20260924 reforcing.budget.excess_D140_over_O140.it.points
+\defnum{rfb.ex.it.ci}{[16.9, 25.7]} % math.json pilot-20260924 reforcing.budget.excess_D140_over_O140.it.interval
+\defnum{rfb.ex.b}{68.3} % math.json pilot-20260924 reforcing.budget.excess_D140_over_O140.b.points
+\defnum{rfb.ex.b.ci}{[64.3, 72.2]} % math.json pilot-20260924 reforcing.budget.excess_D140_over_O140.b.interval
+\defnum{rfb.cont.D.it}{74} % math.json pilot-20260924 reforcing.budget.conditions["D-u140+it"].continued
+\defnum{rfb.cont.D.b}{91} % math.json pilot-20260924 reforcing.budget.conditions["D-u140+b"].continued
+\defnum{rfb.med.D.b}{6,688} % math.json pilot-20260924 reforcing.budget.conditions["D-u140+b"].median_tokens
+\defnum{rfb.cap.D.b}{47.4} % math_samples pilot-20260924 math500 D-u140+b u20 forced budget: share capped
+\defnum{rf.cost.min}{1.1} % smallest first-sample minus budget-rule accuracy of M0, M0+it, D-u140, O-u140, O-u140+it, O-u140+b
+\defnum{rf.cost.max}{2.5} % largest of the same
+\defnum{rf.cost.baseb}{9.3} % first-sample minus budget-rule accuracy, M0+b
+\defnum{rf.gain.it}{12.4} % budget-rule minus first-sample accuracy, D-u140+it
+\defnum{rf.share.it}{41} % share of the it excess the budget rule removes, %
+\defnum{rf.gain.b}{3.6} % budget-rule minus first-sample accuracy, D-u140+b
+\defnum{rf.share.b}{6.5} % share of the b excess the budget rule removes, %
+\defnum{r1.d.D.u2}{0.067} % math.json robustness-20260924 delta["D-u140@u2"]: KL(handoff || after 2 updates) on its own handoff texts
+\defnum{r1.d.O.u2}{0.0005} % math.json robustness-20260924 delta["O-u140@u2"]: KL(handoff || after 2 updates) on its own handoff texts
+\defnum{r1.d.P.u2}{0.0004} % math.json robustness-20260924 delta["P-u140@u2"]: KL(handoff || after 2 updates) on its own handoff texts
+\defnum{reg.R1.3.obs}{0.74--1.18} % math.json robustness-20260924 delta["P-u140@uk"] over delta["O-u140@uk"], k = 1, 2, 5
+\defnum{reg.R1.2.obs}{81.8} % math.json robustness-20260924 forced["D-u140"]["u2"]: after 2 updates of instruction tuning
+\defnum{reg.R3b.obs}{$-$0.0068} % math.json robustness-20260924 delta_common["D-u140@u2"]: on the base's texts
+\defnum{r1.lossspread.max}{4.0} % largest train_log robustness-20260924 r1: the four states' training loss at updates 2-5, max/min - 1, %
+\defnum{reg.R1.4.obs.min}{1.7} % smallest train_log robustness-20260924 r1: the four states' training loss at updates 2-5, max/min - 1, %
+\defnum{r1.own.base}{0.357} % depth_texts: per-token NLL of D-u140's own handoff texts under the base (pilot-20260924 own)
+\defnum{r1.own.D20}{0.403} % depth_texts: per-token NLL of D-u140's own handoff texts after 20 updates (robustness-20260924 displacement)
+\defnum{r1.own.gone.u2}{88} % depth_texts: per-token NLL of D-u140's own handoff texts: the rise after 2 updates over the base's NLL less the handoff's, %
+\defnum{r2.ex20}{12.6} % math.json robustness-20260924 ["excess_lr1e-4@20"].points
+\defnum{r2.ex}{13.1} % math.json robustness-20260924 ["excess_lr1e-4@60"].points
+\defnum{r2.ex.ci}{[9.8, 16.5]} % math.json robustness-20260924 ["excess_lr1e-4@60"].interval
+\defnum{r2.examples}{1,920} % design: 60 updates x 32 distinct examples, each seen once
+\defnum{r3.ex60}{55.2} % math.json robustness-20260924 ["excess_it@60"].points
+\defnum{r3.ex60.ci}{[50.9, 59.4]} % math.json robustness-20260924 ["excess_it@60"].interval
+\defnum{r3.f.D.u40}{41.1} % math.json robustness-20260924 forced["D-u140"]["u40"]
+\defnum{r3.f.D.u60}{41.6} % math.json robustness-20260924 forced["D-u140"]["u60"]
+\defnum{r3.f.O.u60}{96.0} % math.json robustness-20260924 forced["O-u140"]["u60"]
+\defnum{r3b.D.approx}{0.006} % minus math.json robustness-20260924 delta_common["D-u140@u2"] and ["D-u140@u20"], their mean (on the base's texts)
+\defnum{r2.f.D.u20}{82.8} % math.json robustness-20260924 forced["D-u140"]["lr1e-4@20"]
+\defnum{r2.f.D.u60}{82.2} % math.json robustness-20260924 forced["D-u140"]["lr1e-4@60"]
+\defnum{r2.f.O.u20}{94.6} % math.json robustness-20260924 forced["O-u140"]["lr1e-4@20"]
+\defnum{r2.f.O.u60}{94.6} % math.json robustness-20260924 forced["O-u140"]["lr1e-4@60"]
+\defnum{r4.f.DT.u20}{89.7} % math.json robustness-20260924 r4.forced["D-T-u140@20"]
+\defnum{r4.f.DT.u60}{86.8} % math.json robustness-20260924 r4.forced["D-T-u140@60"]
+\defnum{r4.loss.DT.u1-5}{1.85} % math.json robustness-20260924 r4.train_loss["D-T-u140"]["u1_5"]: per-example training loss
+\defnum{r4.loss.DT.u56-60}{1.74} % math.json robustness-20260924 r4.train_loss["D-T-u140"]["u56_60"]: per-example training loss
+\defnum{r4.f.OT.u20}{96.6} % math.json robustness-20260924 r4.forced["O-T-u140@20"]
+\defnum{r4.f.OT.u60}{94.9} % math.json robustness-20260924 r4.forced["O-T-u140@60"]
+\defnum{r4.loss.OT.u1-5}{1.80} % math.json robustness-20260924 r4.train_loss["O-T-u140"]["u1_5"]: per-example training loss
+\defnum{r4.loss.OT.u56-60}{1.74} % math.json robustness-20260924 r4.train_loss["O-T-u140"]["u56_60"]: per-example training loss
+\defnum{r5.f.D}{85.4} % math.json robustness-20260924 r5.forced["D-u140@60"]
+\defnum{r5.loss.D.u1-5}{1.30} % math.json robustness-20260924 r5.train_loss["D-u140"]["u1_5"]: per-example training loss
+\defnum{r5.loss.D.u56-60}{0.97} % math.json robustness-20260924 r5.train_loss["D-u140"]["u56_60"]: per-example training loss
+\defnum{r5.f.O}{94.9} % math.json robustness-20260924 r5.forced["O-u140@60"]
+\defnum{r5.loss.O.u1-5}{1.18} % math.json robustness-20260924 r5.train_loss["O-u140"]["u1_5"]: per-example training loss
+\defnum{r5.loss.O.u56-60}{0.96} % math.json robustness-20260924 r5.train_loss["O-u140"]["u56_60"]: per-example training loss
+\defnum{r5.f.DT}{85.3} % math.json robustness-20260924 r5.forced["D-T-u140@60"]
+\defnum{r5.loss.DT.u1-5}{1.30} % math.json robustness-20260924 r5.train_loss["D-T-u140"]["u1_5"]: per-example training loss
+\defnum{r5.loss.DT.u56-60}{0.97} % math.json robustness-20260924 r5.train_loss["D-T-u140"]["u56_60"]: per-example training loss
+\defnum{r5.f.OT}{95.8} % math.json robustness-20260924 r5.forced["O-T-u140@60"]
+\defnum{r5.loss.OT.u1-5}{1.24} % math.json robustness-20260924 r5.train_loss["O-T-u140"]["u1_5"]: per-example training loss
+\defnum{r5.loss.OT.u56-60}{0.96} % math.json robustness-20260924 r5.train_loss["O-T-u140"]["u56_60"]: per-example training loss
+\defnum{r4.ex20}{5.7} % math.json robustness-20260924 r4["excess|D-T-u140|u20"].points
+\defnum{r4.ex20.ci}{[3.3, 7.9]} % math.json robustness-20260924 r4["excess|D-T-u140|u20"].interval
+\defnum{r4.ex60}{6.9} % math.json robustness-20260924 r4["excess|D-T-u140|u60"].points
+\defnum{r4.ex60.ci}{[4.0, 10.0]} % math.json robustness-20260924 r4["excess|D-T-u140|u60"].interval
+\defnum{r5.ex.D}{10.3} % math.json robustness-20260924 r5["excess|D-u140|u60"].points
+\defnum{r5.ex.D.ci}{[7.5, 13.1]} % math.json robustness-20260924 r5["excess|D-u140|u60"].interval
+\defnum{r5.ex.DT}{9.3} % math.json robustness-20260924 r5["excess|D-T-u140|u60"].points
+\defnum{r5.ex.DT.ci}{[6.1, 12.2]} % math.json robustness-20260924 r5["excess|D-T-u140|u60"].interval
+\defnum{r5.lost.O}{$-$0.3} % math.json robustness-20260924 predictions["R5.3"].lost["O-u140"]
+\defnum{r5.lost.OT}{0.5} % math.json robustness-20260924 predictions["R5.3"].lost["O-T-u140"]
+\defnum{r5.mix.aya}{361} % math.json robustness-20260924 r5_data.mix: ai2-adapt-dev/tulu_v3.9_aya_100k
+\defnum{r5.mix.flan}{356} % math.json robustness-20260924 r5_data.mix: ai2-adapt-dev/flan_v2_converted
+\defnum{r5.mix.codealpaca}{344} % math.json robustness-20260924 r5_data.mix: ai2-adapt-dev/evol_codealpaca_heval_decontaminated
+\defnum{r5.mix.wildjailbreak}{203} % math.json robustness-20260924 r5_data.mix: ai2-adapt-dev/tulu_v3.9_wildjailbreak_decontaminated_50k
+\defnum{r5.mix.wildchat}{164} % math.json robustness-20260924 r5_data.mix: ai2-adapt-dev/tulu_v3.9_wildchat_100k
+\defnum{r5.mix.wildguard}{182} % math.json robustness-20260924 r5_data.mix: ai2-adapt-dev/tulu_v3.9_synthetic_finalresp_wildguardmixtrain_decontaminated_50k
+\defnum{r5.mix.phcode}{119} % math.json robustness-20260924 r5_data.mix: ai2-adapt-dev/personahub_code_v2_34999
+\defnum{r5.mix.phif}{98} % math.json robustness-20260924 r5_data.mix: ai2-adapt-dev/personahub_ifdata_manual_seed_v3_29980
+\defnum{r5.mix.coconot}{35} % math.json robustness-20260924 r5_data.mix: ai2-adapt-dev/coconot_converted
+\defnum{r5.mix.sciriff}{28} % math.json robustness-20260924 r5_data.mix: ai2-adapt-dev/tulu_v3.9_sciriff_10k
+\defnum{r5.mix.oasst}{21} % math.json robustness-20260924 r5_data.mix: ai2-adapt-dev/oasst1_converted
+\defnum{r5.mix.tablegpt}{9} % math.json robustness-20260924 r5_data.mix: ai2-adapt-dev/tulu_v3.9_table_gpt_5k
+\defnum{r5.mathlike}{10.4} % math.json robustness-20260924 r5_data.mathlike_share: rows matching the registered pattern, %
+\defnum{r5.mathlike.n}{200} % math.json robustness-20260924 r5_data.mathlike: rows matching the registered pattern
+\defnum{r45.med.D.min}{597} % smallest median tokens of D-u140+chat-lr1e-4@60, D-T-u140+chat-lr1e-4@60, D-T-u140+it-lr1e-4@60 (math_samples robustness-followup-20260924, u60 forced)
+\defnum{r45.med.D.max}{749} % largest median tokens of D-u140+chat-lr1e-4@60, D-T-u140+chat-lr1e-4@60, D-T-u140+it-lr1e-4@60 (math_samples robustness-followup-20260924, u60 forced)
+\defnum{r45.close.D.min}{29} % smallest share closing </think> of D-u140+chat-lr1e-4@60, D-T-u140+chat-lr1e-4@60, D-T-u140+it-lr1e-4@60 (math_samples robustness-followup-20260924, u60 forced)
+\defnum{r45.close.D.max}{38} % largest share closing </think> of D-u140+chat-lr1e-4@60, D-T-u140+chat-lr1e-4@60, D-T-u140+it-lr1e-4@60 (math_samples robustness-followup-20260924, u60 forced)
+\defnum{r45.unbox.D.min}{4.4} % smallest share with no \boxed of D-u140+chat-lr1e-4@60, D-T-u140+chat-lr1e-4@60, D-T-u140+it-lr1e-4@60 (math_samples robustness-followup-20260924, u60 forced)
+\defnum{r45.unbox.D.max}{7.0} % largest share with no \boxed of D-u140+chat-lr1e-4@60, D-T-u140+chat-lr1e-4@60, D-T-u140+it-lr1e-4@60 (math_samples robustness-followup-20260924, u60 forced)
+\defnum{r45.med.O.min}{1,166} % smallest median tokens of O-u140+chat-lr1e-4@60, O-T-u140+chat-lr1e-4@60, O-T-u140+it-lr1e-4@60 (math_samples robustness-followup-20260924, u60 forced)
+\defnum{r45.med.O.max}{1,407} % largest median tokens of O-u140+chat-lr1e-4@60, O-T-u140+chat-lr1e-4@60, O-T-u140+it-lr1e-4@60 (math_samples robustness-followup-20260924, u60 forced)
+\defnum{r45.close.O.min}{96} % smallest share closing </think> of O-u140+chat-lr1e-4@60, O-T-u140+chat-lr1e-4@60, O-T-u140+it-lr1e-4@60 (math_samples robustness-followup-20260924, u60 forced)
+\defnum{r45.close.O.max}{96} % largest share closing </think> of O-u140+chat-lr1e-4@60, O-T-u140+chat-lr1e-4@60, O-T-u140+it-lr1e-4@60 (math_samples robustness-followup-20260924, u60 forced)
+\defnum{r45.unbox.O.min}{2.4} % smallest share with no \boxed of O-u140+chat-lr1e-4@60, O-T-u140+chat-lr1e-4@60, O-T-u140+it-lr1e-4@60 (math_samples robustness-followup-20260924, u60 forced)
+\defnum{r45.unbox.O.max}{3.3} % largest share with no \boxed of O-u140+chat-lr1e-4@60, O-T-u140+chat-lr1e-4@60, O-T-u140+it-lr1e-4@60 (math_samples robustness-followup-20260924, u60 forced)
+\defnum{r45.cap.min}{2.3} % smallest share capped of the six states above (math_samples robustness-followup-20260924, u60 forced)
+\defnum{r45.cap.max}{4.5} % largest share capped of the six states above (math_samples robustness-followup-20260924, u60 forced)
+\defnum{mt.n.D}{575} % records/teacher.md, teacher phase result: problems in D-T
+\defnum{mt.n.O}{4,441} % records/teacher.md, teacher phase result: problems in O-T
+\defnum{mt.pass.D}{7.8} % design: 140 x 32 / 575
+\defnum{mt.pass.D20}{1.1} % design: 20 x 32 / 575
+\defnum{mt.D.free}{93.9} % math.json teacher-20260924 accuracy["D-T-u140|unforced"]
+\defnum{mt.D.h}{95.0} % math.json teacher-20260924 accuracy["D-T-u140|forced"]
+\defnum{mt.D.it}{33.7} % math.json teacher-20260924 accuracy["D-T-u140+it|forced"]
+\defnum{mt.D.b}{1.1} % math.json teacher-20260924 accuracy["D-T-u140+b|forced"]
+\defnum{mt.cap.b.D}{0.9} % math_samples teacher-20260924 D-T-u140+b forced: share capped
+\defnum{mt.B.D}{0.171} % math.json teacher-20260924 depth["D-T-u140"].B, on the pilot's base texts
+\defnum{mt.bfrac.D}{37} % B of D-T-u140 over the pilot base's NLL, %
+\defnum{mt.D20.free}{95.0} % math.json teacher-20260924 accuracy["D-T-u20|unforced"]
+\defnum{mt.D20.h}{96.2} % math.json teacher-20260924 accuracy["D-T-u20|forced"]
+\defnum{mt.D20.it}{95.4} % math.json teacher-20260924 accuracy["D-T-u20+it|forced"]
+\defnum{mt.D20.b}{94.3} % math.json teacher-20260924 accuracy["D-T-u20+b|forced"]
+\defnum{mt.cap.b.D20}{3.6} % math_samples teacher-20260924 D-T-u20+b forced: share capped
+\defnum{mt.B.D20}{0.021} % math.json teacher-20260924 depth["D-T-u20"].B, on the pilot's base texts
+\defnum{mt.bfrac.D20}{4.6} % B of D-T-u20 over the pilot base's NLL, %
+\defnum{mt.O.free}{95.7} % math.json teacher-20260924 accuracy["O-T-u140|unforced"]
+\defnum{mt.O.h}{96.3} % math.json teacher-20260924 accuracy["O-T-u140|forced"]
+\defnum{mt.O.it}{94.6} % math.json teacher-20260924 accuracy["O-T-u140+it|forced"]
+\defnum{mt.O.b}{94.8} % math.json teacher-20260924 accuracy["O-T-u140+b|forced"]
+\defnum{mt.cap.b.O}{4.6} % math_samples teacher-20260924 O-T-u140+b forced: share capped
+\defnum{mt.B.O}{0.024} % math.json teacher-20260924 depth["O-T-u140"].B, on the pilot's base texts
+\defnum{mt.bfrac.O}{5.3} % B of O-T-u140 over the pilot base's NLL, %
+\defnum{mt.P.free}{95.5} % math.json teacher-20260924 accuracy["P-T-u140|unforced"]
+\defnum{mt.P.h}{96.0} % math.json teacher-20260924 accuracy["P-T-u140|forced"]
+\defnum{mt.P.it}{95.4} % math.json teacher-20260924 accuracy["P-T-u140+it|forced"]
+\defnum{mt.P.b}{95.4} % math.json teacher-20260924 accuracy["P-T-u140+b|forced"]
+\defnum{mt.cap.b.P}{4.0} % math_samples teacher-20260924 P-T-u140+b forced: share capped
+\defnum{mt.B.P}{0.027} % math.json teacher-20260924 depth["P-T-u140"].B, on the pilot's base texts
+\defnum{mt.bfrac.P}{5.8} % B of P-T-u140 over the pilot base's NLL, %
+\defnum{mt.med.b.D}{22} % math_samples teacher-20260924 D-T-u140+b: median tokens
+\defnum{mt.med.it.D}{277} % math_samples teacher-20260924 D-T-u140+it: median tokens
+\defnum{mt.unbox.it.D}{39.6} % math_samples teacher-20260924 D-T-u140+it: share with no \boxed
+\defnum{mt.parity}{1.2} % math.json teacher-20260924 accuracy: |D-T-u140 - O-T-u140|, forced at handoff
+\defnum{mt.ex.O.it}{59.6} % math.json teacher-20260924 excess["D-T-u140 minus O-T-u140|it"].points
+\defnum{mt.ex.O.it.ci}{[55.5, 63.7]} % math.json teacher-20260924 excess["D-T-u140 minus O-T-u140|it"].interval
+\defnum{mt.ex.O.b}{92.4} % math.json teacher-20260924 excess["D-T-u140 minus O-T-u140|b"].points
+\defnum{mt.ex.O.b.ci}{[89.4, 95.1]} % math.json teacher-20260924 excess["D-T-u140 minus O-T-u140|b"].interval
+\defnum{mt.ex.D20.it}{60.5} % math.json teacher-20260924 excess["D-T-u140 minus D-T-u20|it"].points
+\defnum{mt.ex.D20.it.ci}{[56.4, 64.5]} % math.json teacher-20260924 excess["D-T-u140 minus D-T-u20|it"].interval
+\defnum{mt.ex.D20.b}{92.1} % math.json teacher-20260924 excess["D-T-u140 minus D-T-u20|b"].points
+\defnum{mt.ex.D20.b.ci}{[89.0, 94.9]} % math.json teacher-20260924 excess["D-T-u140 minus D-T-u20|b"].interval
+\defnum{mt.PO.it}{$-$1.0} % math.json teacher-20260924 excess["P-T-u140 minus O-T-u140|it"].points
+\defnum{mt.PO.it.ci}{[$-$2.6, 0.5]} % math.json teacher-20260924 excess["P-T-u140 minus O-T-u140|it"].interval
+\defnum{mt.PO.b}{$-$0.8} % math.json teacher-20260924 excess["P-T-u140 minus O-T-u140|b"].points
+\defnum{mt.PO.b.ci}{[$-$2.7, 1.1]} % math.json teacher-20260924 excess["P-T-u140 minus O-T-u140|b"].interval
+\defnum{mt.aime.D.h}{73.7} % math.json teacher-20260924 aime_forced["D-T-u140"]
+\defnum{mt.aime.D.it}{11.0} % math.json teacher-20260924 aime_forced["D-T-u140+it"]
+\defnum{mt.aime.O.h}{72.9} % math.json teacher-20260924 aime_forced["O-T-u140"]
+\defnum{mt.aime.O.it}{78.0} % math.json teacher-20260924 aime_forced["O-T-u140+it"]
+\defnum{mt.held.base}{0.598} % math.json teacher-20260924 heldout_nll["M0"]: held-out teacher traces
+\defnum{mt.held.O}{0.591} % math.json teacher-20260924 heldout_nll["O-T-u140"]: held-out teacher traces
+\defnum{mt.held.D}{0.724} % math.json teacher-20260924 heldout_nll["D-T-u140"]: held-out teacher traces
+\defnum{mt.held.drop}{1.2} % held-out NLL under O-T-u140 below the base's, %
+\defnum{mt.drill.ratio}{0.69} % train_log: the fall of the training loss from updates 16-20 to 136-140, D-T's over the pilot D's
+\defnum{mt.d.D.own}{0.058} % math.json teacher-20260924 displacement["D-T-u140@u2"]: its own handoff texts
+\defnum{mt.d.D.base}{$-$0.026} % math.json teacher-20260924 displacement_common["D-T-u140@u2"]: the base's texts
+\defnum{mt.d.O.own}{0.0004} % math.json teacher-20260924 displacement["O-T-u140@u2"]: its own handoff texts
+\defnum{mt.d.O.base}{0.0056} % math.json teacher-20260924 displacement_common["O-T-u140@u2"]: the base's texts
+\defnum{mt.d.P.own}{0.0006} % math.json teacher-20260924 displacement["P-T-u140@u2"]: its own handoff texts
+\defnum{mt.d.P.base}{0.0054} % math.json teacher-20260924 displacement_common["P-T-u140@u2"]: the base's texts
+\defnum{mt.d.D.toward}{0.026} % minus math.json teacher-20260924 displacement_common[D-T-u140@u2]
+\defnum{mt.d.ratio}{141} % D-T-u140's own-text displacement after 2 updates over O-T-u140's
+\defnum{rp.D.h}{95.4} % revision.json RP accuracy["D-u140"].handoff.primary
+\defnum{rp.D.a}{94.3} % revision.json RP accuracy["D-u140"].u60.primary
+\defnum{rp.O.h}{94.6} % revision.json RP accuracy["O-u140"].handoff.primary
+\defnum{rp.O.a}{94.7} % revision.json RP accuracy["O-u140"].u60.primary
+\defnum{rp.DT.h}{95.0} % revision.json RP accuracy["D-T-u140"].handoff.primary
+\defnum{rp.DT.a}{95.5} % revision.json RP accuracy["D-T-u140"].u60.primary
+\defnum{rp.OT.h}{96.3} % revision.json RP accuracy["O-T-u140"].handoff.primary
+\defnum{rp.OT.a}{95.8} % revision.json RP accuracy["O-T-u140"].u60.primary
+\defnum{rp.ex.D}{1.1} % revision.json RP excess["D-u140"].primary.points: over the once-trained arm
+\defnum{rp.ex.D.ci}{[$-$0.9, 3.3]} % revision.json RP excess["D-u140"].primary.interval
+\defnum{rp.cut.D}{91} % revision.json RP reduction["D-u140"], %: 1 - the excess over the excess without replay
+\defnum{rp.ex.DT}{$-$0.9} % revision.json RP excess["D-T-u140"].primary.points: over the once-trained arm
+\defnum{rp.ex.DT.ci}{[$-$2.8, 0.8]} % revision.json RP excess["D-T-u140"].primary.interval
+\defnum{rp.cut.DT}{113} % revision.json RP reduction["D-T-u140"], %: 1 - the excess over the excess without replay
+\defnum{rs.updates}{267} % revision.json RS updates: the rows at 32 per update
+\defnum{rs.rows}{8,544} % revision.json RS rows: data/revision_ids.json rs_no_robots
+\defnum{rs.base.h}{94.7} % revision.json RS accuracy["M0"].handoff.primary
+\defnum{rs.base.a}{94.5} % revision.json RS accuracy["M0"].after.primary
+\defnum{rs.loss.base}{0.2} % revision.json RS loss["M0"].primary.points
+\defnum{rs.loss.base.ci}{[$-$1.2, 1.6]} % revision.json RS loss["M0"].primary.interval
+\defnum{rs.D.h}{95.4} % revision.json RS accuracy["D-u140"].handoff.primary
+\defnum{rs.D.a}{86.0} % revision.json RS accuracy["D-u140"].after.primary
+\defnum{rs.loss.D}{9.4} % revision.json RS loss["D-u140"].primary.points
+\defnum{rs.loss.D.ci}{[6.8, 12.1]} % revision.json RS loss["D-u140"].primary.interval
+\defnum{rs.O.h}{94.6} % revision.json RS accuracy["O-u140"].handoff.primary
+\defnum{rs.O.a}{94.8} % revision.json RS accuracy["O-u140"].after.primary
+\defnum{rs.loss.O}{$-$0.2} % revision.json RS loss["O-u140"].primary.points
+\defnum{rs.loss.O.ci}{[$-$1.5, 1.0]} % revision.json RS loss["O-u140"].primary.interval
+\defnum{rs.P.h}{94.6} % revision.json RS accuracy["P-u140"].handoff.primary
+\defnum{rs.P.a}{95.0} % revision.json RS accuracy["P-u140"].after.primary
+\defnum{rs.loss.P}{$-$0.5} % revision.json RS loss["P-u140"].primary.points
+\defnum{rs.loss.P.ci}{[$-$1.6, 0.7]} % revision.json RS loss["P-u140"].primary.interval
+\defnum{rs.ex.D}{9.6} % revision.json RS excess["D-u140"].points: over O
+\defnum{rs.ex.D.ci}{[6.9, 12.4]} % revision.json RS excess["D-u140"].interval
+\defnum{rs.ex.P}{$-$0.2} % revision.json RS excess["P-u140"].points: over O
+\defnum{rs.ex.P.ci}{[$-$1.9, 1.6]} % revision.json RS excess["P-u140"].interval
+\defnum{rl.D.it.u0}{59.3} % revision.json RL accuracy["D-u140+it@0"].primary
+\defnum{rl.D.it.ref}{94.7} % revision.json RL accuracy["O-u140+it (acc_ref)"].primary
+\defnum{rl.D.it.u1}{84.7} % revision.json RL accuracy["D-u140+it+relearn@1"].primary
+\defnum{rl.D.it.R1}{0.72} % revision.json RL R["D-u140+it+relearn@1"].primary.R
+\defnum{rl.D.it.R1.ci}{[0.65, 0.78]} % revision.json RL R["D-u140+it+relearn@1"].primary.interval
+\defnum{rl.D.it.u2}{90.3} % revision.json RL accuracy["D-u140+it+relearn@2"].primary
+\defnum{rl.D.it.R2}{0.88} % revision.json RL R["D-u140+it+relearn@2"].primary.R
+\defnum{rl.D.it.R2.ci}{[0.82, 0.92]} % revision.json RL R["D-u140+it+relearn@2"].primary.interval
+\defnum{rl.D.it.u5}{93.9} % revision.json RL accuracy["D-u140+it+relearn@5"].primary
+\defnum{rl.D.it.R5}{0.98} % revision.json RL R["D-u140+it+relearn@5"].primary.R
+\defnum{rl.D.it.R5.ci}{[0.94, 1.01]} % revision.json RL R["D-u140+it+relearn@5"].primary.interval
+\defnum{rl.D.it.u20}{94.3} % revision.json RL accuracy["D-u140+it+relearn@20"].primary
+\defnum{rl.D.it.R20}{0.99} % revision.json RL R["D-u140+it+relearn@20"].primary.R
+\defnum{rl.D.it.R20.ci}{[0.95, 1.03]} % revision.json RL R["D-u140+it+relearn@20"].primary.interval
+\defnum{rl.D.it.hab}{94.0} % revision.json RL accuracy["D-u140+it+habit@20"].primary
+\defnum{rl.D.it.habR}{0.98} % revision.json RL R["D-u140+it+habit@20"].primary.R
+\defnum{rl.D.it.habR.ci}{[0.94, 1.02]} % revision.json RL R["D-u140+it+habit@20"].primary.interval
+\defnum{rl.D.b.u0}{22.5} % revision.json RL accuracy["D-u140+b@0"].primary
+\defnum{rl.D.b.ref}{94.8} % revision.json RL accuracy["O-u140+b (acc_ref)"].primary
+\defnum{rl.D.b.u1}{51.0} % revision.json RL accuracy["D-u140+b+relearn@1"].primary
+\defnum{rl.D.b.R1}{0.39} % revision.json RL R["D-u140+b+relearn@1"].primary.R
+\defnum{rl.D.b.R1.ci}{[0.34, 0.45]} % revision.json RL R["D-u140+b+relearn@1"].primary.interval
+\defnum{rl.D.b.u2}{79.5} % revision.json RL accuracy["D-u140+b+relearn@2"].primary
+\defnum{rl.D.b.R2}{0.79} % revision.json RL R["D-u140+b+relearn@2"].primary.R
+\defnum{rl.D.b.R2.ci}{[0.75, 0.83]} % revision.json RL R["D-u140+b+relearn@2"].primary.interval
+\defnum{rl.D.b.u5}{92.8} % revision.json RL accuracy["D-u140+b+relearn@5"].primary
+\defnum{rl.D.b.R5}{0.97} % revision.json RL R["D-u140+b+relearn@5"].primary.R
+\defnum{rl.D.b.R5.ci}{[0.95, 1.00]} % revision.json RL R["D-u140+b+relearn@5"].primary.interval
+\defnum{rl.D.b.u20}{93.3} % revision.json RL accuracy["D-u140+b+relearn@20"].primary
+\defnum{rl.D.b.R20}{0.98} % revision.json RL R["D-u140+b+relearn@20"].primary.R
+\defnum{rl.D.b.R20.ci}{[0.96, 1.00]} % revision.json RL R["D-u140+b+relearn@20"].primary.interval
+\defnum{rl.D.b.hab}{92.3} % revision.json RL accuracy["D-u140+b+habit@20"].primary
+\defnum{rl.D.b.habR}{0.97} % revision.json RL R["D-u140+b+habit@20"].primary.R
+\defnum{rl.D.b.habR.ci}{[0.94, 0.99]} % revision.json RL R["D-u140+b+habit@20"].primary.interval
+\defnum{rl.DT.it.u0}{33.7} % revision.json RL accuracy["D-T-u140+it@0"].primary
+\defnum{rl.DT.it.ref}{94.6} % revision.json RL accuracy["O-T-u140+it (acc_ref)"].primary
+\defnum{rl.DT.it.u1}{76.4} % revision.json RL accuracy["D-T-u140+it+relearn@1"].primary
+\defnum{rl.DT.it.R1}{0.70} % revision.json RL R["D-T-u140+it+relearn@1"].primary.R
+\defnum{rl.DT.it.R1.ci}{[0.65, 0.75]} % revision.json RL R["D-T-u140+it+relearn@1"].primary.interval
+\defnum{rl.DT.it.u2}{87.1} % revision.json RL accuracy["D-T-u140+it+relearn@2"].primary
+\defnum{rl.DT.it.R2}{0.88} % revision.json RL R["D-T-u140+it+relearn@2"].primary.R
+\defnum{rl.DT.it.R2.ci}{[0.84, 0.92]} % revision.json RL R["D-T-u140+it+relearn@2"].primary.interval
+\defnum{rl.DT.it.u5}{93.1} % revision.json RL accuracy["D-T-u140+it+relearn@5"].primary
+\defnum{rl.DT.it.R5}{0.98} % revision.json RL R["D-T-u140+it+relearn@5"].primary.R
+\defnum{rl.DT.it.R5.ci}{[0.94, 1.00]} % revision.json RL R["D-T-u140+it+relearn@5"].primary.interval
+\defnum{rl.DT.it.u20}{93.3} % revision.json RL accuracy["D-T-u140+it+relearn@20"].primary
+\defnum{rl.DT.it.R20}{0.98} % revision.json RL R["D-T-u140+it+relearn@20"].primary.R
+\defnum{rl.DT.it.R20.ci}{[0.95, 1.01]} % revision.json RL R["D-T-u140+it+relearn@20"].primary.interval
+\defnum{rl.DT.b.u0}{1.1} % revision.json RL accuracy["D-T-u140+b@0"].primary
+\defnum{rl.DT.b.ref}{94.8} % revision.json RL accuracy["O-T-u140+b (acc_ref)"].primary
+\defnum{rl.DT.b.u1}{21.6} % revision.json RL accuracy["D-T-u140+b+relearn@1"].primary
+\defnum{rl.DT.b.R1}{0.22} % revision.json RL R["D-T-u140+b+relearn@1"].primary.R
+\defnum{rl.DT.b.R1.ci}{[0.19, 0.25]} % revision.json RL R["D-T-u140+b+relearn@1"].primary.interval
+\defnum{rl.DT.b.u2}{70.5} % revision.json RL accuracy["D-T-u140+b+relearn@2"].primary
+\defnum{rl.DT.b.R2}{0.74} % revision.json RL R["D-T-u140+b+relearn@2"].primary.R
+\defnum{rl.DT.b.R2.ci}{[0.71, 0.77]} % revision.json RL R["D-T-u140+b+relearn@2"].primary.interval
+\defnum{rl.DT.b.u5}{91.5} % revision.json RL accuracy["D-T-u140+b+relearn@5"].primary
+\defnum{rl.DT.b.R5}{0.96} % revision.json RL R["D-T-u140+b+relearn@5"].primary.R
+\defnum{rl.DT.b.R5.ci}{[0.94, 0.99]} % revision.json RL R["D-T-u140+b+relearn@5"].primary.interval
+\defnum{rl.DT.b.u20}{93.0} % revision.json RL accuracy["D-T-u140+b+relearn@20"].primary
+\defnum{rl.DT.b.R20}{0.98} % revision.json RL R["D-T-u140+b+relearn@20"].primary.R
+\defnum{rl.DT.b.R20.ci}{[0.96, 1.00]} % revision.json RL R["D-T-u140+b+relearn@20"].primary.interval
+\defnum{rl.ref}{94.6--94.8} % smallest and largest rl.*.ref, the once-trained after-states
+\defnum{rl.O.it.u0}{94.7} % revision.json RL accuracy["O-u140+it@0"].primary
+\defnum{rl.O.it.u1}{95.2} % revision.json RL accuracy["O-u140+it+relearn@1"].primary
+\defnum{rl.ceil.u1}{$-$0.6} % revision.json RL ceiling_loss["O-u140+it+relearn@1"].primary.points
+\defnum{rl.ceil.u1.ci}{[$-$2.0, 0.9]} % revision.json RL ceiling_loss["O-u140+it+relearn@1"].primary.interval
+\defnum{rl.O.it.u2}{94.2} % revision.json RL accuracy["O-u140+it+relearn@2"].primary
+\defnum{rl.ceil.u2}{0.5} % revision.json RL ceiling_loss["O-u140+it+relearn@2"].primary.points
+\defnum{rl.ceil.u2.ci}{[$-$0.8, 1.7]} % revision.json RL ceiling_loss["O-u140+it+relearn@2"].primary.interval
+\defnum{rl.O.it.u5}{94.3} % revision.json RL accuracy["O-u140+it+relearn@5"].primary
+\defnum{rl.ceil.u5}{0.3} % revision.json RL ceiling_loss["O-u140+it+relearn@5"].primary.points
+\defnum{rl.ceil.u5.ci}{[$-$0.9, 1.6]} % revision.json RL ceiling_loss["O-u140+it+relearn@5"].primary.interval
+\defnum{rl.O.it.u20}{94.6} % revision.json RL accuracy["O-u140+it+relearn@20"].primary
+\defnum{rl.ceil.u20}{0.1} % revision.json RL ceiling_loss["O-u140+it+relearn@20"].primary.points
+\defnum{rl.ceil.u20.ci}{[$-$1.1, 1.4]} % revision.json RL ceiling_loss["O-u140+it+relearn@20"].primary.interval
+\defnum{rl.ceil.max}{0.6} % largest |rl.ceil.u*|: how far O+IT moves at any k
+\defnum{sh.B}{0.082} % revision.json SH gate.arms["O-sharp-t05-u140"].B, on the base's common texts
+\defnum{sh.B.ci}{[0.077, 0.087]} % revision.json SH gate.arms["O-sharp-t05-u140"].interval
+\defnum{sh.texts}{4,453} % revision.json SH gate.arms["O-sharp-t05-u140"].texts: data/revision_ids.json sh_sharp
+\defnum{sh.B.D}{0.111} % revision.json SH B_paper["D-u140"]
+\defnum{sh.B.O}{0.0004} % revision.json SH B_paper["O-u140"]
+\defnum{sh.h}{93.1} % revision.json SH accuracy["O-sharp"].handoff.primary
+\defnum{sh.it}{95.0} % revision.json SH accuracy["O-sharp"].it.primary
+\defnum{sh.b}{92.4} % revision.json SH accuracy["O-sharp"].b.primary
+\defnum{sh.ex.it}{$-$1.8} % revision.json SH excess["it"].primary.points: over O
+\defnum{sh.ex.it.ci}{[$-$4.1, 0.3]} % revision.json SH excess["it"].primary.interval
+\defnum{sh.ex.b}{0.9} % revision.json SH excess["b"].primary.points: over O
+\defnum{sh.ex.b.ci}{[$-$1.6, 3.4]} % revision.json SH excess["b"].primary.interval
+\defnum{sd.s2.D.h}{94.8} % revision.json SD accuracy["s2"]["D"]["u0"].primary
+\defnum{sd.s2.D.it}{32.7} % revision.json SD accuracy["s2"]["D"]["it"].primary
+\defnum{sd.s2.D.lr}{80.9} % revision.json SD accuracy["s2"]["D"]["it-lr1e-4"].primary
+\defnum{sd.s2.O.h}{96.2} % revision.json SD accuracy["s2"]["O"]["u0"].primary
+\defnum{sd.s2.O.it}{95.1} % revision.json SD accuracy["s2"]["O"]["it"].primary
+\defnum{sd.s2.O.lr}{95.4} % revision.json SD accuracy["s2"]["O"]["it-lr1e-4"].primary
+\defnum{sd.s2.P.h}{95.6} % revision.json SD accuracy["s2"]["P"]["u0"].primary
+\defnum{sd.s2.P.it}{94.6} % revision.json SD accuracy["s2"]["P"]["it"].primary
+\defnum{sd.s2.P.lr}{94.0} % revision.json SD accuracy["s2"]["P"]["it-lr1e-4"].primary
+\defnum{sd.s2.ex.it}{61.1} % revision.json SD excess["s2"]["it"]["D-O"].points
+\defnum{sd.s2.ex.it.ci}{[57.0, 65.2]} % revision.json SD excess["s2"]["it"]["D-O"].interval
+\defnum{sd.s2.exP.it}{61.1} % revision.json SD excess["s2"]["it"]["D-P"].points
+\defnum{sd.s2.exP.it.ci}{[57.0, 65.0]} % revision.json SD excess["s2"]["it"]["D-P"].interval
+\defnum{sd.s2.PO.it}{0.0} % revision.json SD excess["s2"]["it"]["P-O"].points
+\defnum{sd.s2.PO.it.ci}{[$-$1.9, 1.9]} % revision.json SD excess["s2"]["it"]["P-O"].interval
+\defnum{sd.s2.ex.lr}{13.1} % revision.json SD excess["s2"]["it-lr1e-4"]["D-O"].points
+\defnum{sd.s2.ex.lr.ci}{[10.0, 16.3]} % revision.json SD excess["s2"]["it-lr1e-4"]["D-O"].interval
+\defnum{sd.s2.exP.lr}{12.3} % revision.json SD excess["s2"]["it-lr1e-4"]["D-P"].points
+\defnum{sd.s2.exP.lr.ci}{[9.2, 15.5]} % revision.json SD excess["s2"]["it-lr1e-4"]["D-P"].interval
+\defnum{sd.s2.PO.lr}{0.8} % revision.json SD excess["s2"]["it-lr1e-4"]["P-O"].points
+\defnum{sd.s2.PO.lr.ci}{[$-$1.1, 2.8]} % revision.json SD excess["s2"]["it-lr1e-4"]["P-O"].interval
+\defnum{sd.s3.D.h}{94.6} % revision.json SD accuracy["s3"]["D"]["u0"].primary
+\defnum{sd.s3.D.it}{45.9} % revision.json SD accuracy["s3"]["D"]["it"].primary
+\defnum{sd.s3.D.lr}{76.1} % revision.json SD accuracy["s3"]["D"]["it-lr1e-4"].primary
+\defnum{sd.s3.O.h}{94.9} % revision.json SD accuracy["s3"]["O"]["u0"].primary
+\defnum{sd.s3.O.it}{95.1} % revision.json SD accuracy["s3"]["O"]["it"].primary
+\defnum{sd.s3.O.lr}{94.2} % revision.json SD accuracy["s3"]["O"]["it-lr1e-4"].primary
+\defnum{sd.s3.P.h}{94.2} % revision.json SD accuracy["s3"]["P"]["u0"].primary
+\defnum{sd.s3.P.it}{94.5} % revision.json SD accuracy["s3"]["P"]["it"].primary
+\defnum{sd.s3.P.lr}{94.9} % revision.json SD accuracy["s3"]["P"]["it-lr1e-4"].primary
+\defnum{sd.s3.ex.it}{48.9} % revision.json SD excess["s3"]["it"]["D-O"].points
+\defnum{sd.s3.ex.it.ci}{[45.2, 52.5]} % revision.json SD excess["s3"]["it"]["D-O"].interval
+\defnum{sd.s3.exP.it}{48.9} % revision.json SD excess["s3"]["it"]["D-P"].points
+\defnum{sd.s3.exP.it.ci}{[44.8, 52.9]} % revision.json SD excess["s3"]["it"]["D-P"].interval
+\defnum{sd.s3.PO.it}{0.0} % revision.json SD excess["s3"]["it"]["P-O"].points
+\defnum{sd.s3.PO.it.ci}{[$-$2.1, 2.1]} % revision.json SD excess["s3"]["it"]["P-O"].interval
+\defnum{sd.s3.ex.lr}{17.8} % revision.json SD excess["s3"]["it-lr1e-4"]["D-O"].points
+\defnum{sd.s3.ex.lr.ci}{[14.1, 21.5]} % revision.json SD excess["s3"]["it-lr1e-4"]["D-O"].interval
+\defnum{sd.s3.exP.lr}{19.1} % revision.json SD excess["s3"]["it-lr1e-4"]["D-P"].points
+\defnum{sd.s3.exP.lr.ci}{[15.2, 23.1]} % revision.json SD excess["s3"]["it-lr1e-4"]["D-P"].interval
+\defnum{sd.s3.PO.lr}{$-$1.4} % revision.json SD excess["s3"]["it-lr1e-4"]["P-O"].points
+\defnum{sd.s3.PO.lr.ci}{[$-$3.6, 0.9]} % revision.json SD excess["s3"]["it-lr1e-4"]["P-O"].interval
+\defnum{sd.PO.absmax}{1.4} % largest |sd.*.PO.*|: P's excess over O, both seeds and stages
+\defnum{sd.parity.max}{1.4} % largest |D - O| forced accuracy at handoff, both seeds
+\defnum{sd.pool.it.mean}{39.7} % revision.json SD pooled["it|D-O"], over D2, paper, s2, s3: mean
+\defnum{sd.pool.it.min}{12.6} % revision.json SD pooled["it|D-O"], over D2, paper, s2, s3: min
+\defnum{sd.pool.it.max}{61.1} % revision.json SD pooled["it|D-O"], over D2, paper, s2, s3: max
+\defnum{sd.pool.it.sd}{20.7} % revision.json SD pooled["it|D-O"], over D2, paper, s2, s3: sd
+\defnum{sd.pool.lr.mean}{14.7} % revision.json SD pooled["it-lr1e-4|D-O"], over paper, s2, s3: mean
+\defnum{sd.pool.lr.min}{13.1} % revision.json SD pooled["it-lr1e-4|D-O"], over paper, s2, s3: min
+\defnum{sd.pool.lr.max}{17.8} % revision.json SD pooled["it-lr1e-4|D-O"], over paper, s2, s3: max
+\defnum{sd.pool.lr.sd}{2.7} % revision.json SD pooled["it-lr1e-4|D-O"], over paper, s2, s3: sd
+\defnum{sd.out.SD1}{held} % revision.json SD predictions, all four cells: "1_intervals_above_zero"
+\defnum{sd.out.SD2}{held} % revision.json SD predictions, all four cells: "2_at_least_5"
+\defnum{sd.out.SD3}{held} % revision.json SD predictions, all four cells: "3_P_within_3_of_O"
+\defnum{sk.smoke4.b5}{45.0} % revision.json SK smoke["4096|base7-5"].correct, %
+\defnum{sk.smoke4cap.b5}{65.0} % revision.json SK smoke["4096|base7-5"].capped, %
+\defnum{sk.smoke4.b6}{10.0} % revision.json SK smoke["4096|base7-6"].correct, %
+\defnum{sk.smoke4cap.b6}{95.0} % revision.json SK smoke["4096|base7-6"].capped, %
+\defnum{sk.smoke4.w12}{35.0} % revision.json SK smoke["4096|words-12"].correct, %
+\defnum{sk.smoke4cap.w12}{95.0} % revision.json SK smoke["4096|words-12"].capped, %
+\defnum{sk.smoke4.w16}{0.0} % revision.json SK smoke["4096|words-16"].correct, %
+\defnum{sk.smoke4cap.w16}{100.0} % revision.json SK smoke["4096|words-16"].capped, %
+\defnum{sk.smoke8.b5}{75.0} % revision.json SK smoke["8192|base7-5"].correct, %
+\defnum{sk.smoke8cap.b5}{40.0} % revision.json SK smoke["8192|base7-5"].capped, %
+\defnum{sk.smoke8.b6}{55.0} % revision.json SK smoke["8192|base7-6"].correct, %
+\defnum{sk.smoke8cap.b6}{65.0} % revision.json SK smoke["8192|base7-6"].capped, %
+\defnum{sk.smoke8.w12}{85.0} % revision.json SK smoke["8192|words-12"].correct, %
+\defnum{sk.smoke8cap.w12}{30.0} % revision.json SK smoke["8192|words-12"].capped, %
+\defnum{sk.smoke8.w16}{60.0} % revision.json SK smoke["8192|words-16"].correct, %
+\defnum{sk.smoke8cap.w16}{55.0} % revision.json SK smoke["8192|words-16"].capped, %
+\defnum{sk.smoke8tok.b5}{5,855} % revision.json SK smoke["8192|base7-5"].mean_tokens
+\defnum{sk.cal}{0.2} % revision.json SK calibration.accuracy["base7-5"], %
+\defnum{sk.cal.cap}{100.0} % revision.json SK calibration.capped["base7-5"], %
+\defnum{sk.gate}{66.1} % revision.json SK gate.gain.points: O-S-u140 minus the base
+\defnum{sk.gate.ci}{[63.3, 68.8]} % revision.json SK gate.gain.interval
+\defnum{sk.gate.cap}{0.1} % revision.json SK gate.capped_share, %
+\defnum{sk.base}{0.2} % revision.json SK accuracy["M0"]
+\defnum{sk.D.h}{37.9} % revision.json SK accuracy["D-S-u140"]
+\defnum{sk.D.lr}{26.6} % revision.json SK accuracy["D-S+it-lr1e-4"]
+\defnum{sk.D.it}{0.1} % revision.json SK accuracy["D-S+it"]
+\defnum{sk.O.h}{66.3} % revision.json SK accuracy["O-S-u140"]
+\defnum{sk.O.lr}{50.8} % revision.json SK accuracy["O-S+it-lr1e-4"]
+\defnum{sk.O.it}{0.4} % revision.json SK accuracy["O-S+it"]
+\defnum{sk.P.h}{58.1} % revision.json SK accuracy["P-S-u140"]
+\defnum{sk.P.lr}{38.7} % revision.json SK accuracy["P-S+it-lr1e-4"]
+\defnum{sk.P.it}{0.4} % revision.json SK accuracy["P-S+it"]
+\defnum{sk.hDO}{$-$28.3} % revision.json SK handoff_D_minus_O.points
+\defnum{sk.hDO.ci}{[$-$32.3, $-$24.5]} % revision.json SK handoff_D_minus_O.interval
+\defnum{sk.PD.h}{20.2} % revision.json SK handoff_P_minus_D.points (post hoc, descriptive, not registered)
+\defnum{sk.PD.h.ci}{[16.2, 24.1]} % revision.json SK handoff_P_minus_D.interval (post hoc, descriptive, not registered)
+\defnum{sk.fix.h}{$-$8.2} % revision.json SK stages["it-lr1e-4"].P_minus_best.handoff (the same in both stages)
+\defnum{sk.loss.D.lr}{11.3} % revision.json SK stages["it-lr1e-4"].loss["D-S"].points
+\defnum{sk.loss.D.lr.ci}{[7.8, 14.8]} % revision.json SK stages["it-lr1e-4"].loss["D-S"].interval
+\defnum{sk.loss.O.lr}{15.5} % revision.json SK stages["it-lr1e-4"].loss["O-S"].points
+\defnum{sk.loss.O.lr.ci}{[11.7, 19.3]} % revision.json SK stages["it-lr1e-4"].loss["O-S"].interval
+\defnum{sk.loss.P.lr}{19.4} % revision.json SK stages["it-lr1e-4"].loss["P-S"].points
+\defnum{sk.loss.P.lr.ci}{[15.4, 23.3]} % revision.json SK stages["it-lr1e-4"].loss["P-S"].interval
+\defnum{sk.ex.lr}{$-$4.2} % revision.json SK stages["it-lr1e-4"].D_excess_over_O.points
+\defnum{sk.ex.lr.ci}{[$-$9.3, 0.9]} % revision.json SK stages["it-lr1e-4"].D_excess_over_O.interval
+\defnum{sk.OD.lr}{24.2} % revision.json SK stages["it-lr1e-4"].O_minus_D_after.points
+\defnum{sk.OD.lr.ci}{[20.4, 27.9]} % revision.json SK stages["it-lr1e-4"].O_minus_D_after.interval
+\defnum{sk.fix.lr}{$-$12.1} % revision.json SK stages["it-lr1e-4"].P_minus_best.after
+\defnum{sk.loss.D.it}{37.8} % revision.json SK stages["it"].loss["D-S"].points
+\defnum{sk.loss.D.it.ci}{[34.8, 40.8]} % revision.json SK stages["it"].loss["D-S"].interval
+\defnum{sk.loss.O.it}{65.8} % revision.json SK stages["it"].loss["O-S"].points
+\defnum{sk.loss.O.it.ci}{[63.0, 68.6]} % revision.json SK stages["it"].loss["O-S"].interval
+\defnum{sk.loss.P.it}{57.7} % revision.json SK stages["it"].loss["P-S"].points
+\defnum{sk.loss.P.it.ci}{[54.7, 60.7]} % revision.json SK stages["it"].loss["P-S"].interval
+\defnum{sk.ex.it}{$-$28.0} % revision.json SK stages["it"].D_excess_over_O.points
+\defnum{sk.ex.it.ci}{[$-$31.9, $-$24.2]} % revision.json SK stages["it"].D_excess_over_O.interval
+\defnum{sk.OD.it}{0.3} % revision.json SK stages["it"].O_minus_D_after.points
+\defnum{sk.OD.it.ci}{[0.0, 0.8]} % revision.json SK stages["it"].O_minus_D_after.interval
+\defnum{sk.fix.it}{0.0} % revision.json SK stages["it"].P_minus_best.after
+\defnum{sk.share.D.lr}{29.9} % 100 x revision.json SK stages["it-lr1e-4"].loss["D-S"].points / accuracy["D-S-u140"], % (post hoc, descriptive, not registered)
+\defnum{sk.share.O.lr}{23.4} % 100 x revision.json SK stages["it-lr1e-4"].loss["O-S"].points / accuracy["O-S-u140"], % (post hoc, descriptive, not registered)
+\defnum{sk.share.P.lr}{33.4} % 100 x revision.json SK stages["it-lr1e-4"].loss["P-S"].points / accuracy["P-S-u140"], % (post hoc, descriptive, not registered)

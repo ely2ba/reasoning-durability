@@ -1,0 +1,20 @@
+{
+ "note": "How the 36,447-problem pool was built from Tulu-3's numinamath_tir_math_decontaminated rows (the pool build, 2026-09-24).",
+ "source_rows": 64312,
+ "distinct_problems": 58674,
+ "dropped": {
+  "non_integer_answer": 12493,
+  "several_final_answers": 2614,
+  "inconsistent_duplicate_answers": 107,
+  "contamination": 91,
+  "figures": 331,
+  "prompt_over_512_tokens": 28,
+  "guessable_or_not_single_answer": 6563
+ },
+ "prompt_token_limit": 512,
+ "pool": 36447,
+ "reference_agreement": {
+  "rows": 200,
+  "agree_with_code_output": 186
+ }
+}

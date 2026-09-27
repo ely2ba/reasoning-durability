@@ -1,0 +1,623 @@
+{
+ "note": "The Tinker training states the paper uses: label, origin run (a DuraSeed-v1 run folder), creation time (its state file's) and whether it is kept. The 53 marked kept are stored without expiry on the author's Tinker account and are available on request: the base M0; every trained model at handoff (the 9B drilled, once-trained, fresh-solution and sharpened models of every run, the second drilled set, rank 128, the 35B and Nemotron models, the students of gpt-oss-120b's traces and SK's three arms); and the arithmetic task's states, with the replay study's RP and RS. The 50 marked not kept are the revision's later-stage states (after the later stages, relearning, replay and one epoch of No Robots), which expire on 26 October 2026; like the other later-stage states the runs created, they are re-trainable from the kept states with the frozen data and src/.",
+ "states": [
+  {
+   "label": "M0",
+   "origin_run": "DuraSeed-v1 M0 recovery (reconstructed state), referenced by runs/replay-v1/replay-v1-continuation-20260907T075721Z/config.json blocks.11.m0_state_path",
+   "created_utc": "2026-08-09T19:13:51Z",
+   "kept": true
+  },
+  {
+   "label": "D-S+it-lr1e-4-u60",
+   "origin_run": "runs/skill/skill-20260926",
+   "created_utc": "2026-09-26T01:57:05Z",
+   "kept": false
+  },
+  {
+   "label": "D-S+it-u20",
+   "origin_run": "runs/skill/skill-20260926",
+   "created_utc": "2026-09-26T02:00:23Z",
+   "kept": false
+  },
+  {
+   "label": "D-S-u140",
+   "origin_run": "runs/skill/skill-20260926",
+   "created_utc": "2026-09-26T01:51:52Z",
+   "kept": true
+  },
+  {
+   "label": "F-u140",
+   "origin_run": "runs/repetition-probe/rep-20260923",
+   "created_utc": "2026-09-23T01:46:25Z",
+   "kept": true
+  },
+  {
+   "label": "F-u20",
+   "origin_run": "runs/repetition-probe/rep-20260923",
+   "created_utc": "2026-09-23T01:31:19Z",
+   "kept": true
+  },
+  {
+   "label": "F-u60",
+   "origin_run": "runs/repetition-probe/rep-20260923",
+   "created_utc": "2026-09-23T01:36:27Z",
+   "kept": true
+  },
+  {
+   "label": "FA025-u140",
+   "origin_run": "runs/anchor/anchor-20260924",
+   "created_utc": "2026-09-24T02:20:11Z",
+   "kept": true
+  },
+  {
+   "label": "FA1-u140",
+   "origin_run": "runs/anchor/anchor-20260924",
+   "created_utc": "2026-09-24T02:19:57Z",
+   "kept": true
+  },
+  {
+   "label": "FN-u140",
+   "origin_run": "runs/anchor/anchor-20260924",
+   "created_utc": "2026-09-24T02:19:50Z",
+   "kept": true
+  },
+  {
+   "label": "O-S+it-lr1e-4-u60",
+   "origin_run": "runs/skill/skill-20260926",
+   "created_utc": "2026-09-26T01:46:25Z",
+   "kept": false
+  },
+  {
+   "label": "O-S+it-u20",
+   "origin_run": "runs/skill/skill-20260926",
+   "created_utc": "2026-09-26T01:59:38Z",
+   "kept": false
+  },
+  {
+   "label": "O-S-u140",
+   "origin_run": "runs/skill/skill-20260926",
+   "created_utc": "2026-09-26T01:33:56Z",
+   "kept": true
+  },
+  {
+   "label": "P-S+it-lr1e-4-u60",
+   "origin_run": "runs/skill/skill-20260926",
+   "created_utc": "2026-09-26T01:56:50Z",
+   "kept": false
+  },
+  {
+   "label": "P-S+it-u20",
+   "origin_run": "runs/skill/skill-20260926",
+   "created_utc": "2026-09-26T02:00:21Z",
+   "kept": false
+  },
+  {
+   "label": "P-S-u140",
+   "origin_run": "runs/skill/skill-20260926",
+   "created_utc": "2026-09-26T01:51:51Z",
+   "kept": true
+  },
+  {
+   "label": "RP47-u140",
+   "origin_run": "runs/replay-v1/replay-order47-20260909T144155Z",
+   "created_utc": "2026-09-09T18:27:30Z",
+   "kept": true
+  },
+  {
+   "label": "RP47-u20",
+   "origin_run": "runs/replay-v1/replay-order47-20260909T144155Z",
+   "created_utc": "2026-09-09T16:51:28Z",
+   "kept": true
+  },
+  {
+   "label": "RP47-u60",
+   "origin_run": "runs/replay-v1/replay-order47-20260909T144155Z",
+   "created_utc": "2026-09-09T17:21:05Z",
+   "kept": true
+  },
+  {
+   "label": "RS47-u200",
+   "origin_run": "runs/replay-v1/replay-order47-20260909T144155Z",
+   "created_utc": "2026-09-09T15:48:49Z",
+   "kept": true
+  },
+  {
+   "label": "S-u120",
+   "origin_run": "runs/endpoint-clone/endpoint-clone-20260910T162817Z/acquisition",
+   "created_utc": "2026-09-10T20:02:23Z",
+   "kept": true
+  },
+  {
+   "label": "S-u230",
+   "origin_run": "runs/endpoint-clone/endpoint-clone-20260910T162817Z/acquisition",
+   "created_utc": "2026-09-10T21:31:27Z",
+   "kept": true
+  },
+  {
+   "label": "S-u40",
+   "origin_run": "runs/endpoint-clone/endpoint-clone-20260910T162817Z/acquisition",
+   "created_utc": "2026-09-10T18:53:24Z",
+   "kept": true
+  },
+  {
+   "label": "T-u10",
+   "origin_run": "runs/endpoint-clone/endpoint-clone-20260910T162817Z/acquisition",
+   "created_utc": "2026-09-10T16:48:50Z",
+   "kept": true
+  },
+  {
+   "label": "T-u20",
+   "origin_run": "runs/endpoint-clone/endpoint-clone-20260910T162817Z/acquisition",
+   "created_utc": "2026-09-10T17:03:01Z",
+   "kept": true
+  },
+  {
+   "label": "T-u30",
+   "origin_run": "runs/endpoint-clone/endpoint-clone-20260910T162817Z/acquisition",
+   "created_utc": "2026-09-10T17:18:01Z",
+   "kept": true
+  },
+  {
+   "label": "U-u140",
+   "origin_run": "runs/repetition-probe/rep-20260923",
+   "created_utc": "2026-09-23T01:46:22Z",
+   "kept": true
+  },
+  {
+   "label": "U-u20",
+   "origin_run": "runs/repetition-probe/rep-20260923",
+   "created_utc": "2026-09-23T01:30:56Z",
+   "kept": true
+  },
+  {
+   "label": "U-u60",
+   "origin_run": "runs/repetition-probe/rep-20260923",
+   "created_utc": "2026-09-23T01:36:17Z",
+   "kept": true
+  },
+  {
+   "label": "U2-u140",
+   "origin_run": "runs/anchor/anchor-20260924",
+   "created_utc": "2026-09-24T02:19:57Z",
+   "kept": true
+  },
+  {
+   "label": "math9b-D-T-u140+b+relearn-u1",
+   "origin_run": "runs/math/revision-rl-20260926",
+   "created_utc": "2026-09-26T01:23:04Z",
+   "kept": false
+  },
+  {
+   "label": "math9b-D-T-u140+b+relearn-u2",
+   "origin_run": "runs/math/revision-rl-20260926",
+   "created_utc": "2026-09-26T01:23:30Z",
+   "kept": false
+  },
+  {
+   "label": "math9b-D-T-u140+b+relearn-u20",
+   "origin_run": "runs/math/revision-rl-20260926",
+   "created_utc": "2026-09-26T01:27:58Z",
+   "kept": false
+  },
+  {
+   "label": "math9b-D-T-u140+b+relearn-u5",
+   "origin_run": "runs/math/revision-rl-20260926",
+   "created_utc": "2026-09-26T01:24:29Z",
+   "kept": false
+  },
+  {
+   "label": "math9b-D-T-u140+it+relearn-u1",
+   "origin_run": "runs/math/revision-rl-20260926",
+   "created_utc": "2026-09-26T01:23:14Z",
+   "kept": false
+  },
+  {
+   "label": "math9b-D-T-u140+it+relearn-u2",
+   "origin_run": "runs/math/revision-rl-20260926",
+   "created_utc": "2026-09-26T01:23:40Z",
+   "kept": false
+  },
+  {
+   "label": "math9b-D-T-u140+it+relearn-u20",
+   "origin_run": "runs/math/revision-rl-20260926",
+   "created_utc": "2026-09-26T01:28:05Z",
+   "kept": false
+  },
+  {
+   "label": "math9b-D-T-u140+it+relearn-u5",
+   "origin_run": "runs/math/revision-rl-20260926",
+   "created_utc": "2026-09-26T01:24:38Z",
+   "kept": false
+  },
+  {
+   "label": "math9b-D-T-u140+it-replay-u60",
+   "origin_run": "runs/math/revision-rp-20260926",
+   "created_utc": "2026-09-26T01:01:29Z",
+   "kept": false
+  },
+  {
+   "label": "math9b-D-u140",
+   "origin_run": "runs/math/pilot-20260924",
+   "created_utc": "2026-09-24T02:31:33Z",
+   "kept": true
+  },
+  {
+   "label": "math9b-D-u140+b+habit-u20",
+   "origin_run": "runs/math/revision-rl-20260926",
+   "created_utc": "2026-09-26T01:26:56Z",
+   "kept": false
+  },
+  {
+   "label": "math9b-D-u140+b+relearn-u1",
+   "origin_run": "runs/math/revision-rl-20260926",
+   "created_utc": "2026-09-26T01:23:05Z",
+   "kept": false
+  },
+  {
+   "label": "math9b-D-u140+b+relearn-u2",
+   "origin_run": "runs/math/revision-rl-20260926",
+   "created_utc": "2026-09-26T01:23:31Z",
+   "kept": false
+  },
+  {
+   "label": "math9b-D-u140+b+relearn-u20",
+   "origin_run": "runs/math/revision-rl-20260926",
+   "created_utc": "2026-09-26T01:27:57Z",
+   "kept": false
+  },
+  {
+   "label": "math9b-D-u140+b+relearn-u5",
+   "origin_run": "runs/math/revision-rl-20260926",
+   "created_utc": "2026-09-26T01:24:31Z",
+   "kept": false
+  },
+  {
+   "label": "math9b-D-u140+it+habit-u20",
+   "origin_run": "runs/math/revision-rl-20260926",
+   "created_utc": "2026-09-26T01:27:26Z",
+   "kept": false
+  },
+  {
+   "label": "math9b-D-u140+it+relearn-u1",
+   "origin_run": "runs/math/revision-rl-20260926",
+   "created_utc": "2026-09-26T01:23:15Z",
+   "kept": false
+  },
+  {
+   "label": "math9b-D-u140+it+relearn-u2",
+   "origin_run": "runs/math/revision-rl-20260926",
+   "created_utc": "2026-09-26T01:23:40Z",
+   "kept": false
+  },
+  {
+   "label": "math9b-D-u140+it+relearn-u20",
+   "origin_run": "runs/math/revision-rl-20260926",
+   "created_utc": "2026-09-26T01:27:56Z",
+   "kept": false
+  },
+  {
+   "label": "math9b-D-u140+it+relearn-u5",
+   "origin_run": "runs/math/revision-rl-20260926",
+   "created_utc": "2026-09-26T01:24:39Z",
+   "kept": false
+  },
+  {
+   "label": "math9b-D-u140+it-replay-u60",
+   "origin_run": "runs/math/revision-rp-20260926",
+   "created_utc": "2026-09-26T01:01:26Z",
+   "kept": false
+  },
+  {
+   "label": "math9b-D-u140+nr-epoch-u267",
+   "origin_run": "runs/math/revision-rs-20260926",
+   "created_utc": "2026-09-26T01:42:51Z",
+   "kept": false
+  },
+  {
+   "label": "math9b-D-u20",
+   "origin_run": "runs/math/pilot-20260924",
+   "created_utc": "2026-09-24T02:21:19Z",
+   "kept": true
+  },
+  {
+   "label": "math9b-D-u60",
+   "origin_run": "runs/math/pilot-20260924",
+   "created_utc": "2026-09-24T02:25:29Z",
+   "kept": true
+  },
+  {
+   "label": "math9b-M0+nr-epoch-u267",
+   "origin_run": "runs/math/revision-rs-20260926",
+   "created_utc": "2026-09-26T01:42:50Z",
+   "kept": false
+  },
+  {
+   "label": "math9b-O-T-u140+it-replay-u60",
+   "origin_run": "runs/math/revision-rp-20260926",
+   "created_utc": "2026-09-26T01:01:29Z",
+   "kept": false
+  },
+  {
+   "label": "math9b-O-sharp-t05-u140",
+   "origin_run": "runs/math/revision-sh-20260926",
+   "created_utc": "2026-09-26T02:21:49Z",
+   "kept": true
+  },
+  {
+   "label": "math9b-O-sharp-t05-u140+b-u20",
+   "origin_run": "runs/math/revision-sh-20260926",
+   "created_utc": "2026-09-26T02:24:16Z",
+   "kept": false
+  },
+  {
+   "label": "math9b-O-sharp-t05-u140+it-u20",
+   "origin_run": "runs/math/revision-sh-20260926",
+   "created_utc": "2026-09-26T02:24:10Z",
+   "kept": false
+  },
+  {
+   "label": "math9b-O-u140",
+   "origin_run": "runs/math/pilot-20260924",
+   "created_utc": "2026-09-24T02:31:30Z",
+   "kept": true
+  },
+  {
+   "label": "math9b-O-u140+it+relearn-u1",
+   "origin_run": "runs/math/revision-rl-20260926",
+   "created_utc": "2026-09-26T01:23:05Z",
+   "kept": false
+  },
+  {
+   "label": "math9b-O-u140+it+relearn-u2",
+   "origin_run": "runs/math/revision-rl-20260926",
+   "created_utc": "2026-09-26T01:23:30Z",
+   "kept": false
+  },
+  {
+   "label": "math9b-O-u140+it+relearn-u20",
+   "origin_run": "runs/math/revision-rl-20260926",
+   "created_utc": "2026-09-26T01:27:56Z",
+   "kept": false
+  },
+  {
+   "label": "math9b-O-u140+it+relearn-u5",
+   "origin_run": "runs/math/revision-rl-20260926",
+   "created_utc": "2026-09-26T01:24:29Z",
+   "kept": false
+  },
+  {
+   "label": "math9b-O-u140+it-replay-u60",
+   "origin_run": "runs/math/revision-rp-20260926",
+   "created_utc": "2026-09-26T01:01:29Z",
+   "kept": false
+  },
+  {
+   "label": "math9b-O-u140+nr-epoch-u267",
+   "origin_run": "runs/math/revision-rs-20260926",
+   "created_utc": "2026-09-26T01:43:22Z",
+   "kept": false
+  },
+  {
+   "label": "math9b-O-u60",
+   "origin_run": "runs/math/pilot-20260924",
+   "created_utc": "2026-09-24T02:25:18Z",
+   "kept": true
+  },
+  {
+   "label": "math9b-P-u140+nr-epoch-u267",
+   "origin_run": "runs/math/revision-rs-20260926",
+   "created_utc": "2026-09-26T01:42:46Z",
+   "kept": false
+  },
+  {
+   "label": "math9b-s2-D-u140",
+   "origin_run": "runs/math/revision-sd-20260926/s2",
+   "created_utc": "2026-09-26T01:34:37Z",
+   "kept": true
+  },
+  {
+   "label": "math9b-s2-D-u140+it-lr1e-4-u60",
+   "origin_run": "runs/math/revision-sd-20260926/s2",
+   "created_utc": "2026-09-26T01:45:47Z",
+   "kept": false
+  },
+  {
+   "label": "math9b-s2-D-u140+it-u20",
+   "origin_run": "runs/math/revision-sd-20260926/s2",
+   "created_utc": "2026-09-26T01:41:16Z",
+   "kept": false
+  },
+  {
+   "label": "math9b-s2-O-u140",
+   "origin_run": "runs/math/revision-sd-20260926/s2",
+   "created_utc": "2026-09-26T01:34:36Z",
+   "kept": true
+  },
+  {
+   "label": "math9b-s2-O-u140+it-lr1e-4-u60",
+   "origin_run": "runs/math/revision-sd-20260926/s2",
+   "created_utc": "2026-09-26T01:45:47Z",
+   "kept": false
+  },
+  {
+   "label": "math9b-s2-O-u140+it-u20",
+   "origin_run": "runs/math/revision-sd-20260926/s2",
+   "created_utc": "2026-09-26T01:41:19Z",
+   "kept": false
+  },
+  {
+   "label": "math9b-s2-P-u140",
+   "origin_run": "runs/math/revision-sd-20260926/s2",
+   "created_utc": "2026-09-26T02:40:31Z",
+   "kept": true
+  },
+  {
+   "label": "math9b-s2-P-u140+it-lr1e-4-u60",
+   "origin_run": "runs/math/revision-sd-20260926/s2",
+   "created_utc": "2026-09-26T02:45:16Z",
+   "kept": false
+  },
+  {
+   "label": "math9b-s2-P-u140+it-u20",
+   "origin_run": "runs/math/revision-sd-20260926/s2",
+   "created_utc": "2026-09-26T02:42:04Z",
+   "kept": false
+  },
+  {
+   "label": "math9b-s3-D-u140",
+   "origin_run": "runs/math/revision-sd-20260926/s3",
+   "created_utc": "2026-09-26T02:12:56Z",
+   "kept": true
+  },
+  {
+   "label": "math9b-s3-D-u140+it-lr1e-4-u60",
+   "origin_run": "runs/math/revision-sd-20260926/s3",
+   "created_utc": "2026-09-26T02:16:52Z",
+   "kept": false
+  },
+  {
+   "label": "math9b-s3-D-u140+it-u20",
+   "origin_run": "runs/math/revision-sd-20260926/s3",
+   "created_utc": "2026-09-26T02:15:15Z",
+   "kept": false
+  },
+  {
+   "label": "math9b-s3-O-u140",
+   "origin_run": "runs/math/revision-sd-20260926/s3",
+   "created_utc": "2026-09-26T02:12:59Z",
+   "kept": true
+  },
+  {
+   "label": "math9b-s3-O-u140+it-lr1e-4-u60",
+   "origin_run": "runs/math/revision-sd-20260926/s3",
+   "created_utc": "2026-09-26T02:17:01Z",
+   "kept": false
+  },
+  {
+   "label": "math9b-s3-O-u140+it-u20",
+   "origin_run": "runs/math/revision-sd-20260926/s3",
+   "created_utc": "2026-09-26T02:15:12Z",
+   "kept": false
+  },
+  {
+   "label": "math9b-s3-P-u140",
+   "origin_run": "runs/math/revision-sd-20260926/s3",
+   "created_utc": "2026-09-26T03:23:31Z",
+   "kept": true
+  },
+  {
+   "label": "math9b-s3-P-u140+it-lr1e-4-u60",
+   "origin_run": "runs/math/revision-sd-20260926/s3",
+   "created_utc": "2026-09-26T03:27:08Z",
+   "kept": false
+  },
+  {
+   "label": "math9b-s3-P-u140+it-u20",
+   "origin_run": "runs/math/revision-sd-20260926/s3",
+   "created_utc": "2026-09-26T03:25:18Z",
+   "kept": false
+  },
+  {
+   "label": "math35b-D-u140",
+   "origin_run": "runs/math/main-35b-20260924",
+   "created_utc": "2026-09-24T07:34:47Z",
+   "kept": true
+  },
+  {
+   "label": "math35b-D-u20",
+   "origin_run": "runs/math/main-35b-20260924",
+   "created_utc": "2026-09-24T07:18:38Z",
+   "kept": true
+  },
+  {
+   "label": "math35b-D-u60",
+   "origin_run": "runs/math/main-35b-20260924",
+   "created_utc": "2026-09-24T07:24:07Z",
+   "kept": true
+  },
+  {
+   "label": "math35b-O-u140",
+   "origin_run": "runs/math/main-35b-20260924",
+   "created_utc": "2026-09-24T07:29:23Z",
+   "kept": true
+  },
+  {
+   "label": "math35b-O-u60",
+   "origin_run": "runs/math/main-35b-20260924",
+   "created_utc": "2026-09-24T07:21:47Z",
+   "kept": true
+  },
+  {
+   "label": "math9b-D-T-u140",
+   "origin_run": "runs/math/teacher-20260924",
+   "created_utc": "2026-09-24T12:23:38Z",
+   "kept": true
+  },
+  {
+   "label": "math9b-D-T-u20",
+   "origin_run": "runs/math/teacher-20260924",
+   "created_utc": "2026-09-24T12:14:53Z",
+   "kept": true
+  },
+  {
+   "label": "math9b-D-r128-u140",
+   "origin_run": "runs/math/main-9b-20260924",
+   "created_utc": "2026-09-24T06:59:18Z",
+   "kept": true
+  },
+  {
+   "label": "math9b-D2-u140",
+   "origin_run": "runs/math/main-9b-20260924",
+   "created_utc": "2026-09-24T06:59:19Z",
+   "kept": true
+  },
+  {
+   "label": "math9b-O-T-u140",
+   "origin_run": "runs/math/teacher-20260924",
+   "created_utc": "2026-09-24T12:23:35Z",
+   "kept": true
+  },
+  {
+   "label": "math9b-P-T-u140",
+   "origin_run": "runs/math/teacher-20260924",
+   "created_utc": "2026-09-24T12:23:34Z",
+   "kept": true
+  },
+  {
+   "label": "math9b-P-u140",
+   "origin_run": "runs/math/main-9b-20260924",
+   "created_utc": "2026-09-24T06:59:18Z",
+   "kept": true
+  },
+  {
+   "label": "nemotron-D-u140",
+   "origin_run": "runs/math/main-nemotron-20260924",
+   "created_utc": "2026-09-24T07:02:50Z",
+   "kept": true
+  },
+  {
+   "label": "nemotron-D-u20",
+   "origin_run": "runs/math/main-nemotron-20260924",
+   "created_utc": "2026-09-24T06:53:33Z",
+   "kept": true
+  },
+  {
+   "label": "nemotron-D-u60",
+   "origin_run": "runs/math/main-nemotron-20260924",
+   "created_utc": "2026-09-24T06:56:52Z",
+   "kept": true
+  },
+  {
+   "label": "nemotron-O-u140",
+   "origin_run": "runs/math/main-nemotron-20260924",
+   "created_utc": "2026-09-24T07:02:45Z",
+   "kept": true
+  },
+  {
+   "label": "nemotron-O-u60",
+   "origin_run": "runs/math/main-nemotron-20260924",
+   "created_utc": "2026-09-24T06:56:49Z",
+   "kept": true
+  }
+ ]
+}

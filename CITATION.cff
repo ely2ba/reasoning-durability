@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this code or data, please cite the paper."
+title: "Fine Until Fine-Tuned: Repeated Solutions Make Reasoning Fragile"
+type: software
+license: Apache-2.0
+repository-code: "https://github.com/ely2ba/reasoning-durability"
+authors:
+  - family-names: Sheikh
+    given-names: Ely
+preferred-citation:
+  type: article
+  title: "Fine Until Fine-Tuned: Repeated Solutions Make Reasoning Fragile"
+  authors:
+    - family-names: Sheikh
+      given-names: Ely
+  year: 2026

@@ -1,0 +1,1110 @@
+{
+ "source": "HuggingFaceH4/MATH-500 test.jsonl, integer answers, levels 3-5, in SHA-256 order of 'math-pilot-20260924:<task_id>'",
+ "items": [
+  {
+   "unique_id": "test/algebra/1143.json",
+   "level": 5,
+   "answer": 17
+  },
+  {
+   "unique_id": "test/prealgebra/465.json",
+   "level": 4,
+   "answer": 5
+  },
+  {
+   "unique_id": "test/algebra/634.json",
+   "level": 3,
+   "answer": 4
+  },
+  {
+   "unique_id": "test/intermediate_algebra/1422.json",
+   "level": 3,
+   "answer": 4
+  },
+  {
+   "unique_id": "test/geometry/229.json",
+   "level": 5,
+   "answer": 16
+  },
+  {
+   "unique_id": "test/precalculus/1313.json",
+   "level": 4,
+   "answer": 46
+  },
+  {
+   "unique_id": "test/number_theory/1172.json",
+   "level": 4,
+   "answer": 103
+  },
+  {
+   "unique_id": "test/intermediate_algebra/1350.json",
+   "level": 5,
+   "answer": 14
+  },
+  {
+   "unique_id": "test/intermediate_algebra/894.json",
+   "level": 3,
+   "answer": 2
+  },
+  {
+   "unique_id": "test/number_theory/1032.json",
+   "level": 3,
+   "answer": 2220
+  },
+  {
+   "unique_id": "test/intermediate_algebra/102.json",
+   "level": 4,
+   "answer": 2
+  },
+  {
+   "unique_id": "test/prealgebra/954.json",
+   "level": 5,
+   "answer": 10
+  },
+  {
+   "unique_id": "test/algebra/2779.json",
+   "level": 5,
+   "answer": 20
+  },
+  {
+   "unique_id": "test/geometry/283.json",
+   "level": 4,
+   "answer": 8
+  },
+  {
+   "unique_id": "test/prealgebra/2086.json",
+   "level": 4,
+   "answer": 40
+  },
+  {
+   "unique_id": "test/number_theory/978.json",
+   "level": 4,
+   "answer": 7
+  },
+  {
+   "unique_id": "test/intermediate_algebra/1365.json",
+   "level": 3,
+   "answer": 15
+  },
+  {
+   "unique_id": "test/geometry/965.json",
+   "level": 5,
+   "answer": 28
+  },
+  {
+   "unique_id": "test/number_theory/928.json",
+   "level": 4,
+   "answer": 3
+  },
+  {
+   "unique_id": "test/prealgebra/993.json",
+   "level": 4,
+   "answer": 1250
+  },
+  {
+   "unique_id": "test/precalculus/989.json",
+   "level": 4,
+   "answer": 12
+  },
+  {
+   "unique_id": "test/counting_and_probability/10.json",
+   "level": 4,
+   "answer": 4
+  },
+  {
+   "unique_id": "test/precalculus/986.json",
+   "level": 5,
+   "answer": 144
+  },
+  {
+   "unique_id": "test/algebra/1282.json",
+   "level": 5,
+   "answer": 11
+  },
+  {
+   "unique_id": "test/algebra/1457.json",
+   "level": 3,
+   "answer": -120
+  },
+  {
+   "unique_id": "test/algebra/2430.json",
+   "level": 4,
+   "answer": 8
+  },
+  {
+   "unique_id": "test/intermediate_algebra/1166.json",
+   "level": 5,
+   "answer": 100
+  },
+  {
+   "unique_id": "test/prealgebra/1787.json",
+   "level": 3,
+   "answer": 1
+  },
+  {
+   "unique_id": "test/number_theory/737.json",
+   "level": 5,
+   "answer": 284
+  },
+  {
+   "unique_id": "test/intermediate_algebra/1014.json",
+   "level": 3,
+   "answer": 50
+  },
+  {
+   "unique_id": "test/counting_and_probability/913.json",
+   "level": 3,
+   "answer": 6
+  },
+  {
+   "unique_id": "test/prealgebra/1233.json",
+   "level": 4,
+   "answer": 10
+  },
+  {
+   "unique_id": "test/intermediate_algebra/207.json",
+   "level": 4,
+   "answer": -1
+  },
+  {
+   "unique_id": "test/intermediate_algebra/607.json",
+   "level": 3,
+   "answer": 13535
+  },
+  {
+   "unique_id": "test/counting_and_probability/765.json",
+   "level": 5,
+   "answer": 110
+  },
+  {
+   "unique_id": "test/intermediate_algebra/1126.json",
+   "level": 4,
+   "answer": 16
+  },
+  {
+   "unique_id": "test/counting_and_probability/159.json",
+   "level": 5,
+   "answer": 28800
+  },
+  {
+   "unique_id": "test/prealgebra/951.json",
+   "level": 5,
+   "answer": 12
+  },
+  {
+   "unique_id": "test/algebra/873.json",
+   "level": 4,
+   "answer": 33
+  },
+  {
+   "unique_id": "test/geometry/465.json",
+   "level": 4,
+   "answer": 120
+  },
+  {
+   "unique_id": "test/algebra/305.json",
+   "level": 5,
+   "answer": 5
+  },
+  {
+   "unique_id": "test/prealgebra/805.json",
+   "level": 3,
+   "answer": 41
+  },
+  {
+   "unique_id": "test/algebra/2064.json",
+   "level": 5,
+   "answer": 81
+  },
+  {
+   "unique_id": "test/geometry/967.json",
+   "level": 3,
+   "answer": 72
+  },
+  {
+   "unique_id": "test/algebra/1960.json",
+   "level": 4,
+   "answer": 9
+  },
+  {
+   "unique_id": "test/algebra/907.json",
+   "level": 4,
+   "answer": 2
+  },
+  {
+   "unique_id": "test/prealgebra/1353.json",
+   "level": 5,
+   "answer": 4
+  },
+  {
+   "unique_id": "test/intermediate_algebra/955.json",
+   "level": 5,
+   "answer": 17
+  },
+  {
+   "unique_id": "test/geometry/172.json",
+   "level": 5,
+   "answer": 8
+  },
+  {
+   "unique_id": "test/algebra/1529.json",
+   "level": 3,
+   "answer": 1
+  },
+  {
+   "unique_id": "test/intermediate_algebra/1544.json",
+   "level": 5,
+   "answer": 6
+  },
+  {
+   "unique_id": "test/prealgebra/1640.json",
+   "level": 5,
+   "answer": 32
+  },
+  {
+   "unique_id": "test/intermediate_algebra/1408.json",
+   "level": 5,
+   "answer": -2
+  },
+  {
+   "unique_id": "test/prealgebra/1436.json",
+   "level": 4,
+   "answer": 6
+  },
+  {
+   "unique_id": "test/number_theory/427.json",
+   "level": 5,
+   "answer": 25
+  },
+  {
+   "unique_id": "test/number_theory/1090.json",
+   "level": 5,
+   "answer": 202
+  },
+  {
+   "unique_id": "test/algebra/2232.json",
+   "level": 4,
+   "answer": -3
+  },
+  {
+   "unique_id": "test/counting_and_probability/71.json",
+   "level": 3,
+   "answer": 3
+  },
+  {
+   "unique_id": "test/number_theory/1185.json",
+   "level": 3,
+   "answer": 6
+  },
+  {
+   "unique_id": "test/intermediate_algebra/964.json",
+   "level": 5,
+   "answer": 1
+  },
+  {
+   "unique_id": "test/intermediate_algebra/1407.json",
+   "level": 4,
+   "answer": 6
+  },
+  {
+   "unique_id": "test/algebra/2080.json",
+   "level": 3,
+   "answer": 14
+  },
+  {
+   "unique_id": "test/intermediate_algebra/966.json",
+   "level": 5,
+   "answer": 16
+  },
+  {
+   "unique_id": "test/prealgebra/1730.json",
+   "level": 3,
+   "answer": 6
+  },
+  {
+   "unique_id": "test/algebra/2427.json",
+   "level": 5,
+   "answer": 10
+  },
+  {
+   "unique_id": "test/prealgebra/1128.json",
+   "level": 5,
+   "answer": 64
+  },
+  {
+   "unique_id": "test/algebra/297.json",
+   "level": 5,
+   "answer": 1736
+  },
+  {
+   "unique_id": "test/algebra/1339.json",
+   "level": 5,
+   "answer": 600
+  },
+  {
+   "unique_id": "test/intermediate_algebra/1247.json",
+   "level": 3,
+   "answer": -256
+  },
+  {
+   "unique_id": "test/intermediate_algebra/1151.json",
+   "level": 3,
+   "answer": 1
+  },
+  {
+   "unique_id": "test/prealgebra/1238.json",
+   "level": 3,
+   "answer": 2
+  },
+  {
+   "unique_id": "test/prealgebra/631.json",
+   "level": 3,
+   "answer": 2
+  },
+  {
+   "unique_id": "test/algebra/1035.json",
+   "level": 3,
+   "answer": 3
+  },
+  {
+   "unique_id": "test/intermediate_algebra/190.json",
+   "level": 4,
+   "answer": 2
+  },
+  {
+   "unique_id": "test/intermediate_algebra/1000.json",
+   "level": 3,
+   "answer": 3
+  },
+  {
+   "unique_id": "test/algebra/246.json",
+   "level": 4,
+   "answer": 8
+  },
+  {
+   "unique_id": "test/algebra/425.json",
+   "level": 3,
+   "answer": -128
+  },
+  {
+   "unique_id": "test/intermediate_algebra/2022.json",
+   "level": 5,
+   "answer": 64
+  },
+  {
+   "unique_id": "test/prealgebra/1973.json",
+   "level": 4,
+   "answer": 4
+  },
+  {
+   "unique_id": "test/intermediate_algebra/582.json",
+   "level": 5,
+   "answer": 850
+  },
+  {
+   "unique_id": "test/algebra/668.json",
+   "level": 4,
+   "answer": 45
+  },
+  {
+   "unique_id": "test/number_theory/1128.json",
+   "level": 5,
+   "answer": 2
+  },
+  {
+   "unique_id": "test/intermediate_algebra/1849.json",
+   "level": 5,
+   "answer": 501
+  },
+  {
+   "unique_id": "test/algebra/858.json",
+   "level": 4,
+   "answer": -2
+  },
+  {
+   "unique_id": "test/prealgebra/2066.json",
+   "level": 5,
+   "answer": 22
+  },
+  {
+   "unique_id": "test/number_theory/89.json",
+   "level": 3,
+   "answer": 900
+  },
+  {
+   "unique_id": "test/number_theory/22.json",
+   "level": 3,
+   "answer": 2
+  },
+  {
+   "unique_id": "test/number_theory/753.json",
+   "level": 4,
+   "answer": 13
+  },
+  {
+   "unique_id": "test/number_theory/572.json",
+   "level": 3,
+   "answer": 9
+  },
+  {
+   "unique_id": "test/intermediate_algebra/279.json",
+   "level": 5,
+   "answer": 10
+  },
+  {
+   "unique_id": "test/intermediate_algebra/1555.json",
+   "level": 3,
+   "answer": 12
+  },
+  {
+   "unique_id": "test/number_theory/156.json",
+   "level": 4,
+   "answer": 13
+  },
+  {
+   "unique_id": "test/geometry/477.json",
+   "level": 3,
+   "answer": 216
+  },
+  {
+   "unique_id": "test/algebra/1553.json",
+   "level": 3,
+   "answer": 3
+  },
+  {
+   "unique_id": "test/algebra/1332.json",
+   "level": 3,
+   "answer": 9
+  },
+  {
+   "unique_id": "test/precalculus/675.json",
+   "level": 5,
+   "answer": 4
+  },
+  {
+   "unique_id": "test/intermediate_algebra/117.json",
+   "level": 5,
+   "answer": 15
+  },
+  {
+   "unique_id": "test/number_theory/1055.json",
+   "level": 5,
+   "answer": 203
+  },
+  {
+   "unique_id": "test/number_theory/357.json",
+   "level": 4,
+   "answer": 21
+  },
+  {
+   "unique_id": "test/algebra/1934.json",
+   "level": 4,
+   "answer": 13
+  },
+  {
+   "unique_id": "test/prealgebra/1865.json",
+   "level": 4,
+   "answer": 12
+  },
+  {
+   "unique_id": "test/algebra/2159.json",
+   "level": 3,
+   "answer": 11
+  },
+  {
+   "unique_id": "test/intermediate_algebra/591.json",
+   "level": 4,
+   "answer": 24
+  },
+  {
+   "unique_id": "test/intermediate_algebra/1779.json",
+   "level": 4,
+   "answer": 15
+  },
+  {
+   "unique_id": "test/intermediate_algebra/1300.json",
+   "level": 3,
+   "answer": 16
+  },
+  {
+   "unique_id": "test/number_theory/820.json",
+   "level": 5,
+   "answer": 8
+  },
+  {
+   "unique_id": "test/intermediate_algebra/834.json",
+   "level": 3,
+   "answer": 9
+  },
+  {
+   "unique_id": "test/counting_and_probability/119.json",
+   "level": 4,
+   "answer": -125
+  },
+  {
+   "unique_id": "test/algebra/686.json",
+   "level": 5,
+   "answer": 4
+  },
+  {
+   "unique_id": "test/algebra/1082.json",
+   "level": 4,
+   "answer": 23
+  },
+  {
+   "unique_id": "test/algebra/529.json",
+   "level": 4,
+   "answer": 81
+  },
+  {
+   "unique_id": "test/prealgebra/1804.json",
+   "level": 3,
+   "answer": 29
+  },
+  {
+   "unique_id": "test/prealgebra/1908.json",
+   "level": 3,
+   "answer": 3
+  },
+  {
+   "unique_id": "test/number_theory/1000.json",
+   "level": 5,
+   "answer": 44
+  },
+  {
+   "unique_id": "test/intermediate_algebra/90.json",
+   "level": 4,
+   "answer": 898
+  },
+  {
+   "unique_id": "test/counting_and_probability/23957.json",
+   "level": 3,
+   "answer": 210
+  },
+  {
+   "unique_id": "test/algebra/2023.json",
+   "level": 3,
+   "answer": 1
+  },
+  {
+   "unique_id": "test/algebra/1837.json",
+   "level": 5,
+   "answer": 5
+  },
+  {
+   "unique_id": "test/algebra/892.json",
+   "level": 5,
+   "answer": 2
+  },
+  {
+   "unique_id": "test/algebra/1338.json",
+   "level": 4,
+   "answer": 66
+  },
+  {
+   "unique_id": "test/algebra/435.json",
+   "level": 3,
+   "answer": 25
+  },
+  {
+   "unique_id": "test/intermediate_algebra/1510.json",
+   "level": 5,
+   "answer": 0
+  },
+  {
+   "unique_id": "test/algebra/2391.json",
+   "level": 4,
+   "answer": 10
+  },
+  {
+   "unique_id": "test/counting_and_probability/134.json",
+   "level": 4,
+   "answer": 720
+  },
+  {
+   "unique_id": "test/algebra/1936.json",
+   "level": 3,
+   "answer": -1
+  },
+  {
+   "unique_id": "test/intermediate_algebra/1837.json",
+   "level": 3,
+   "answer": 34
+  },
+  {
+   "unique_id": "test/counting_and_probability/339.json",
+   "level": 4,
+   "answer": 12
+  },
+  {
+   "unique_id": "test/algebra/1343.json",
+   "level": 4,
+   "answer": 256
+  },
+  {
+   "unique_id": "test/prealgebra/1646.json",
+   "level": 5,
+   "answer": 80
+  },
+  {
+   "unique_id": "test/prealgebra/1139.json",
+   "level": 5,
+   "answer": 4
+  },
+  {
+   "unique_id": "test/intermediate_algebra/158.json",
+   "level": 5,
+   "answer": 27648
+  },
+  {
+   "unique_id": "test/geometry/702.json",
+   "level": 5,
+   "answer": 160
+  },
+  {
+   "unique_id": "test/number_theory/13.json",
+   "level": 5,
+   "answer": 64
+  },
+  {
+   "unique_id": "test/number_theory/533.json",
+   "level": 4,
+   "answer": 1030
+  },
+  {
+   "unique_id": "test/prealgebra/1251.json",
+   "level": 5,
+   "answer": 8
+  },
+  {
+   "unique_id": "test/prealgebra/1686.json",
+   "level": 3,
+   "answer": 4
+  },
+  {
+   "unique_id": "test/intermediate_algebra/362.json",
+   "level": 4,
+   "answer": 40
+  },
+  {
+   "unique_id": "test/algebra/824.json",
+   "level": 4,
+   "answer": 12
+  },
+  {
+   "unique_id": "test/algebra/853.json",
+   "level": 5,
+   "answer": 12
+  },
+  {
+   "unique_id": "test/geometry/1097.json",
+   "level": 4,
+   "answer": 63
+  },
+  {
+   "unique_id": "test/algebra/2102.json",
+   "level": 3,
+   "answer": 56
+  },
+  {
+   "unique_id": "test/number_theory/203.json",
+   "level": 3,
+   "answer": 14
+  },
+  {
+   "unique_id": "test/precalculus/1172.json",
+   "level": 5,
+   "answer": 7
+  },
+  {
+   "unique_id": "test/counting_and_probability/1003.json",
+   "level": 5,
+   "answer": 29
+  },
+  {
+   "unique_id": "test/prealgebra/378.json",
+   "level": 4,
+   "answer": 10
+  },
+  {
+   "unique_id": "test/counting_and_probability/25149.json",
+   "level": 4,
+   "answer": 63
+  },
+  {
+   "unique_id": "test/algebra/733.json",
+   "level": 5,
+   "answer": 6
+  },
+  {
+   "unique_id": "test/number_theory/488.json",
+   "level": 4,
+   "answer": 58
+  },
+  {
+   "unique_id": "test/number_theory/483.json",
+   "level": 4,
+   "answer": 3
+  },
+  {
+   "unique_id": "test/prealgebra/1733.json",
+   "level": 3,
+   "answer": -9
+  },
+  {
+   "unique_id": "test/algebra/2277.json",
+   "level": 5,
+   "answer": 0
+  },
+  {
+   "unique_id": "test/prealgebra/1297.json",
+   "level": 5,
+   "answer": 9
+  },
+  {
+   "unique_id": "test/algebra/351.json",
+   "level": 3,
+   "answer": 2
+  },
+  {
+   "unique_id": "test/prealgebra/2037.json",
+   "level": 4,
+   "answer": 550
+  },
+  {
+   "unique_id": "test/algebra/2176.json",
+   "level": 5,
+   "answer": 3
+  },
+  {
+   "unique_id": "test/number_theory/515.json",
+   "level": 3,
+   "answer": 27
+  },
+  {
+   "unique_id": "test/prealgebra/1572.json",
+   "level": 4,
+   "answer": 60
+  },
+  {
+   "unique_id": "test/algebra/661.json",
+   "level": 3,
+   "answer": 36
+  },
+  {
+   "unique_id": "test/algebra/1199.json",
+   "level": 4,
+   "answer": 1
+  },
+  {
+   "unique_id": "test/geometry/483.json",
+   "level": 4,
+   "answer": 15
+  },
+  {
+   "unique_id": "test/prealgebra/1388.json",
+   "level": 4,
+   "answer": 83
+  },
+  {
+   "unique_id": "test/intermediate_algebra/101.json",
+   "level": 3,
+   "answer": 10
+  },
+  {
+   "unique_id": "test/counting_and_probability/894.json",
+   "level": 5,
+   "answer": 540
+  },
+  {
+   "unique_id": "test/prealgebra/1930.json",
+   "level": 5,
+   "answer": 7
+  },
+  {
+   "unique_id": "test/algebra/2058.json",
+   "level": 4,
+   "answer": 13
+  },
+  {
+   "unique_id": "test/algebra/224.json",
+   "level": 4,
+   "answer": 8
+  },
+  {
+   "unique_id": "test/number_theory/45.json",
+   "level": 3,
+   "answer": 23
+  },
+  {
+   "unique_id": "test/number_theory/838.json",
+   "level": 5,
+   "answer": 6
+  },
+  {
+   "unique_id": "test/algebra/975.json",
+   "level": 5,
+   "answer": -4
+  },
+  {
+   "unique_id": "test/geometry/178.json",
+   "level": 3,
+   "answer": 2
+  },
+  {
+   "unique_id": "test/algebra/893.json",
+   "level": 4,
+   "answer": -1
+  },
+  {
+   "unique_id": "test/algebra/170.json",
+   "level": 3,
+   "answer": 11
+  },
+  {
+   "unique_id": "test/number_theory/691.json",
+   "level": 3,
+   "answer": 255
+  },
+  {
+   "unique_id": "test/intermediate_algebra/1411.json",
+   "level": 4,
+   "answer": 440
+  },
+  {
+   "unique_id": "test/algebra/1184.json",
+   "level": 4,
+   "answer": 129
+  },
+  {
+   "unique_id": "test/prealgebra/2057.json",
+   "level": 4,
+   "answer": 90
+  },
+  {
+   "unique_id": "test/number_theory/149.json",
+   "level": 4,
+   "answer": 66
+  },
+  {
+   "unique_id": "test/prealgebra/1227.json",
+   "level": 3,
+   "answer": 60
+  },
+  {
+   "unique_id": "test/number_theory/631.json",
+   "level": 5,
+   "answer": 36
+  },
+  {
+   "unique_id": "test/intermediate_algebra/121.json",
+   "level": 4,
+   "answer": 64
+  },
+  {
+   "unique_id": "test/algebra/694.json",
+   "level": 3,
+   "answer": 16
+  },
+  {
+   "unique_id": "test/intermediate_algebra/2152.json",
+   "level": 5,
+   "answer": 0
+  },
+  {
+   "unique_id": "test/number_theory/72.json",
+   "level": 4,
+   "answer": 121
+  },
+  {
+   "unique_id": "test/number_theory/109.json",
+   "level": 4,
+   "answer": 4
+  },
+  {
+   "unique_id": "test/algebra/776.json",
+   "level": 5,
+   "answer": -2
+  },
+  {
+   "unique_id": "test/intermediate_algebra/232.json",
+   "level": 5,
+   "answer": 81
+  },
+  {
+   "unique_id": "test/counting_and_probability/238.json",
+   "level": 4,
+   "answer": 10080
+  },
+  {
+   "unique_id": "test/algebra/2570.json",
+   "level": 4,
+   "answer": 2107
+  },
+  {
+   "unique_id": "test/algebra/1578.json",
+   "level": 4,
+   "answer": 10
+  },
+  {
+   "unique_id": "test/prealgebra/874.json",
+   "level": 4,
+   "answer": 116
+  },
+  {
+   "unique_id": "test/prealgebra/1807.json",
+   "level": 3,
+   "answer": 120
+  },
+  {
+   "unique_id": "test/counting_and_probability/216.json",
+   "level": 5,
+   "answer": 1940
+  },
+  {
+   "unique_id": "test/number_theory/769.json",
+   "level": 5,
+   "answer": 9
+  },
+  {
+   "unique_id": "test/intermediate_algebra/1508.json",
+   "level": 5,
+   "answer": -1
+  },
+  {
+   "unique_id": "test/geometry/221.json",
+   "level": 3,
+   "answer": 30
+  },
+  {
+   "unique_id": "test/geometry/627.json",
+   "level": 4,
+   "answer": 17
+  },
+  {
+   "unique_id": "test/intermediate_algebra/776.json",
+   "level": 4,
+   "answer": 3
+  },
+  {
+   "unique_id": "test/intermediate_algebra/1462.json",
+   "level": 5,
+   "answer": 331
+  },
+  {
+   "unique_id": "test/algebra/791.json",
+   "level": 4,
+   "answer": 41
+  },
+  {
+   "unique_id": "test/geometry/547.json",
+   "level": 4,
+   "answer": 54
+  },
+  {
+   "unique_id": "test/intermediate_algebra/446.json",
+   "level": 3,
+   "answer": 9
+  },
+  {
+   "unique_id": "test/intermediate_algebra/2146.json",
+   "level": 4,
+   "answer": 406
+  },
+  {
+   "unique_id": "test/number_theory/911.json",
+   "level": 4,
+   "answer": 3
+  },
+  {
+   "unique_id": "test/counting_and_probability/1014.json",
+   "level": 4,
+   "answer": 480
+  },
+  {
+   "unique_id": "test/algebra/769.json",
+   "level": 3,
+   "answer": 11
+  },
+  {
+   "unique_id": "test/precalculus/1201.json",
+   "level": 3,
+   "answer": 11
+  },
+  {
+   "unique_id": "test/prealgebra/846.json",
+   "level": 3,
+   "answer": 84
+  },
+  {
+   "unique_id": "test/number_theory/634.json",
+   "level": 4,
+   "answer": 333
+  },
+  {
+   "unique_id": "test/number_theory/1002.json",
+   "level": 5,
+   "answer": 1440
+  },
+  {
+   "unique_id": "test/precalculus/1202.json",
+   "level": 5,
+   "answer": 27
+  },
+  {
+   "unique_id": "test/number_theory/183.json",
+   "level": 3,
+   "answer": 14
+  },
+  {
+   "unique_id": "test/counting_and_probability/1009.json",
+   "level": 5,
+   "answer": 28
+  },
+  {
+   "unique_id": "test/number_theory/1201.json",
+   "level": 3,
+   "answer": 1
+  },
+  {
+   "unique_id": "test/number_theory/1287.json",
+   "level": 4,
+   "answer": 8
+  },
+  {
+   "unique_id": "test/counting_and_probability/525.json",
+   "level": 5,
+   "answer": 144
+  },
+  {
+   "unique_id": "test/prealgebra/1743.json",
+   "level": 3,
+   "answer": 3
+  },
+  {
+   "unique_id": "test/intermediate_algebra/345.json",
+   "level": 4,
+   "answer": 504
+  },
+  {
+   "unique_id": "test/algebra/187.json",
+   "level": 4,
+   "answer": 3
+  },
+  {
+   "unique_id": "test/number_theory/1065.json",
+   "level": 4,
+   "answer": 17
+  },
+  {
+   "unique_id": "test/counting_and_probability/181.json",
+   "level": 5,
+   "answer": 19
+  },
+  {
+   "unique_id": "test/intermediate_algebra/1898.json",
+   "level": 3,
+   "answer": -5
+  }
+ ]
+}

@@ -1,0 +1,838 @@
+{
+ "1024": {
+  "S-u230 minus": {
+   "F-u140": {
+    "estimate": -0.16457757513993274,
+    "interval": [
+     -0.16985295982563903,
+     -0.15934103855516954
+    ]
+   },
+   "F-u60": {
+    "estimate": -0.01918611908763898,
+    "interval": [
+     -0.020268358255847843,
+     -0.018084541942368262
+    ]
+   },
+   "U-u140": {
+    "estimate": -0.11067680500858831,
+    "interval": [
+     -0.11495430300431222,
+     -0.10641935928531743
+    ]
+   },
+   "U-u60": {
+    "estimate": -0.01878212477576494,
+    "interval": [
+     -0.019961457024643203,
+     -0.01759531271789677
+    ]
+   }
+  },
+  "own": {
+   "F-u140": {
+    "B_own": 0.12579352613590672,
+    "B_own_interval": [
+     0.12137044995735279,
+     0.13013403626930617
+    ]
+   },
+   "F-u20": {
+    "B_own": 0.014484714711152369,
+    "B_own_interval": [
+     0.013558697470794372,
+     0.015469108060234079
+    ]
+   },
+   "F-u60": {
+    "B_own": 0.040218341017568236,
+    "B_own_interval": [
+     0.038654537879441786,
+     0.041824450040215254
+    ]
+   },
+   "RP47-u140": {
+    "B_own": 0.09927437352281929,
+    "B_own_interval": [
+     0.09435210823049298,
+     0.10439746323180697
+    ]
+   },
+   "RS47-u200": {
+    "B_own": 0.11561775780321984,
+    "B_own_interval": [
+     0.10913997015002205,
+     0.12256112496582082
+    ]
+   },
+   "S-u230": {
+    "B_own": 0.02007329988691403,
+    "B_own_interval": [
+     0.019282794604833727,
+     0.020897474804671096
+    ]
+   },
+   "T-u30": {
+    "B_own": 0.003688897951739853,
+    "B_own_interval": [
+     0.0031745142390330215,
+     0.004253073271340096
+    ]
+   },
+   "U-u140": {
+    "B_own": 0.09719414892880705,
+    "B_own_interval": [
+     0.09381309509193775,
+     0.10064708507126956
+    ]
+   },
+   "U-u20": {
+    "B_own": 0.01744971369502663,
+    "B_own_interval": [
+     0.016721632540407223,
+     0.01817515370513475
+    ]
+   },
+   "U-u60": {
+    "B_own": 0.03992991024984869,
+    "B_own_interval": [
+     0.038443344777698736,
+     0.04143379873473536
+    ]
+   }
+  },
+  "states": {
+   "F-u140": {
+    "A": 0.08797317942624343,
+    "B": 0.161074871652733,
+    "B_interval": [
+     0.1557778415598348,
+     0.16638311569478736
+    ],
+    "B_kept_top": 0.11147736920196061,
+    "alternative_probability_kept": 0.2712192758543685,
+    "base_nll": 0.42900325554871843,
+    "branch_top_probability_base": 0.5454016805691855,
+    "branch_top_probability_state": 0.6912158336604514,
+    "kept_share": 0.6920841721500708,
+    "positions": 188512,
+    "token_accuracy_base": 0.8378352571719572,
+    "token_accuracy_state": 0.8181229842132066,
+    "top_p_offset_lower_bound": 0.0032975398998472245,
+    "top_probability_gain_where_kept": 0.05604571990891536
+   },
+   "F-u20": {
+    "A": 0.019988117467323034,
+    "B": -0.0025151718807184687,
+    "B_interval": [
+     -0.0030026308286137796,
+     -0.0020294474960880857
+    ],
+    "B_kept_top": -0.0025445730815778305,
+    "alternative_probability_kept": 0.8983047110939388,
+    "base_nll": 0.42900325554871843,
+    "branch_top_probability_base": 0.5454016805691855,
+    "branch_top_probability_state": 0.5822091487405953,
+    "kept_share": null,
+    "positions": 188512,
+    "token_accuracy_base": 0.8378352571719572,
+    "token_accuracy_state": 0.8372305211339331,
+    "top_p_offset_lower_bound": 0.0032975398998472245,
+    "top_probability_gain_where_kept": 0.019589639245658857
+   },
+   "F-u60": {
+    "A": 0.04081968256662706,
+    "B": 0.01568341560043923,
+    "B_interval": [
+     0.01442818236790251,
+     0.01692652920075426
+    ],
+    "B_kept_top": 0.0129432031664032,
+    "alternative_probability_kept": 0.7261528640578155,
+    "base_nll": 0.42900325554871843,
+    "branch_top_probability_base": 0.5454016805691855,
+    "branch_top_probability_state": 0.6182272763166504,
+    "kept_share": 0.825279613583709,
+    "positions": 188512,
+    "token_accuracy_base": 0.8378352571719572,
+    "token_accuracy_state": 0.8335702766932609,
+    "top_p_offset_lower_bound": 0.0032975398998472245,
+    "top_probability_gain_where_kept": 0.03589931690604313
+   },
+   "M0": {
+    "A": 0.0,
+    "B": 0.0,
+    "B_interval": [
+     0.0,
+     0.0
+    ],
+    "B_kept_top": 0.0,
+    "alternative_probability_kept": 1.0,
+    "base_nll": 0.42900325554871843,
+    "branch_top_probability_base": 0.5454016805691855,
+    "branch_top_probability_state": 0.5454016805691855,
+    "kept_share": null,
+    "positions": 188512,
+    "token_accuracy_base": 0.8378352571719572,
+    "token_accuracy_state": 0.8378352571719572,
+    "top_p_offset_lower_bound": 0.0032975398998472245,
+    "top_probability_gain_where_kept": 0.0
+   },
+   "RP47-u140": {
+    "A": 0.07779345611950433,
+    "B": 0.06102171860146835,
+    "B_interval": [
+     0.05875404833170072,
+     0.06328222137964395
+    ],
+    "B_kept_top": 0.04105127002790273,
+    "alternative_probability_kept": 0.6195527521512316,
+    "base_nll": 0.42900325554871843,
+    "branch_top_probability_base": 0.5454016805691855,
+    "branch_top_probability_state": 0.6134507156362446,
+    "kept_share": 0.6727321184774846,
+    "positions": 188512,
+    "token_accuracy_base": 0.8378352571719572,
+    "token_accuracy_state": 0.8231889747071804,
+    "top_p_offset_lower_bound": 0.0032975398998472245,
+    "top_probability_gain_where_kept": 0.024239971108503455
+   },
+   "RP47-u20": {
+    "A": 0.021987990154472926,
+    "B": -0.000948229499501358,
+    "B_interval": [
+     -0.001572184672306343,
+     -0.00032836675233224123
+    ],
+    "B_kept_top": -0.001072204999252037,
+    "alternative_probability_kept": 0.865133905746338,
+    "base_nll": 0.42900325554871843,
+    "branch_top_probability_base": 0.5454016805691855,
+    "branch_top_probability_state": 0.5906058462544979,
+    "kept_share": null,
+    "positions": 188512,
+    "token_accuracy_base": 0.8378352571719572,
+    "token_accuracy_state": 0.8371350364963503,
+    "top_p_offset_lower_bound": 0.0032975398998472245,
+    "top_probability_gain_where_kept": 0.02403328109260334
+   },
+   "RP47-u60": {
+    "A": 0.040506705143439146,
+    "B": 0.013068217593362755,
+    "B_interval": [
+     0.011761327114826433,
+     0.014339474051769848
+    ],
+    "B_kept_top": 0.010476662097160923,
+    "alternative_probability_kept": 0.7519532468321684,
+    "base_nll": 0.42900325554871843,
+    "branch_top_probability_base": 0.5454016805691855,
+    "branch_top_probability_state": 0.6138933918874714,
+    "kept_share": 0.8016902092663301,
+    "positions": 188512,
+    "token_accuracy_base": 0.8378352571719572,
+    "token_accuracy_state": 0.8334270497368867,
+    "top_p_offset_lower_bound": 0.0032975398998472245,
+    "top_probability_gain_where_kept": 0.03312344994084345
+   },
+   "RS47-u200": {
+    "A": 0.09497008148022407,
+    "B": 0.0933121813836785,
+    "B_interval": [
+     0.09019044171572771,
+     0.09649723846392293
+    ],
+    "B_kept_top": 0.04934794140426074,
+    "alternative_probability_kept": 0.6202816833315198,
+    "base_nll": 0.42900325554871843,
+    "branch_top_probability_base": 0.5454016805691855,
+    "branch_top_probability_state": 0.6054091892705266,
+    "kept_share": 0.5288477953521761,
+    "positions": 188512,
+    "token_accuracy_base": 0.8378352571719572,
+    "token_accuracy_state": 0.813035774910881,
+    "top_p_offset_lower_bound": 0.0032975398998472245,
+    "top_probability_gain_where_kept": 0.013826057593327433
+   },
+   "S-u120": {
+    "A": 0.01968044474622305,
+    "B": -0.0044969244556208625,
+    "B_interval": [
+     -0.005013262101898738,
+     -0.003982154784434854
+    ],
+    "B_kept_top": -0.004483964581087675,
+    "alternative_probability_kept": 0.9073073919308556,
+    "base_nll": 0.42900325554871843,
+    "branch_top_probability_base": 0.5454016805691855,
+    "branch_top_probability_state": 0.5812519698070002,
+    "kept_share": null,
+    "positions": 188512,
+    "token_accuracy_base": 0.8378352571719572,
+    "token_accuracy_state": 0.8367955355627228,
+    "top_p_offset_lower_bound": 0.0032975398998472245,
+    "top_probability_gain_where_kept": 0.020101564569106396
+   },
+   "S-u230": {
+    "A": 0.02430614496689866,
+    "B": -0.003502703487199754,
+    "B_interval": [
+     -0.004122854605024253,
+     -0.0028771329167451747
+    ],
+    "B_kept_top": -0.003557696266306654,
+    "alternative_probability_kept": 0.9084982774726743,
+    "base_nll": 0.42900325554871843,
+    "branch_top_probability_base": 0.5454016805691855,
+    "branch_top_probability_state": 0.5790164163559044,
+    "kept_share": null,
+    "positions": 188512,
+    "token_accuracy_base": 0.8378352571719572,
+    "token_accuracy_state": 0.836625785095909,
+    "top_p_offset_lower_bound": 0.0032975398998472245,
+    "top_probability_gain_where_kept": 0.018929031311368458
+   },
+   "S-u40": {
+    "A": 0.021993294856560857,
+    "B": -0.0032641521428131894,
+    "B_interval": [
+     -0.003793164393513344,
+     -0.002746596743170823
+    ],
+    "B_kept_top": -0.0032727815458220167,
+    "alternative_probability_kept": 0.8938694503343744,
+    "base_nll": 0.42900325554871843,
+    "branch_top_probability_base": 0.5454016805691855,
+    "branch_top_probability_state": 0.584956433398757,
+    "kept_share": null,
+    "positions": 188512,
+    "token_accuracy_base": 0.8378352571719572,
+    "token_accuracy_state": 0.8367530979460194,
+    "top_p_offset_lower_bound": 0.0032975398998472245,
+    "top_probability_gain_where_kept": 0.021148024770836275
+   },
+   "T-u10": {
+    "A": 0.008455695128161602,
+    "B": -0.0005643220078626294,
+    "B_interval": [
+     -0.0007309145683150442,
+     -0.0004002435338180272
+    ],
+    "B_kept_top": -0.0005540913107229249,
+    "alternative_probability_kept": 0.9915890333694195,
+    "base_nll": 0.42900325554871843,
+    "branch_top_probability_base": 0.5454016805691855,
+    "branch_top_probability_state": 0.5491383023552502,
+    "kept_share": null,
+    "positions": 188512,
+    "token_accuracy_base": 0.8378352571719572,
+    "token_accuracy_state": 0.8377928195552538,
+    "top_p_offset_lower_bound": 0.0032975398998472245,
+    "top_probability_gain_where_kept": 0.0019322797764260262
+   },
+   "T-u20": {
+    "A": 0.01108152266168732,
+    "B": -0.0007402557534374469,
+    "B_interval": [
+     -0.0009590481086320251,
+     -0.0005239239938624033
+    ],
+    "B_kept_top": -0.0007107874411761585,
+    "alternative_probability_kept": 0.9837652039434767,
+    "base_nll": 0.42900325554871843,
+    "branch_top_probability_base": 0.5454016805691855,
+    "branch_top_probability_state": 0.5520368515865228,
+    "kept_share": null,
+    "positions": 188512,
+    "token_accuracy_base": 0.8378352571719572,
+    "token_accuracy_state": 0.8378829994907486,
+    "top_p_offset_lower_bound": 0.0032975398998472245,
+    "top_probability_gain_where_kept": 0.0033876443681305417
+   },
+   "T-u30": {
+    "A": 0.014630368358512986,
+    "B": -0.0003524604664424546,
+    "B_interval": [
+     -0.0006314431385359893,
+     -7.43442673083547e-05
+    ],
+    "B_kept_top": -0.0003266609431733789,
+    "alternative_probability_kept": 0.9774361596788643,
+    "base_nll": 0.42900325554871843,
+    "branch_top_probability_base": 0.5454016805691855,
+    "branch_top_probability_state": 0.5538009019627087,
+    "kept_share": null,
+    "positions": 188512,
+    "token_accuracy_base": 0.8378352571719572,
+    "token_accuracy_state": 0.8375594126633849,
+    "top_p_offset_lower_bound": 0.0032975398998472245,
+    "top_probability_gain_where_kept": 0.0040749289766572995
+   },
+   "U-u140": {
+    "A": 0.08181442030215583,
+    "B": 0.10717410152138855,
+    "B_interval": [
+     0.10286952789259966,
+     0.11148569137948602
+    ],
+    "B_kept_top": 0.07392971998917841,
+    "alternative_probability_kept": 0.404908479159027,
+    "base_nll": 0.42900325554871843,
+    "branch_top_probability_base": 0.5454016805691855,
+    "branch_top_probability_state": 0.6579630513902519,
+    "kept_share": 0.6898095616357873,
+    "positions": 188512,
+    "token_accuracy_base": 0.8378352571719572,
+    "token_accuracy_state": 0.8216877440162961,
+    "top_p_offset_lower_bound": 0.0032975398998472245,
+    "top_probability_gain_where_kept": 0.0443957735500234
+   },
+   "U-u20": {
+    "A": 0.020619377015786793,
+    "B": -0.0027264857601319815,
+    "B_interval": [
+     -0.003244722957858378,
+     -0.0022102945228131368
+    ],
+    "B_kept_top": -0.002747338697711552,
+    "alternative_probability_kept": 0.8801619542281963,
+    "base_nll": 0.42900325554871843,
+    "branch_top_probability_base": 0.5454016805691855,
+    "branch_top_probability_state": 0.5890619280667322,
+    "kept_share": null,
+    "positions": 188512,
+    "token_accuracy_base": 0.8378352571719572,
+    "token_accuracy_state": 0.8369493719232728,
+    "top_p_offset_lower_bound": 0.0032975398998472245,
+    "top_probability_gain_where_kept": 0.023079031008801622
+   },
+   "U-u60": {
+    "A": 0.03956246817178747,
+    "B": 0.015279421288565184,
+    "B_interval": [
+     0.01400837041901842,
+     0.01652306091960114
+    ],
+    "B_kept_top": 0.012334490642696488,
+    "alternative_probability_kept": 0.7270682846401729,
+    "base_nll": 0.42900325554871843,
+    "branch_top_probability_base": 0.5454016805691855,
+    "branch_top_probability_state": 0.6192198609421,
+    "kept_share": 0.8072616370573783,
+    "positions": 188512,
+    "token_accuracy_base": 0.8378352571719572,
+    "token_accuracy_state": 0.8337453318621626,
+    "top_p_offset_lower_bound": 0.0032975398998472245,
+    "top_probability_gain_where_kept": 0.036408262037845064
+   }
+  }
+ },
+ "4096": {
+  "S-u230 minus": {
+   "F-u140": {
+    "estimate": -0.14208553924640582,
+    "interval": [
+     -0.14521439173586914,
+     -0.13892183991656162
+    ]
+   },
+   "F-u60": {
+    "estimate": -0.01677320729398774,
+    "interval": [
+     -0.0173913690818279,
+     -0.016148945678597326
+    ]
+   },
+   "U-u140": {
+    "estimate": -0.10026269120567857,
+    "interval": [
+     -0.10296181577422021,
+     -0.09760347215370103
+    ]
+   },
+   "U-u60": {
+    "estimate": -0.01583892883595139,
+    "interval": [
+     -0.016520490003871777,
+     -0.015178543313617931
+    ]
+   }
+  },
+  "states": {
+   "F-u140": {
+    "A": 0.08117955073525512,
+    "B": 0.13872664502310744,
+    "B_interval": [
+     0.13553453637326113,
+     0.14188579732995762
+    ],
+    "B_kept_top": 0.09469361967462972,
+    "alternative_probability_kept": 0.2962971576263994,
+    "base_nll": 0.3901956800152413,
+    "branch_top_probability_base": 0.5527426389193183,
+    "branch_top_probability_state": 0.6897343299589531,
+    "kept_share": 0.6825914348239069,
+    "positions": 509143,
+    "token_accuracy_base": 0.8511871910249184,
+    "token_accuracy_state": 0.8329172747145693,
+    "top_p_offset_lower_bound": 0.0033204223108242673,
+    "top_probability_gain_where_kept": 0.04883901164786634
+   },
+   "F-u20": {
+    "A": 0.018517390988386367,
+    "B": -0.002392601208953084,
+    "B_interval": [
+     -0.00269688048521255,
+     -0.002074852719998405
+    ],
+    "B_kept_top": -0.0025324637457158398,
+    "alternative_probability_kept": 0.8999055933892702,
+    "base_nll": 0.3901956800152413,
+    "branch_top_probability_base": 0.5527426389193183,
+    "branch_top_probability_state": 0.5880471936727071,
+    "kept_share": null,
+    "positions": 509143,
+    "token_accuracy_base": 0.8511871910249184,
+    "token_accuracy_state": 0.8502699634483829,
+    "top_p_offset_lower_bound": 0.0033204223108242673,
+    "top_probability_gain_where_kept": 0.01786137417487968
+   },
+   "F-u60": {
+    "A": 0.03768685811255384,
+    "B": 0.013414313070689375,
+    "B_interval": [
+     0.012666251516291638,
+     0.01417130863237912
+    ],
+    "B_kept_top": 0.010830395362978574,
+    "alternative_probability_kept": 0.7356892503706027,
+    "base_nll": 0.3901956800152413,
+    "branch_top_probability_base": 0.5527426389193183,
+    "branch_top_probability_state": 0.6220372619610121,
+    "kept_share": 0.8073760695688005,
+    "positions": 509143,
+    "token_accuracy_base": 0.8511871910249184,
+    "token_accuracy_state": 0.8469467320575949,
+    "top_p_offset_lower_bound": 0.0033204223108242673,
+    "top_probability_gain_where_kept": 0.03210378587829494
+   },
+   "FA025-u140": {
+    "A": 0.04925728135317583,
+    "B": 0.022150951679587073,
+    "B_interval": [
+     0.021300866180860713,
+     0.023058003491406485
+    ],
+    "B_kept_top": 0.016532523810039616,
+    "alternative_probability_kept": 0.8738651999448458,
+    "base_nll": 0.3901956800152413,
+    "branch_top_probability_base": 0.5527426389193183,
+    "branch_top_probability_state": 0.5699943857220162,
+    "kept_share": 0.7463572693933034,
+    "positions": 509143,
+    "token_accuracy_base": 0.8511871910249184,
+    "token_accuracy_state": 0.843947574649951,
+    "top_p_offset_lower_bound": 0.0033204223108242673,
+    "top_probability_gain_where_kept": 0.0027787605121017056
+   },
+   "FA1-u140": {
+    "A": 0.03126430099205921,
+    "B": 0.00854794002871492,
+    "B_interval": [
+     0.008082432760266186,
+     0.009032618962199888
+    ],
+    "B_kept_top": 0.0071206228308942675,
+    "alternative_probability_kept": 0.9533612841751458,
+    "base_nll": 0.3901956800152413,
+    "branch_top_probability_base": 0.5527426389193183,
+    "branch_top_probability_state": 0.5581642626077316,
+    "kept_share": 0.8330220856690742,
+    "positions": 509143,
+    "token_accuracy_base": 0.8511871910249184,
+    "token_accuracy_state": 0.8481350033291236,
+    "top_p_offset_lower_bound": 0.0033204223108242673,
+    "top_probability_gain_where_kept": 0.00043774637426732225
+   },
+   "FN-u140": {
+    "A": 0.04095902329993734,
+    "B": 0.01321259361133709,
+    "B_interval": [
+     0.012452170165692403,
+     0.013963426883257421
+    ],
+    "B_kept_top": 0.00997059764211626,
+    "alternative_probability_kept": 0.7759407053851607,
+    "base_nll": 0.3901956800152413,
+    "branch_top_probability_base": 0.5527426389193183,
+    "branch_top_probability_state": 0.6094486123774202,
+    "kept_share": 0.7546283443971947,
+    "positions": 509143,
+    "token_accuracy_base": 0.8511871910249184,
+    "token_accuracy_state": 0.8462219847861996,
+    "top_p_offset_lower_bound": 0.0033204223108242673,
+    "top_probability_gain_where_kept": 0.025442612869427735
+   },
+   "M0": {
+    "A": 0.0,
+    "B": 0.0,
+    "B_interval": [
+     0.0,
+     0.0
+    ],
+    "B_kept_top": 0.0,
+    "alternative_probability_kept": 1.0,
+    "base_nll": 0.3901956800152413,
+    "branch_top_probability_base": 0.5527426389193183,
+    "branch_top_probability_state": 0.5527426389193183,
+    "kept_share": null,
+    "positions": 509143,
+    "token_accuracy_base": 0.8511871910249184,
+    "token_accuracy_state": 0.8511871910249184,
+    "top_p_offset_lower_bound": 0.0033204223108242673,
+    "top_probability_gain_where_kept": 0.0
+   },
+   "RP47-u140": {
+    "A": 0.06832068790104155,
+    "B": 0.04653187312012539,
+    "B_interval": [
+     0.045094049911508324,
+     0.04805517329698693
+    ],
+    "B_kept_top": 0.031122703511587115,
+    "alternative_probability_kept": 0.6769107626668424,
+    "base_nll": 0.3901956800152413,
+    "branch_top_probability_base": 0.5527426389193183,
+    "branch_top_probability_state": 0.6098976292581203,
+    "kept_share": 0.668846995074572,
+    "positions": 509143,
+    "token_accuracy_base": 0.8511871910249184,
+    "token_accuracy_state": 0.8385718746992495,
+    "top_p_offset_lower_bound": 0.0033204223108242673,
+    "top_probability_gain_where_kept": 0.01863914215044334
+   },
+   "RS47-u200": {
+    "A": 0.07795845175127616,
+    "B": 0.06835130581781543,
+    "B_interval": [
+     0.06579818668383479,
+     0.07119359133135326
+    ],
+    "B_kept_top": 0.03682977965129639,
+    "alternative_probability_kept": 0.6714775185806203,
+    "base_nll": 0.3901956800152413,
+    "branch_top_probability_base": 0.5527426389193183,
+    "branch_top_probability_state": 0.6082662081117108,
+    "kept_share": 0.5388306662269632,
+    "positions": 509143,
+    "token_accuracy_base": 0.8511871910249184,
+    "token_accuracy_state": 0.8319921907990486,
+    "top_p_offset_lower_bound": 0.0033204223108242673,
+    "top_probability_gain_where_kept": 0.013427176677570183
+   },
+   "S-u230": {
+    "A": 0.022306110464054302,
+    "B": -0.0033588942232983658,
+    "B_interval": [
+     -0.0037212882428209098,
+     -0.0029842610164766683
+    ],
+    "B_kept_top": -0.003454851821610039,
+    "alternative_probability_kept": 0.9128881506594815,
+    "base_nll": 0.3901956800152413,
+    "branch_top_probability_base": 0.5527426389193183,
+    "branch_top_probability_state": 0.5843221171882217,
+    "kept_share": null,
+    "positions": 509143,
+    "token_accuracy_base": 0.8511871910249184,
+    "token_accuracy_state": 0.8498084035329957,
+    "top_p_offset_lower_bound": 0.0033204223108242673,
+    "top_probability_gain_where_kept": 0.01686627723760813
+   },
+   "T-u30": {
+    "A": 0.012819581139286999,
+    "B": -0.00014234221362819483,
+    "B_interval": [
+     -0.0002901452600830342,
+     2.917503290994422e-06
+    ],
+    "B_kept_top": -0.00018375012030922552,
+    "alternative_probability_kept": 0.9813704944759651,
+    "base_nll": 0.3901956800152413,
+    "branch_top_probability_base": 0.5527426389193183,
+    "branch_top_probability_state": 0.5595179921073818,
+    "kept_share": null,
+    "positions": 509143,
+    "token_accuracy_base": 0.8511871910249184,
+    "token_accuracy_state": 0.8506804571603656,
+    "top_p_offset_lower_bound": 0.0033204223108242673,
+    "top_probability_gain_where_kept": 0.00302746419228596
+   },
+   "U-u140": {
+    "A": 0.07572528739470051,
+    "B": 0.09690379698238019,
+    "B_interval": [
+     0.09418209497066803,
+     0.09965245186580493
+    ],
+    "B_kept_top": 0.06692166581569421,
+    "alternative_probability_kept": 0.41101778399590855,
+    "base_nll": 0.3901956800152413,
+    "branch_top_probability_base": 0.5527426389193183,
+    "branch_top_probability_state": 0.6621027826626368,
+    "kept_share": 0.6905990054018465,
+    "positions": 509143,
+    "token_accuracy_base": 0.8511871910249184,
+    "token_accuracy_state": 0.8354195186813921,
+    "top_p_offset_lower_bound": 0.0033204223108242673,
+    "top_probability_gain_where_kept": 0.040292142840446424
+   },
+   "U-u20": {
+    "A": 0.018735404395228847,
+    "B": -0.002723515257605427,
+    "B_interval": [
+     -0.0030316415215520384,
+     -0.0024056856951522646
+    ],
+    "B_kept_top": -0.002826137293373374,
+    "alternative_probability_kept": 0.8861394455000431,
+    "base_nll": 0.3901956800152413,
+    "branch_top_probability_base": 0.5527426389193183,
+    "branch_top_probability_state": 0.5935828288568902,
+    "kept_share": null,
+    "positions": 509143,
+    "token_accuracy_base": 0.8511871910249184,
+    "token_accuracy_state": 0.8500951599059596,
+    "top_p_offset_lower_bound": 0.0033204223108242673,
+    "top_probability_gain_where_kept": 0.020462383391646185
+   },
+   "U-u60": {
+    "A": 0.0368678347733348,
+    "B": 0.012480034612653028,
+    "B_interval": [
+     0.011721752680148384,
+     0.013265232133248608
+    ],
+    "B_kept_top": 0.009930544462596952,
+    "alternative_probability_kept": 0.7415800764260472,
+    "base_nll": 0.3901956800152413,
+    "branch_top_probability_base": 0.5527426389193183,
+    "branch_top_probability_state": 0.6215626218538414,
+    "kept_share": 0.7957144968595482,
+    "positions": 509143,
+    "token_accuracy_base": 0.8511871910249184,
+    "token_accuracy_state": 0.8472256320915735,
+    "top_p_offset_lower_bound": 0.0033204223108242673,
+    "top_probability_gain_where_kept": 0.03196152843759432
+   },
+   "U2-u140": {
+    "A": 0.08151540922687732,
+    "B": 0.15377802319584086,
+    "B_interval": [
+     0.1495785894261976,
+     0.15798038884890953
+    ],
+    "B_kept_top": 0.10895242143366402,
+    "alternative_probability_kept": 0.2470496371384744,
+    "base_nll": 0.3901956800152413,
+    "branch_top_probability_base": 0.5527426389193183,
+    "branch_top_probability_state": 0.7042538366703182,
+    "kept_share": 0.7085044999889866,
+    "positions": 509143,
+    "token_accuracy_base": 0.8511871910249184,
+    "token_accuracy_state": 0.8335850635283211,
+    "top_p_offset_lower_bound": 0.0033204223108242673,
+    "top_probability_gain_where_kept": 0.05450069719442306
+   }
+  }
+ },
+ "dose": {
+  "F-u140": {
+   "B_4096": 0.13872664502310744,
+   "lost_4k": 58.59375,
+   "passes": 7.7
+  },
+  "F-u20": {
+   "B_4096": -0.002392601208953084,
+   "lost_4k": -3.90625,
+   "passes": 1.1
+  },
+  "F-u60": {
+   "B_4096": 0.013414313070689375,
+   "lost_4k": 18.229166666666668,
+   "passes": 3.3
+  },
+  "M0": {
+   "B_4096": 0.0,
+   "lost_4k": 9.895833333333334,
+   "passes": 0.0
+  },
+  "RP47-u140": {
+   "B_4096": 0.04653187312012539,
+   "lost_4k": 58.59375,
+   "passes": 7.7
+  },
+  "RS47-u200": {
+   "B_4096": 0.06835130581781543,
+   "lost_4k": 18.229166666666668,
+   "passes": 11.1
+  },
+  "S-u230": {
+   "B_4096": -0.0033588942232983658,
+   "lost_4k": -0.5208333333333334,
+   "passes": 1.15
+  },
+  "T-u30": {
+   "B_4096": -0.00014234221362819483,
+   "lost_4k": 2.8645833333333335,
+   "passes": 0.0
+  },
+  "U-u140": {
+   "B_4096": 0.09690379698238019,
+   "lost_4k": 53.385416666666664,
+   "passes": 7.7
+  },
+  "U-u20": {
+   "B_4096": -0.002723515257605427,
+   "lost_4k": 1.8229166666666667,
+   "passes": 1.1
+  },
+  "U-u60": {
+   "B_4096": 0.012480034612653028,
+   "lost_4k": 18.489583333333332,
+   "passes": 3.3
+  }
+ },
+ "drilled_text_fit": {
+  "drop_share_of_F140": {
+   "F-u140": 1.0,
+   "F-u20": 0.1325939862385482,
+   "FA025-u140": 0.9907727674030158,
+   "FA1-u140": 0.8478979733939012,
+   "FN-u140": 0.36069553780095065,
+   "M0": 0.0
+  },
+  "nll": {
+   "F-u140": 0.16559801908055363,
+   "F-u20": 0.2947852786908839,
+   "FA025-u140": 0.16697227850933288,
+   "FA1-u140": 0.18825135983064828,
+   "FN-u140": 0.26081293599126865,
+   "M0": 0.3145331861888814
+  }
+ },
+ "rank_correlation_with_4k_loss": {
+  "search": {
+   "B_1024": 0.9300954818304988,
+   "B_4096": 0.9300954818304988,
+   "group": 0.9239364353597956,
+   "passes": 0.7765323366725411
+  },
+  "with_solver": {
+   "B_1024": 0.8904202417055851,
+   "B_4096": 0.8904202417055851,
+   "passes": 0.7169856031222915
+  }
+ }
+}

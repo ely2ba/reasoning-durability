@@ -1,0 +1,7 @@
+# Re-run an experiment on Tinker, or rebuild inputs/ from the public datasets (make inputs); the versions the paper used
+-r requirements.txt
+tinker==0.25.0
+tinker-cookbook==0.5.3
+transformers==5.5.4
+tokenizers==0.22.2
+pyarrow==25.0.0

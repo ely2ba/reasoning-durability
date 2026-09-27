@@ -1,0 +1,5 @@
+# Reproduce the paper's numbers, tables and figures from outputs/ (Python 3.12): make summaries figures numbers check test
+numpy==2.5.1
+pandas==3.0.5
+matplotlib==3.11.1
+pytest==8.4.2
