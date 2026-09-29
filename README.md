@@ -1,5 +1,6 @@
 # Fine Until Fine-Tuned: Repeated Solutions Make Reasoning Fragile
 
+[![arXiv](https://img.shields.io/badge/arXiv-2609.33559-b31b1b)](https://arxiv.org/abs/2609.33559)
 [![Model outputs on Hugging Face](https://img.shields.io/badge/model%20outputs-Hugging%20Face-f5b700)](https://huggingface.co/datasets/Ely2ba/reasoning-durability)
 [![Paper](https://img.shields.io/badge/paper-PDF-b03a2e)](paper/main.pdf)
 [![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-3a6ea5)](LICENSE)
@@ -130,3 +131,17 @@ NuminaMath-TIR via the Tülu 3 SFT mixture (Apache 2.0; ODC-BY), AIME 2025–202
 each source's own licence). The TCES, program-synthesis and skill tasks are ours. `data/` holds only the ids
 of third-party datasets, which stay under their own licences; the Apache-2.0 licence (`LICENSE`)
 covers our code, our synthetic tasks and our results.
+
+## Citation
+
+```bibtex
+@misc{sheikh2026fine,
+  title         = {Fine Until Fine-Tuned: Repeated Solutions Make Reasoning Fragile},
+  author        = {Sheikh, Ely},
+  year          = {2026},
+  eprint        = {2609.33559},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.LG},
+  url           = {https://arxiv.org/abs/2609.33559}
+}
+```
