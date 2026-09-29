@@ -17,7 +17,8 @@ paper/*.blg
 .DS_Store
 .venv/
 *.egg-info/
-# LaTeX build files (paper/main.pdf is committed, rebuilt at each release)
+# LaTeX build files; the paper's PDF is on arXiv (2609.33559), not in the repository
+paper/main.pdf
 *.synctex.gz
 paper/*.xdv
 paper/*.fls

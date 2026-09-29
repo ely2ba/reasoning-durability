@@ -2,7 +2,6 @@
 
 [![arXiv](https://img.shields.io/badge/arXiv-2609.33559-b31b1b)](https://arxiv.org/abs/2609.33559)
 [![Model outputs on Hugging Face](https://img.shields.io/badge/model%20outputs-Hugging%20Face-f5b700)](https://huggingface.co/datasets/Ely2ba/reasoning-durability)
-[![Paper](https://img.shields.io/badge/paper-PDF-b03a2e)](paper/main.pdf)
 [![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-3a6ea5)](LICENSE)
 
 <img src="assets/thinking-machines.png" alt="Thinking Machines Lab" width="18" height="18" align="top"> Made possible by a $5,000 Tinker Research Grant from [Thinking Machines Lab](https://thinkingmachines.ai).
@@ -10,7 +9,8 @@
 Recipes such as s1 and LIMO teach a model to reason from a thousand worked solutions or fewer, going
 over them 5 and 15 times. Judged when that training ends, the repetition looks free. We find that it
 leaves the reasoning fragile to whatever training comes next, even training that has nothing to do
-with reasoning. This repository holds the code, the frozen data and results, and the paper.
+with reasoning. This repository holds the code and the frozen data and results; the paper is on
+[arXiv](https://arxiv.org/abs/2609.33559).
 
 <p align="center">
   <img src="assets/explainer.gif" width="800" alt="The study in 21 slides, about five and a half minutes. Recipes such as s1 and LIMO teach reasoning from 1,000 worked solutions or fewer, repeated 5 to 15 times, and judged when that training ends the repetition looks free. We trained three copies of Qwen3.5-9B-Base on its own correct solutions: drilled (the same 579 solutions, about 8 times each), fresh solutions (the same 579 problems, a new solution every time) and once-trained (4,480 solutions, once each). All three solve 95% of 221 new competition math problems. After later chat training with no math in it, the drilled model falls to 86% after an ordinary round, 59% after an intense one and 23% after intense answers-only training, while the other two stay at about 95%. On one problem, the drilled model now writes a few lines, answers 30 instead of 900 and stops as if its chat turn were over; 78% of its answers stop partway. The cause is the repeated texts, not the few problems, and not the over-confidence repetition brings. Five small training steps bring the reasoning back (94%), and so does training on the layout of reasoning alone, so the habit of reasoning was switched off rather than erased. Right after training, the drilled model already finds the untrained model's solutions 10% less likely per word. The break recurs with a stronger model's solutions, at 35B, in another model family and on an arithmetic task; a new solution at each visit prevents it.">
@@ -114,7 +114,7 @@ tree into `outputs/`; `RUNS` defaults to `../DuraSeed-v1/runs`, the original run
 
 | Path | What |
 |---|---|
-| `paper/` | the paper (`main.pdf`), its figures and every number in its text (`numbers.generated.tex`) |
+| `paper/` | the paper's figures and every number in its text (`numbers.generated.tex`); the paper itself is on [arXiv](https://arxiv.org/abs/2609.33559) |
 | `records/` | the pre-registered designs, predictions, deviations and results, verbatim apart from marked redactions, with the prediction ledger and the compute total (`records/README.md`) |
 | `data/` | frozen inputs: the TCES panel and Stage-B data, subsets, ids of third-party data, checkpoints |
 | `outputs/` | frozen compact results; `summaries/` is regenerated |
